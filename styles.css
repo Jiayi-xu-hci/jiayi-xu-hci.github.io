@@ -271,3 +271,17 @@ h3{margin:0}
   .pub-year{justify-self:end}
   .legend{display:flex;margin:8px 0 0}
 }
+
+/* Researcher profiles */
+.profiles{display:flex;flex-wrap:wrap;gap:6px 16px;list-style:none;margin:20px 0 0;padding:0;font-size:12px}
+.profiles a{color:var(--muted);border-bottom:1px dashed var(--line2);padding-bottom:2px}
+.profiles a:hover{color:var(--ink);border-color:var(--cool)}
+.contact-grid{grid-template-columns:1fr 1.25fr 1fr;max-width:none}
+.ids dl{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;margin:0;font-size:12.5px}
+.ids dt{color:var(--faint)}
+.ids dd{margin:0;word-break:break-all}
+.ids a{color:#c4c9d4;border-bottom:1px dashed var(--line2)}
+.ids a:hover{color:var(--ink);border-color:var(--warm)}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.contact-grid{grid-template-columns:1fr}}
+.mail{word-break:normal;overflow-wrap:anywhere}@media (max-width:620px){.mail{font-size:clamp(12px,3.6vw,15px)}}
