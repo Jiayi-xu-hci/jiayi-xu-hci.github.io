@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=202610011740" />
+  <link rel="stylesheet" href="styles.css?v=202610011753" />
 </head>
 <body>
   <canvas id="thermal" aria-hidden="true"></canvas>
@@ -21,6 +21,7 @@
       <div class="nav-links">
         <a href="#research">Research</a>
         <a href="#trajectory">Trajectory</a>
+        <a href="#next">Next</a>
         <a href="#publications">Publications</a>
         <a href="#cv">CV</a>
         <a href="#contact" class="nav-cta">Contact</a>
@@ -36,7 +37,7 @@
         <h1>Jiayi Xu <span class="jp">許 佳禕</span></h1>
         <p class="tagline">I design interactions that <span class="temp">understand the human body</span> — and adapt to it.</p>
         <p class="role">Project Assistant Professor<br>Information Somatics Lab (Inami Lab), RCAST, The University of Tokyo</p>
-        <p class="bio">My research starts from quantitatively understanding human perception and bodily states, and turns that understanding into new interaction principles — validated from perception experiments and models, through devices and user studies, to public deployment. Temperature is my core medium: I build <strong>non-contact, high-speed thermal interfaces</strong>, and extend the same perception-centred approach to <strong>embodied interaction</strong> and <strong>sensing of human states</strong>.</p>
+        <p class="bio">I turn a quantitative understanding of human perception into new interaction principles — from perceptual models to wearable devices to public deployment. Temperature is my core medium, and I extend the same approach to <strong>embodied interaction</strong> and <strong>human-state sensing</strong>.</p>
         <div class="hero-actions">
           <a class="btn primary" href="mailto:xu.jiayi@star.rcast.u-tokyo.ac.jp">Email</a>
           <a class="btn" href="#research">Research map</a>
@@ -58,22 +59,20 @@
     </section>
 
     <section class="stats wrap" aria-label="At a glance">
-      <div><b data-count="6">6</b><span>Journal articles<br><small>TVCG · ToH ×2 · Sci. Rep. …</small></span></div>
-      <div><b data-count="12">12</b><span>Intl. conference papers<br><small>UIST · IEEE VR · WHC · AHs …</small></span></div>
-      <div><b data-count="10">10</b><span>Peer-reviewed demos<br><small>SIGGRAPH Asia · AsiaHaptics</small></span></div>
-      <div><b data-count="4">4</b><span>Patents<br><small>1 granted · 3 filed</small></span></div>
+      <div><b data-count="12">12</b><span>Peer-reviewed works in 2026<br><small>up from 5 in 2025</small></span></div>
+      <div><b data-count="3">3</b><span>First-author top journals<br><small>IEEE TVCG · IEEE ToH ×2</small></span></div>
+      <div><b data-count="2">2</b><span>JSPS grants as PI<br><small>Early-Career · Start-up</small></span></div>
+      <div><b data-count="4">4</b><span>Patents<br><small>+ industry research → CES 2026</small></span></div>
     </section>
 
     <!-- News -->
     <section id="news" class="block wrap">
       <div class="block-head"><span class="mono idx">00</span><h2>News</h2></div>
       <ul class="news">
-        <li><time class="mono">2026</time><span><b>MoHeat Evo</b>, <b>Armonii Sway</b> and <b>AdaptiveFly</b> accepted to <b>SIGGRAPH Asia 2026 Emerging Technologies</b>.</span></li>
-        <li><time class="mono">2026</time><span><b>Armonii</b> accepted to <b>ACM UIST 2026</b>; facial thermal remapping accepted to <b>EuroHaptics 2026</b>.</span></li>
-        <li><time class="mono">2026</time><span>Three papers at <b>Augmented Humans 2026</b> — <b>Best Student Paper Honorable Mention</b>.</span></li>
-        <li><time class="mono">2026</time><span><b>ChillFactor</b> published in <b>IEEE TVCG</b> and presented at <b>IEEE VR 2026</b>.</span></li>
-        <li><time class="mono">Jan 2026</time><span>Exhibited <a href="https://moheat-evo.github.io/" target="_blank" rel="noopener">MoHeat Evo</a> with Suntory Global Innovation Center at <b>CES 2026</b>; featured on <b>NHK WORLD</b>.</span></li>
-        <li><time class="mono">2026</time><span>Awarded a JSPS KAKENHI <b>Grant-in-Aid for Early-Career Scientists</b> (PI, FY2026–2028).</span></li>
+        <li><time class="mono">2026</time><span><b>3 projects</b> at <b>SIGGRAPH Asia 2026 E-Tech</b> (incl. MoHeat Evo) · <b>Armonii</b> at <b>ACM UIST 2026</b> · facial thermal remapping at <b>EuroHaptics 2026</b>.</span></li>
+        <li><time class="mono">2026</time><span><b>ChillFactor</b> in <b>IEEE TVCG</b> / <b>IEEE VR 2026</b>; 3 papers at <b>Augmented Humans 2026</b> with a <b>Best Student Paper Honorable Mention</b>.</span></li>
+        <li><time class="mono">Jan 2026</time><span><a href="https://moheat-evo.github.io/" target="_blank" rel="noopener">MoHeat Evo</a> with Suntory at <b>CES 2026</b>, featured on <b>NHK WORLD</b>.</span></li>
+        <li><time class="mono">2026</time><span>JSPS KAKENHI <b>Grant-in-Aid for Early-Career Scientists</b> (PI, FY2026–2028).</span></li>
       </ul>
     </section>
 
@@ -91,7 +90,7 @@
         <article class="pillar th-A">
           <header><span class="mono pillar-io">OUTPUT → SENSES</span><span class="pillar-key">A</span></header>
           <h3>Thermal &amp; sensory display</h3>
-          <p>Non-contact, high-speed, quantitatively controllable thermal feedback — my core line of work.</p>
+          <p>Fast, non-contact, precisely controllable thermal feedback.</p>
           <ul>
             <li><b>Cold display models</b> <em class="mono">ToH 2022 · 2023</em></li>
             <li><b>ChillFactor</b> in VR headsets <em class="mono">TVCG · IEEE VR</em></li>
@@ -102,7 +101,7 @@
         <article class="pillar th-B">
           <header><span class="mono pillar-io">THE BODY ITSELF</span><span class="pillar-key">B</span></header>
           <h3>Embodied interaction &amp; augmentation</h3>
-          <p>Extending “designing the relation between body and perception” to movement, body representation and teleoperation.</p>
+          <p>Designing how the body moves, extends and feels itself.</p>
           <ul>
             <li><b>Armonii</b> wearable robotic arms <em class="mono">UIST 2026</em></li>
             <li><b>AdaptiveFly</b> embodied locomotion <em class="mono">AHs · SA E-Tech</em></li>
@@ -112,7 +111,7 @@
         <article class="pillar th-C">
           <header><span class="mono pillar-io">INPUT ← BODY</span><span class="pillar-key">C</span></header>
           <h3>Human-state sensing &amp; AI</h3>
-          <p>From presenting information to reading the body: measure → understand → feed back.</p>
+          <p>Reading the body to close the loop.</p>
           <ul>
             <li><b>Synchro-Thermography</b> ~10 mK facial sensing <em class="mono">Sci. Rep.</em></li>
             <li><b>PhaseMix</b> gait-based diagnosis <em class="mono">IEEE Access</em></li>
@@ -136,13 +135,13 @@
 
     <!-- Highlight -->
     <section id="projects" class="block wrap">
-      <div class="block-head"><span class="mono idx">02</span><h2>Highlight · from lab to society</h2></div>
+      <div class="block-head"><span class="mono idx">02</span><h2>Highlight</h2><p>From lab to society.</p></div>
       <a class="feature" href="https://moheat-evo.github.io/" target="_blank" rel="noopener">
         <div class="feature-media"><img src="assets/moheat-evo.jpg" alt="A woman wearing MoHeat Evo thermal headphones glowing red" width="1280" height="720"></div>
         <div class="feature-body">
           <span class="mono chip">PILLAR A · JOINT RESEARCH WITH SUNTORY</span>
           <h3>MoHeat Evo</h3>
-          <p>A directional thermal headphone for spatial audio. It brings the whole method together: LED heating and ethanol-mist cooling (01), controlled per ear (02–03), integrated into a headphone (04), and shown to the public at CES 2026 (05).</p>
+          <p>A directional thermal headphone for spatial audio — the full method in one device, from LED heating and ethanol-mist cooling to per-ear control, built with Suntory and shown at CES 2026.</p>
           <ul class="venues mono"><li>CES 2026</li><li>SIGGRAPH Asia 2026 E-Tech</li><li>NHK WORLD</li><li>Patent filed</li></ul>
           <span class="feature-link">Visit the project site <b>↗</b></span>
         </div>
@@ -162,9 +161,19 @@
       </ol>
     </section>
 
+    <!-- Next -->
+    <section id="next" class="block wrap">
+      <div class="block-head"><span class="mono idx">04</span><h2>What’s next</h2><p>Connecting the three directions into one closed loop.</p></div>
+      <ol class="next">
+        <li><span class="mono">01</span><b>From effects to principles</b><p>Model how temperature integrates with sound, vision and touch, so multisensory experiences can be designed rather than tuned.</p></li>
+        <li><span class="mono">02</span><b>Interfaces that adapt to the body</b><p>Combine sensing (C), display (A) and embodiment (B) into systems that respond to each person’s state in real time.</p></li>
+        <li><span class="mono">03</span><b>Out of the lab</b><p>Validate in communication, media and healthcare with industry partners — the path MoHeat Evo opened.</p></li>
+      </ol>
+    </section>
+
     <!-- Publications -->
     <section id="publications" class="block wrap">
-      <div class="block-head"><span class="mono idx">04</span><h2>Publications</h2><p>Peer-reviewed. ★ selected · <b class="me">J. Xu</b> marks me.</p></div>
+      <div class="block-head"><span class="mono idx">05</span><h2>Publications</h2><p>Peer-reviewed. ★ selected · <b class="me">J. Xu</b> marks me.</p></div>
       <div class="filters mono">
         <div class="fgroup" data-group="view"><button class="on" data-v="selected">★ Selected</button><button data-v="all">All</button></div>
         <div class="fgroup" data-group="theme"><button class="on" data-v="*">Any direction</button><button data-v="A" class="th-A">Thermal</button><button data-v="B" class="th-B">Embodiment</button><button data-v="C" class="th-C">Sensing</button></div>
@@ -240,7 +249,7 @@
 
     <!-- CV -->
     <section id="cv" class="block wrap">
-      <div class="block-head"><span class="mono idx">05</span><h2>CV</h2></div>
+      <div class="block-head"><span class="mono idx">06</span><h2>CV</h2></div>
       <div class="cv-grid">
         <div>
           <h3 class="mono sub">Appointments &amp; education</h3>
@@ -312,6 +321,6 @@
   </main>
 
   <footer class="wrap footer mono">© 2026 Jiayi Xu · Tokyo</footer>
-  <script src="script.js?v=202610011740"></script>
+  <script src="script.js?v=202610011753"></script>
 </body>
 </html>

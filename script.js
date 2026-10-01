@@ -75,19 +75,22 @@ document.querySelectorAll('.fgroup').forEach((g) => g.addEventListener('click', 
 }));
 applyPubFilters();
 
-// Count-up stats
-const counters = [...document.querySelectorAll('[data-count]')].filter((el) => Number.isFinite(+el.dataset.count));
-const countIO = new IntersectionObserver((entries) => entries.forEach((e) => {
-  if (!e.isIntersecting) return;
-  const el = e.target, end = +el.dataset.count, t0 = performance.now();
-  const step = (t) => { const p = Math.min(1, (t - t0) / 900); el.textContent = Math.round(end * (1 - (1 - p) ** 3)); if (p < 1) requestAnimationFrame(step); };
-  requestAnimationFrame(step);
-  countIO.unobserve(el);
-}), { threshold: .6 });
-counters.forEach((c) => countIO.observe(c));
+// Count-up stats (target captured up front; the static HTML already shows the final value)
+document.querySelectorAll('[data-count]').forEach((el) => {
+  const end = +el.dataset.count;
+  if (!Number.isFinite(end)) return;
+  const io = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    io.disconnect();
+    const t0 = performance.now();
+    const step = (t) => { const p = Math.min(1, (t - t0) / 900); el.textContent = Math.round(end * (1 - (1 - p) ** 3)); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }, { threshold: .6 });
+  io.observe(el);
+});
 
 // Reveal on scroll
-const revealEls = document.querySelectorAll('.block-head, .core, .pillar, .pipeline li, .trajectory > li, .feature, .contact-card, .stats');
+const revealEls = document.querySelectorAll('.block-head, .core, .pillar, .pipeline li, .trajectory > li, .next li, .feature, .contact-card, .stats');
 revealEls.forEach((el) => el.classList.add('reveal'));
 const io = new IntersectionObserver((entries) => entries.forEach((e) => {
   if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
