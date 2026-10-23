@@ -1,98 +1,82 @@
-// Thermal field: soft cool/warm blobs drift across the background; the pointer adds a warm spot.
-(() => {
-  const canvas = document.getElementById('thermal');
-  const ctx = canvas.getContext('2d');
-  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const blobs = [
-    { x: .15, y: .2, r: .45, c: [76, 195, 255], s: .00012 },
-    { x: .85, y: .15, r: .4, c: [255, 106, 61], s: .00015 },
-    { x: .6, y: .75, r: .5, c: [180, 156, 255], s: .0001 },
-    { x: .2, y: .85, r: .35, c: [255, 179, 71], s: .00018 },
-  ];
-  const pointer = { x: -1, y: -1, tx: -1, ty: -1 };
-  let w, h, dpr;
-  const resize = () => {
-    dpr = Math.min(devicePixelRatio || 1, 1.5);
-    w = canvas.width = innerWidth * dpr;
-    h = canvas.height = innerHeight * dpr;
-  };
-  resize();
-  addEventListener('resize', resize);
-  addEventListener('pointermove', (e) => { pointer.tx = e.clientX * dpr; pointer.ty = e.clientY * dpr; });
-  const draw = (t) => {
-    ctx.clearRect(0, 0, w, h);
-    ctx.globalCompositeOperation = 'lighter';
-    for (const b of blobs) {
-      const x = (b.x + Math.sin(t * b.s + b.r * 10) * .08) * w;
-      const y = (b.y + Math.cos(t * b.s * 1.3 + b.x * 10) * .08) * h;
-      const r = b.r * Math.max(w, h);
-      const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-      g.addColorStop(0, `rgba(${b.c},.22)`);
-      g.addColorStop(1, `rgba(${b.c},0)`);
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, w, h);
-    }
-    if (pointer.tx >= 0) {
-      if (pointer.x < 0) { pointer.x = pointer.tx; pointer.y = pointer.ty; }
-      pointer.x += (pointer.tx - pointer.x) * .08;
-      pointer.y += (pointer.ty - pointer.y) * .08;
-      const r = 260 * dpr;
-      const g = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, r);
-      g.addColorStop(0, 'rgba(255,120,70,.28)');
-      g.addColorStop(.5, 'rgba(255,90,60,.08)');
-      g.addColorStop(1, 'rgba(255,90,60,0)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, w, h);
-    }
-    ctx.globalCompositeOperation = 'source-over';
-    if (!still) requestAnimationFrame(draw);
-  };
-  requestAnimationFrame(draw);
-})();
+// Publications: pick "By year" or "By type", then a tab shows one year (grouped by type) or one type (grouped by year).
+// The static HTML lists everything by year; this only re-groups the existing <li> nodes.
+const TYPES = { journal: 'Journal', conference: 'Conference', demo: 'Demo', domestic: 'Domestic (JP)', article: 'Article' };
+const TYPE_HEADINGS = { ...TYPES, domestic: 'Domestic conference (Japanese)' };
+const ORDER = Object.keys(TYPES);
+const MAJOR = ['journal', 'conference'];
+const MINOR_LABELS = { demo: 'demos', domestic: 'domestic talks', article: 'articles' };
+const list = document.getElementById('pubList');
+const tabs = document.getElementById('pubTabs');
+const pubs = [...list.querySelectorAll('.pub')];
+const byYear = (a, b) => b.dataset.year - a.dataset.year;
+const byType = (a, b) => ORDER.indexOf(a.dataset.type) - ORDER.indexOf(b.dataset.type);
+const groupBy = (items, key) => items.reduce((m, li) => m.set(key(li), [...(m.get(key(li)) || []), li]), new Map());
 
-// Publication filters: view (selected/all) × direction × type
-const pubState = { view: 'selected', theme: '*', type: '*' };
-const applyPubFilters = () => {
-  let shown = 0;
-  document.querySelectorAll('#pubList .pub').forEach((li) => {
-    const ok = (pubState.view === 'all' || li.dataset.selected)
-      && (pubState.theme === '*' || li.dataset.theme === pubState.theme)
-      && (pubState.type === '*' || li.dataset.type === pubState.type);
-    li.hidden = !ok; if (ok) shown++;
+let mode = 'year';
+const show = (tab) => {
+  tabs.querySelectorAll('button').forEach((b) => b.setAttribute('aria-selected', b.dataset.k === tab));
+  const sub = mode === 'year' ? 'type' : 'year';
+  const items = pubs.filter((li) => li.dataset[mode] === tab).sort(sub === 'type' ? byType : byYear);
+  const sections = [...groupBy(items, (li) => li.dataset[sub])].map(([k, group]) => {
+    const sec = document.createElement('section');
+    sec.className = 'group';
+    sec.dataset.k = k;
+    sec.innerHTML = `<h3>${sub === 'type' ? TYPE_HEADINGS[k] : k} <small>${group.length}</small></h3><ol></ol>`;
+    sec.querySelector('ol').append(...group);
+    return sec;
   });
-  document.getElementById('pubEmpty').hidden = shown > 0;
-};
-document.querySelectorAll('.fgroup').forEach((g) => g.addEventListener('click', (e) => {
-  const btn = e.target.closest('button'); if (!btn) return;
-  g.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b === btn));
-  pubState[g.dataset.group] = btn.dataset.v;
-  // Picking a direction or type implies browsing everything
-  if (g.dataset.group !== 'view' && btn.dataset.v !== '*' && pubState.view === 'selected') {
-    pubState.view = 'all';
-    document.querySelectorAll('[data-group=view] button').forEach((b) => b.classList.toggle('on', b.dataset.v === 'all'));
+  list.replaceChildren(...sections);
+  // In a year tab, lead with papers; demos, domestic talks and articles fold behind a button.
+  const minor = sections.filter((sec) => sub === 'type' && !MAJOR.includes(sec.dataset.k));
+  if (minor.length && minor.length < sections.length) {
+    const n = minor.reduce((sum, sec) => sum + sec.querySelectorAll('.pub').length, 0);
+    const more = document.createElement('button');
+    more.className = 'show-more';
+    more.textContent = `Show ${n} more: ${minor.map((sec) => MINOR_LABELS[sec.dataset.k]).join(', ')}`;
+    more.addEventListener('click', () => { minor.forEach((sec) => { sec.hidden = false; }); more.remove(); });
+    minor.forEach((sec) => { sec.hidden = true; });
+    list.append(more);
   }
-  applyPubFilters();
-}));
-applyPubFilters();
+};
+const setMode = (m) => {
+  mode = m;
+  document.querySelectorAll('.seg button').forEach((b) => b.classList.toggle('on', b.dataset.by === m));
+  const groups = groupBy([...pubs].sort(m === 'year' ? byYear : byType), (li) => li.dataset[m]);
+  tabs.innerHTML = [...groups].map(([k, g]) =>
+    `<button role="tab" data-k="${k}">${m === 'year' ? k : TYPES[k]} <small>${g.length}</small></button>`).join('');
+  show(groups.keys().next().value);  // newest year (2026) / Journal
+};
+document.querySelector('.seg').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setMode(b.dataset.by); });
+tabs.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) show(b.dataset.k); });
+setMode('year');
 
-// Count-up stats (target captured up front; the static HTML already shows the final value)
-document.querySelectorAll('[data-count]').forEach((el) => {
-  const end = +el.dataset.count;
-  if (!Number.isFinite(end)) return;
-  const io = new IntersectionObserver(([e]) => {
-    if (!e.isIntersecting) return;
-    io.disconnect();
-    const t0 = performance.now();
-    const step = (t) => { const p = Math.min(1, (t - t0) / 900); el.textContent = Math.round(end * (1 - (1 - p) ** 3)); if (p < 1) requestAnimationFrame(step); };
-    requestAnimationFrame(step);
-  }, { threshold: .6 });
-  io.observe(el);
+// Projects gallery: muted preview while hovering (mouse only); click opens the full video with sound.
+const player = document.getElementById('player');
+const playerVideo = player.querySelector('video');
+const canHover = matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches;
+document.querySelectorAll('.project').forEach((card) => {
+  const thumb = card.querySelector('.thumb');
+  const preview = thumb.querySelector('video');
+  if (canHover) {
+    thumb.addEventListener('mouseenter', () => preview.play().catch(() => {}));
+    thumb.addEventListener('mouseleave', () => preview.pause());
+  }
+  thumb.addEventListener('click', () => {
+    preview.pause();
+    playerVideo.src = preview.getAttribute('src');
+    playerVideo.poster = preview.getAttribute('poster');
+    player.querySelector('.caption').textContent = `${card.querySelector('h3').textContent} · ${card.querySelector('.project-venue').textContent}`;
+    player.showModal();
+    playerVideo.play().catch(() => {});
+  });
 });
+player.querySelector('.close').addEventListener('click', () => player.close());
+player.addEventListener('click', (e) => { if (e.target === player) player.close(); });
+player.addEventListener('close', () => { playerVideo.pause(); playerVideo.removeAttribute('src'); playerVideo.load(); });
 
-// Reveal on scroll
-const revealEls = document.querySelectorAll('.block-head, .core, .pillar, .pipeline li, .trajectory > li, .next li, .feature, .contact-card, .stats');
-revealEls.forEach((el) => el.classList.add('reveal'));
-const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-}), { threshold: .12 });
-revealEls.forEach((el) => io.observe(el));
+// Nav: underline the section currently in view
+const navLinks = [...document.querySelectorAll('.nav-links a')];
+const spy = new IntersectionObserver((entries) => entries.forEach((e) => {
+  if (e.isIntersecting) navLinks.forEach((a) => a.classList.toggle('active', a.hash === `#${e.target.id}`));
+}), { rootMargin: '-45% 0px -50% 0px' });
+navLinks.forEach((a) => { const sec = document.querySelector(a.hash); if (sec) spy.observe(sec); });

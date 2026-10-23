@@ -4,323 +4,337 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jiayi Xu 許佳禕 — HCI · Haptics · VR · The University of Tokyo</title>
-  <meta name="description" content="Jiayi Xu (許佳禕), Project Assistant Professor at RCAST, The University of Tokyo. I design interactions that understand and adapt to the human body — thermal display, embodied interaction and human-state sensing." />
-  <meta name="theme-color" content="#07080c" />
+  <meta name="description" content="Jiayi Xu (許佳禕), Project Assistant Professor at The University of Tokyo, researching the body as an interface: multisensory feedback, human-state sensing and embodied augmentation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Jiayi Xu 許佳禕 — The University of Tokyo" />
+  <meta property="og:description" content="Jiayi Xu (許佳禕), Project Assistant Professor at The University of Tokyo, researching the body as an interface: multisensory feedback, human-state sensing and embodied augmentation." />
+  <meta property="og:image" content="https://jiayi-xu-hci.github.io/assets/images/profile.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%232f8cff'/%3E%3Cstop offset='1' stop-color='%23ff5a2b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EJX%3C/text%3E%3C/svg%3E" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=202610011753" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=202610240200" />
 </head>
 <body>
-  <canvas id="thermal" aria-hidden="true"></canvas>
-  <div class="grain" aria-hidden="true"></div>
-
   <header class="topbar">
     <nav class="wrap nav">
-      <a class="brand" href="#top"><span class="brand-dot"></span>Jiayi Xu</a>
+      <a class="brand" href="#top">Jiayi Xu <span lang="ja">許佳禕</span></a>
       <div class="nav-links">
+        <a href="#news">News</a>
+        <a href="#projects">Projects</a>
         <a href="#research">Research</a>
-        <a href="#trajectory">Trajectory</a>
-        <a href="#next">Next</a>
         <a href="#publications">Publications</a>
         <a href="#cv">CV</a>
-        <a href="#contact" class="nav-cta">Contact</a>
+        <a href="#contact">Contact</a>
       </div>
     </nav>
   </header>
 
-  <main id="top">
-    <!-- Hero -->
-    <section class="hero wrap">
-      <div class="hero-text">
-        <p class="mono kicker"><span class="pulse"></span>HCI · HAPTICS · VIRTUAL REALITY · HUMAN AUGMENTATION</p>
-        <h1>Jiayi Xu <span class="jp">許 佳禕</span></h1>
-        <p class="tagline">I design interactions that <span class="temp">understand the human body</span> — and adapt to it.</p>
-        <p class="role">Project Assistant Professor<br>Information Somatics Lab (Inami Lab), RCAST, The University of Tokyo</p>
-        <p class="bio">I turn a quantitative understanding of human perception into new interaction principles — from perceptual models to wearable devices to public deployment. Temperature is my core medium, and I extend the same approach to <strong>embodied interaction</strong> and <strong>human-state sensing</strong>.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="mailto:xu.jiayi@star.rcast.u-tokyo.ac.jp">Email</a>
-          <a class="btn" href="#research">Research map</a>
-          <a class="btn" href="#publications">Publications</a>
-          <a class="btn" href="https://moheat-evo.github.io/" target="_blank" rel="noopener">MoHeat Evo ↗</a>
-        </div>
-        <ul class="profiles mono">
+  <main id="top" class="wrap">
+    <!-- Intro -->
+    <section class="intro">
+      <img class="photo" src="assets/images/profile.jpg" alt="Portrait of Jiayi Xu" width="640" height="1058">
+      <div class="bio">
+        <p class="kicker">Human–Computer Interaction · Haptics · Virtual Reality</p>
+        <h1>Jiayi Xu <span lang="ja">許 佳禕</span></h1>
+        <p class="role"><b>Project Assistant Professor</b>, The University of Tokyo<br><a href="https://star.rcast.u-tokyo.ac.jp/en/" target="_blank" rel="noopener">Inami &amp; Monnai Lab</a>, RCAST</p>
+        <p>I lead research on <b>the body as an interface</b>. With my students and collaborators, I build interactive systems that sense, stimulate and extend the human body, spanning multisensory feedback, physiological sensing and wearable robotics.</p>
+        <p>Our work appears in leading journals and conferences in HCI, virtual reality and haptics, and has reached the public through CES, the world’s largest tech show, and Japan’s public broadcaster NHK. I am principal investigator of two JSPS KAKENHI grants and received my Ph.D. in Engineering from the University of Tsukuba in 2023.</p>
+        <ul class="links">
+          <li><a class="primary" href="mailto:xu.jiayi@star.rcast.u-tokyo.ac.jp">Email</a></li>
           <li><a href="https://scholar.google.com/citations?user=hhRvwysAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
           <li><a href="https://orcid.org/0000-0002-3675-5902" target="_blank" rel="noopener">ORCID</a></li>
           <li><a href="https://researchmap.jp/jiayi-xu/" target="_blank" rel="noopener">researchmap</a></li>
           <li><a href="https://nrid.nii.ac.jp/en/nrid/1000020996433/" target="_blank" rel="noopener">KAKEN</a></li>
           <li><a href="https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=202101010961986566" target="_blank" rel="noopener">J-GLOBAL</a></li>
         </ul>
+        <p class="invite">I welcome motivated students, interns and industry partners.</p>
       </div>
-      <figure class="portrait">
-        <div class="portrait-ring"><img src="assets/photo.jpg" alt="Portrait of Jiayi Xu" width="320" height="320"></div>
-        <figcaption class="mono readout"><span class="cool">●</span> 24.6°C <span class="sep">→</span> <span class="warm">●</span> 36.8°C</figcaption>
-      </figure>
-    </section>
-
-    <section class="stats wrap" aria-label="At a glance">
-      <div><b data-count="12">12</b><span>Peer-reviewed works in 2026<br><small>up from 5 in 2025</small></span></div>
-      <div><b data-count="3">3</b><span>First-author top journals<br><small>IEEE TVCG · IEEE ToH ×2</small></span></div>
-      <div><b data-count="2">2</b><span>JSPS grants as PI<br><small>Early-Career · Start-up</small></span></div>
-      <div><b data-count="4">4</b><span>Patents<br><small>+ industry research → CES 2026</small></span></div>
     </section>
 
     <!-- News -->
-    <section id="news" class="block wrap">
-      <div class="block-head"><span class="mono idx">00</span><h2>News</h2></div>
+    <section id="news" class="block">
+      <h2>News</h2>
       <ul class="news">
-        <li><time class="mono">2026</time><span><b>3 projects</b> at <b>SIGGRAPH Asia 2026 E-Tech</b> (incl. MoHeat Evo) · <b>Armonii</b> at <b>ACM UIST 2026</b> · facial thermal remapping at <b>EuroHaptics 2026</b>.</span></li>
-        <li><time class="mono">2026</time><span><b>ChillFactor</b> in <b>IEEE TVCG</b> / <b>IEEE VR 2026</b>; 3 papers at <b>Augmented Humans 2026</b> with a <b>Best Student Paper Honorable Mention</b>.</span></li>
-        <li><time class="mono">Jan 2026</time><span><a href="https://moheat-evo.github.io/" target="_blank" rel="noopener">MoHeat Evo</a> with Suntory at <b>CES 2026</b>, featured on <b>NHK WORLD</b>.</span></li>
-        <li><time class="mono">2026</time><span>JSPS KAKENHI <b>Grant-in-Aid for Early-Career Scientists</b> (PI, FY2026–2028).</span></li>
+        <li><time>2026</time><span>3 projects accepted to <b>SIGGRAPH Asia 2026 Emerging Technologies</b>, including MoHeat Evo.</span></li>
+        <li><time>2026</time><span>Armonii (wearable robotic arms) accepted to <b>ACM UIST 2026</b>.</span></li>
+        <li><time>2026</time><span>Facial thermal remapping for full-body heat in VR at <b>EuroHaptics 2026</b>.</span></li>
+        <li><time>2026</time><span>ChillFactor in <b>IEEE TVCG</b> / <b>IEEE VR 2026</b>; 3 papers at <b>Augmented Humans 2026</b> with a <b>Best Student Paper Honorable Mention</b>.</span></li>
+        <li><time>Jan 2026</time><span><a href="https://moheat-evo.github.io/" target="_blank" rel="noopener">MoHeat Evo</a> with Suntory at <b>CES 2026</b>, featured on <b>NHK WORLD</b>.</span></li>
+        <li><time>2026</time><span>Awarded JSPS KAKENHI <b>Grant-in-Aid for Early-Career Scientists</b> (PI, FY2026–2028).</span></li>
       </ul>
     </section>
 
-    <!-- Research map -->
-    <section id="research" class="block wrap">
-      <div class="block-head"><span class="mono idx">01</span><h2>Research map</h2><p>One question, three connected directions.</p></div>
-
-      <div class="core">
-        <span class="mono core-label">CORE QUESTION</span>
-        <p class="core-q">How can we <span class="temp">quantitatively understand</span> human perception and the body — and turn that understanding into interaction that <span class="temp">adapts to people</span>?</p>
-        <div class="core-loop mono"><span>Understand humans</span><i>⇄</i><span>Design adaptive technology</span></div>
-      </div>
-
-      <div class="pillars">
-        <article class="pillar th-A">
-          <header><span class="mono pillar-io">OUTPUT → SENSES</span><span class="pillar-key">A</span></header>
-          <h3>Thermal &amp; sensory display</h3>
-          <p>Fast, non-contact, precisely controllable thermal feedback.</p>
-          <ul>
-            <li><b>Cold display models</b> <em class="mono">ToH 2022 · 2023</em></li>
-            <li><b>ChillFactor</b> in VR headsets <em class="mono">TVCG · IEEE VR</em></li>
-            <li><b>Facial thermal remapping</b> <em class="mono">EuroHaptics</em></li>
-            <li><b>MoHeat → MoHeat Evo</b> <em class="mono">CES · SIGGRAPH Asia</em></li>
-          </ul>
+    <!-- Projects -->
+    <section id="projects" class="block">
+      <h2>Recent Projects</h2>
+      <div class="gallery">
+        <article class="project wide">
+          <button class="thumb" aria-label="Play video: MoHeat Evo"><video src="assets/projects/moheat-evo.mp4" poster="assets/projects/moheat-evo.jpg" muted loop playsinline preload="none"></video><span class="play" aria-hidden="true"></span><span class="dur">1:22</span></button>
+          <div class="project-body"><p class="project-venue">SIGGRAPH Asia 2026 E-Tech · CES 2026</p><h3>MoHeat Evo</h3><p>A directional thermal headphone for spatial audio: LED heating, ethanol-mist cooling and per-ear control in one device. Joint research with Suntory, featured on NHK WORLD.</p><p class="project-links"><a href="https://moheat-evo.github.io/" target="_blank" rel="noopener">Project page</a></p></div>
         </article>
-        <article class="pillar th-B">
-          <header><span class="mono pillar-io">THE BODY ITSELF</span><span class="pillar-key">B</span></header>
-          <h3>Embodied interaction &amp; augmentation</h3>
-          <p>Designing how the body moves, extends and feels itself.</p>
-          <ul>
-            <li><b>Armonii</b> wearable robotic arms <em class="mono">UIST 2026</em></li>
-            <li><b>AdaptiveFly</b> embodied locomotion <em class="mono">AHs · SA E-Tech</em></li>
-            <li><b>NailShear</b> directional skin-stretch cues <em class="mono">AsiaHaptics</em></li>
-          </ul>
+        <article class="project">
+          <button class="thumb" aria-label="Play video: Armonii Sway"><video src="assets/projects/armonii-sway.mp4" poster="assets/projects/armonii-sway.jpg" muted loop playsinline preload="none"></video><span class="play" aria-hidden="true"></span><span class="dur">0:58</span></button>
+          <div class="project-body"><p class="project-venue">SIGGRAPH Asia 2026 E-Tech</p><h3>Armonii Sway</h3><p>Wearable robotic arms guided by natural body motion.</p></div>
         </article>
-        <article class="pillar th-C">
-          <header><span class="mono pillar-io">INPUT ← BODY</span><span class="pillar-key">C</span></header>
-          <h3>Human-state sensing &amp; AI</h3>
-          <p>Reading the body to close the loop.</p>
-          <ul>
-            <li><b>Synchro-Thermography</b> ~10 mK facial sensing <em class="mono">Sci. Rep.</em></li>
-            <li><b>PhaseMix</b> gait-based diagnosis <em class="mono">IEEE Access</em></li>
-            <li><b>Soft-object grasping</b> with learned deformation <em class="mono">AMC</em></li>
-          </ul>
+        <article class="project">
+          <button class="thumb" aria-label="Play video: AdaptiveFly"><video src="assets/projects/adaptivefly.mp4" poster="assets/projects/adaptivefly.jpg" muted loop playsinline preload="none"></video><span class="play" aria-hidden="true"></span><span class="dur">2:13</span></button>
+          <div class="project-body"><p class="project-venue">SIGGRAPH Asia 2026 E-Tech</p><h3>AdaptiveFly</h3><p>An adaptive embodied control framework for navigation and teleoperation.</p></div>
         </article>
-      </div>
-      <p class="loop-note mono"><span class="th-C">C</span> measures the body → <span class="th-A">A</span> presents to the senses → <span class="th-B">B</span> reshapes what the body can do → back to <span class="th-C">C</span></p>
-
-      <div class="method">
-        <h3 class="mono sub">Method · how a thermal interface is built</h3>
-        <ol class="pipeline">
-          <li><span class="mono step">01</span><b>Stimulus generation</b><span>Vortex airflow, LED radiation, mist evaporation</span></li>
-          <li><span class="mono step">02</span><b>Physical prediction</b><span>Skin-temperature model, RMSE 0.16 °C</span></li>
-          <li><span class="mono step">03</span><b>Perceptual control</b><span>Temporal patterns: cold without net cooling</span></li>
-          <li><span class="mono step">04</span><b>Wearable integration</b><span>HMD, headphones: −2.6 °C / 5 s, 0.66 s onset</span></li>
-          <li><span class="mono step">05</span><b>Deployment</b><span>Industry research, patents, CES 2026</span></li>
-        </ol>
+        <article class="project">
+          <button class="thumb" aria-label="Play video: ThermoTune"><video src="assets/projects/thermotune.mp4" poster="assets/projects/thermotune.jpg" muted loop playsinline preload="none"></video><span class="play" aria-hidden="true"></span><span class="dur">2:28</span></button>
+          <div class="project-body"><p class="project-venue">AsiaHaptics 2026</p><h3>ThermoTune</h3><p>High-speed thermal rendering of music-evoked emotion.</p></div>
+        </article>
+        <article class="project">
+          <button class="thumb" aria-label="Play video: ChillFactor"><video src="assets/projects/chillfactor.mp4" poster="assets/projects/chillfactor.jpg" muted loop playsinline preload="none"></video><span class="play" aria-hidden="true"></span><span class="dur">1:20</span></button>
+          <div class="project-body"><p class="project-venue">IEEE VR 2026 · IEEE TVCG</p><h3>ChillFactor</h3><p>Highly-responsive non-contact cooling for VR headsets based on alcohol-mist evaporation.</p><p class="project-links"><a href="https://doi.org/10.1109/TVCG.2026.3679127" target="_blank" rel="noopener">DOI</a></p></div>
+        </article>
+        <article class="project">
+          <button class="thumb" aria-label="Play video: Feel What You See"><video src="assets/projects/feel-what-you-see.mp4" poster="assets/projects/feel-what-you-see.jpg" muted loop playsinline preload="none"></video><span class="play" aria-hidden="true"></span><span class="dur">1:26</span></button>
+          <div class="project-body"><p class="project-venue">SIGGRAPH Asia 2025</p><h3>Feel What You See</h3><p>Linking visual heat cues in videos to instant thermal feedback.</p><p class="project-links"><a href="https://doi.org/10.1145/3757373.3763768" target="_blank" rel="noopener">DOI</a></p></div>
+        </article>
+        <article class="project">
+          <button class="thumb" aria-label="Play video: MoHeat"><video src="assets/projects/moheat.mp4" poster="assets/projects/moheat.jpg" muted loop playsinline preload="none"></video><span class="play" aria-hidden="true"></span><span class="dur">2:20</span></button>
+          <div class="project-body"><p class="project-venue">AsiaHaptics 2024</p><h3>MoHeat</h3><p>A modular platform for high-responsive non-contact thermal feedback interactions.</p><p class="project-links"><a href="https://arxiv.org/abs/2411.05103" target="_blank" rel="noopener">arXiv</a></p></div>
+        </article>
       </div>
     </section>
 
-    <!-- Highlight -->
-    <section id="projects" class="block wrap">
-      <div class="block-head"><span class="mono idx">02</span><h2>Highlight</h2><p>From lab to society.</p></div>
-      <a class="feature" href="https://moheat-evo.github.io/" target="_blank" rel="noopener">
-        <div class="feature-media"><img src="assets/moheat-evo.jpg" alt="Jiayi Xu wearing MoHeat Evo thermal headphones glowing blue" width="1280" height="720"></div>
-        <div class="feature-body">
-          <span class="mono chip">PILLAR A · JOINT RESEARCH WITH SUNTORY</span>
-          <h3>MoHeat Evo</h3>
-          <p>A directional thermal headphone for spatial audio — the full method in one device, from LED heating and ethanol-mist cooling to per-ear control, built with Suntory and shown at CES 2026.</p>
-          <ul class="venues mono"><li>CES 2026</li><li>SIGGRAPH Asia 2026 E-Tech</li><li>NHK WORLD</li><li>Patent filed</li></ul>
-          <span class="feature-link">Visit the project site <b>↗</b></span>
-        </div>
-      </a>
-    </section>
+    <!-- Research -->
+    <section id="research" class="block">
+      <h2>Research</h2>
+      <div class="vision">
+        <p class="vision-lead">Computers have learned to speak to our eyes and ears. To the rest of the body, they remain almost silent.</p>
+        <p>Warmth, touch, posture and inner state shape how we experience the world, yet interactive systems rarely treat them as media to design with. I aim to make the body itself a first-class interface, one that can <b>render</b> sensations, <b>read</b> a person’s state and <b>extend</b> what the body can do, starting from quantitative models of human perception.</p>
+      </div>
 
-    <!-- Trajectory -->
-    <section id="trajectory" class="block wrap">
-      <div class="block-head"><span class="mono idx">03</span><h2>Research trajectory</h2><p>From one cold airflow to a research program. <span class="legend mono"><span class="th-A">● Thermal</span><span class="th-B">● Embodiment</span><span class="th-C">● Sensing</span></span></p></div>
-      <ol class="trajectory">
-          <li><time class="mono">2018–19</time><div class="tl-items"><span class="tl-item th-A"><i></i>Vortex-tube non-contact cold display<em class="mono">IEEE WHC 2019</em></span></div></li>
-          <li><time class="mono">2022</time><div class="tl-items"><span class="tl-item th-A"><i></i>Intensity-adjustable cold display + skin-temperature model<em class="mono">IEEE ToH</em></span><span class="tl-item th-A"><i></i>HeatMagic: vortex + thermal radiation<em class="mono">AsiaHaptics</em></span></div></li>
-          <li><time class="mono">2023</time><div class="tl-items"><span class="tl-item th-A"><i></i>Low-residual-heat cold sensation via two heat-transfer paths<em class="mono">IEEE ToH</em></span><span class="tl-item th-A"><i></i>Spatially continuous cold airflow<em class="mono">IEEE WHC</em></span></div></li>
-          <li><time class="mono">2024</time><div class="tl-items"><span class="tl-item th-A"><i></i>MoHeat: modular high-response thermal platform<em class="mono">AsiaHaptics</em></span><span class="tl-item th-C"><i></i>PhaseMix: gait-based spinal-deformity classification<em class="mono">IEEE Access</em></span><span class="tl-item th-C"><i></i>Deformation estimation for soft-object grasping<em class="mono">IEEE AMC</em></span></div></li>
-          <li><time class="mono">2025</time><div class="tl-items"><span class="tl-item th-A"><i></i>Feel What You See: visual heat cues → instant thermal feedback<em class="mono">SIGGRAPH Asia</em></span><span class="tl-item th-C"><i></i>Synchro-Thermography: ~10 mK facial sensing<em class="mono">SICE · Sci. Rep.</em></span><span class="tl-item th-A"><i></i>360° cold via Coandă airflow<em class="mono">IEEE WHC</em></span></div></li>
-          <li><time class="mono">2026</time><div class="tl-items"><span class="tl-item th-A"><i></i>ChillFactor: mist-evaporation cooling in VR headsets<em class="mono">IEEE TVCG · VR</em></span><span class="tl-item th-A"><i></i>Full-body heat via facial thermal remapping<em class="mono">EuroHaptics</em></span><span class="tl-item th-A"><i></i>MoHeat Evo: directional thermal headphone<em class="mono">CES · SIGGRAPH Asia</em></span><span class="tl-item th-B"><i></i>Armonii: wearable robotic arms<em class="mono">ACM UIST</em></span><span class="tl-item th-B"><i></i>AdaptiveFly · haptic guidance · spectral VR design<em class="mono">Augmented Humans ×3</em></span></div></li>
+      <ol class="threads">
+        <li class="thread th-A">
+            <svg class="ill" viewBox="0 0 240 160" role="img" aria-label="A wearable device sending warm waves and cool mist to the face">
+              <path class="base" d="M186 142 C190 120 206 102 204 74 C202 44 180 28 158 30 C138 32 128 46 130 60 L124 76 L132 80 L130 88 L134 92 L132 100 C134 106 140 108 150 108 L152 142"/>
+              <rect class="acc" x="22" y="58" width="34" height="44" rx="10"/>
+              <circle class="acc" cx="39" cy="80" r="7"/>
+              <path class="acc" d="M66 68 q9 -7 18 0 t18 0 t18 0"/>
+              <path class="acc" d="M66 80 q9 -7 18 0 t18 0 t18 0" opacity=".6"/>
+              <path class="cool" d="M66 94 L120 94" stroke-dasharray="1 7"/>
+              <path class="cool" d="M70 102 L116 102" stroke-dasharray="1 7" opacity=".6"/>
+            </svg>
+          <p class="thread-no">01 · Render</p>
+          <h3>Multisensory feedback</h3>
+          <p>Can touch and temperature become as immediate and expressive as light and sound? I design thermal and tactile displays grounded in models of skin and perception.</p>
+        </li>
+        <li class="thread th-C">
+            <svg class="ill" viewBox="0 0 240 160" role="img" aria-label="A sensor reading facial temperature and heartbeat">
+              <g transform="translate(240 0) scale(-1 1)"><path class="base" d="M186 142 C190 120 206 102 204 74 C202 44 180 28 158 30 C138 32 128 46 130 60 L124 76 L132 80 L130 88 L134 92 L132 100 C134 106 140 108 150 108 L152 142"/></g>
+              <circle class="acc" cx="84" cy="78" r="4"/>
+              <circle class="acc" cx="84" cy="78" r="9" opacity=".5"/>
+              <circle class="acc" cx="84" cy="78" r="14" opacity=".25"/>
+              <rect class="base" x="184" y="40" width="34" height="24" rx="6"/>
+              <circle class="base" cx="201" cy="52" r="6"/>
+              <path class="base" d="M184 48 L116 64 M184 58 L114 94" stroke-dasharray="3 5"/>
+              <path class="acc" d="M118 130 H150 L156 120 L162 142 L170 106 L178 130 H224"/>
+            </svg>
+          <p class="thread-no">02 · Read</p>
+          <h3>Human-state sensing</h3>
+          <p>What can the body tell an interface? I sense subtle physiological and motor signals so that systems understand a person’s state without explicit input.</p>
+        </li>
+        <li class="thread th-B">
+            <svg class="ill" viewBox="0 0 240 160" role="img" aria-label="A person wearing extra robotic arms that move with the body">
+              <circle class="base" cx="120" cy="34" r="12"/>
+              <path class="base" d="M120 48 V100 M120 100 L108 142 M120 100 L132 142 M120 60 L100 92 M120 60 L140 92"/>
+              <path class="acc" d="M126 62 L162 44 L196 66"/>
+              <path class="acc" d="M196 66 l10 -4 M196 66 l6 8"/>
+              <circle class="acc fill" cx="126" cy="62" r="3.5"/><circle class="acc fill" cx="162" cy="44" r="3.5"/>
+              <path class="acc" d="M114 62 L78 44 L44 66"/>
+              <path class="acc" d="M44 66 l-10 -4 M44 66 l-6 8"/>
+              <circle class="acc fill" cx="114" cy="62" r="3.5"/><circle class="acc fill" cx="78" cy="44" r="3.5"/>
+              <path class="acc" d="M150 26 a26 26 0 0 1 22 14 M90 26 a26 26 0 0 0 -22 14" opacity=".45"/>
+            </svg>
+          <p class="thread-no">03 · Extend</p>
+          <h3>Embodied augmentation</h3>
+          <p>How do we build technology the body accepts as its own? I study how people move, extend and adapt with robotic limbs and haptic guidance.</p>
+        </li>
       </ol>
-    </section>
 
-    <!-- Next -->
-    <section id="next" class="block wrap">
-      <div class="block-head"><span class="mono idx">04</span><h2>What’s next</h2><p>Connecting the three directions into one closed loop.</p></div>
-      <ol class="next">
-        <li><span class="mono">01</span><b>From effects to principles</b><p>Model how temperature integrates with sound, vision and touch, so multisensory experiences can be designed rather than tuned.</p></li>
-        <li><span class="mono">02</span><b>Interfaces that adapt to the body</b><p>Combine sensing (C), display (A) and embodiment (B) into systems that respond to each person’s state in real time.</p></li>
-        <li><span class="mono">03</span><b>Out of the lab</b><p>Validate in communication, media and healthcare with industry partners — the path MoHeat Evo opened.</p></li>
-      </ol>
+      <p class="outlook"><b>Looking ahead.</b> I want to close the loop between these threads: <b>body-adaptive interfaces</b> that read a person’s state, render sensations tuned to their perception and reshape what their body can do in real time, validated in communication, media and healthcare with industry partners.</p>
     </section>
 
     <!-- Publications -->
-    <section id="publications" class="block wrap">
-      <div class="block-head"><span class="mono idx">05</span><h2>Publications</h2><p>Peer-reviewed. ★ selected · <b class="me">J. Xu</b> marks me.</p></div>
-      <div class="filters mono">
-        <div class="fgroup" data-group="view"><button class="on" data-v="selected">★ Selected</button><button data-v="all">All</button></div>
-        <div class="fgroup" data-group="theme"><button class="on" data-v="*">Any direction</button><button data-v="A" class="th-A">Thermal</button><button data-v="B" class="th-B">Embodiment</button><button data-v="C" class="th-C">Sensing</button></div>
-        <div class="fgroup" data-group="type"><button class="on" data-v="*">Any type</button><button data-v="journal">Journal</button><button data-v="conference">Conference</button><button data-v="demo">Demo</button><button data-v="article">Article</button></div>
+    <section id="publications" class="block">
+      <h2>Publications</h2>
+      <div class="pub-controls">
+        <div class="seg" role="group" aria-label="Group publications">
+          <button class="on" data-by="year">By year</button><button data-by="type">By type</button>
+        </div>
+        <ul class="legend"><li data-type="journal">Journal</li><li data-type="conference">Conference</li><li data-type="demo">Demo</li><li data-type="domestic">Domestic (JP)</li><li data-type="article">Article</li></ul>
       </div>
-      <ol class="pub-list" id="pubList">
-          <li class="pub" data-type="journal" data-theme="A" data-selected="1"><div class="pub-tags"><span class="pub-badge">Journal</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2026</span><p><span class="star" title="Selected">★</span><b>J. Xu</b>, C. A. Fan, Y. Guo, Y. Kuroda and M. Inami. “ChillFactor: A Highly-Responsive Non-Contact Cooling Feedback Interface for VR Headsets Based on Alcohol Mist Evaporation.” <i>IEEE Transactions on Visualization and Computer Graphics</i>, 32(5), 4041–4050, 2026. <span class="pub-links mono"><a href="https://doi.org/10.1109/TVCG.2026.3679127" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="journal" data-theme="C"><div class="pub-tags"><span class="pub-badge">Journal</span><span class="pub-theme th-C">Sensing</span></div><span class="pub-year mono">2025</span><p>N. Kotani, K. Sakurada, <b>J. Xu</b>, M. Inami and Y. Monnai. “Monitoring the effect of alcohol intake via facial temperature variations using thermography synchronized with heartbeat.” <i>Scientific Reports</i>, 15, 32249, 2025. <span class="pub-links mono"><a href="https://doi.org/10.1038/s41598-025-17801-9" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="journal" data-theme="A" lang="ja"><div class="pub-tags"><span class="pub-badge">Journal</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2025</span><p>名嘉村和真, 伊藤天翔, <b>許佳禕</b>, 長谷川晶一, 家永直人, 黒田嘉宏.「皮膚温度変化の時間積分量に基づく温覚制御手法の開発」<i>ヒューマンインタフェース学会論文誌</i>, 27(3), 2025.</p></li>
-          <li class="pub" data-type="journal" data-theme="C"><div class="pub-tags"><span class="pub-badge">Journal</span><span class="pub-theme th-C">Sensing</span></div><span class="pub-year mono">2024</span><p>K. Chen, <b>J. Xu</b>, T. Asada, K. Miura, K. Sakashita, T. Sunami, H. Kadone, M. Yamazaki, N. Ienaga and Y. Kuroda. “PhaseMix: A Periodic Motion Fusion Method for Adult Spinal Deformity Classification.” <i>IEEE Access</i>, 12, 152358–152376, 2024. <span class="pub-links mono"><a href="https://doi.org/10.1109/ACCESS.2024.3479165" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="journal" data-theme="A" data-selected="1"><div class="pub-tags"><span class="pub-badge">Journal</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2023</span><p><span class="star" title="Selected">★</span><b>J. Xu</b>, S. Hasegawa, K. Kiyokawa, N. Ienaga and Y. Kuroda. “Integration of Independent Heat Transfer Mechanisms for Non-Contact Cold Sensation Presentation with Low Residual Heat.” <i>IEEE Transactions on Haptics</i>, 16(4), 770–784, 2023. <span class="pub-links mono"><a href="https://doi.org/10.1109/TOH.2023.3324754" target="_blank" rel="noopener">DOI</a> <a href="https://arxiv.org/abs/2310.14672" target="_blank" rel="noopener">arXiv</a></span></p></li>
-          <li class="pub" data-type="journal" data-theme="A" data-selected="1"><div class="pub-tags"><span class="pub-badge">Journal</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2022</span><p><span class="star" title="Selected">★</span><b>J. Xu</b>, S. Yoshimoto, N. Ienaga and Y. Kuroda. “Intensity-Adjustable Non-Contact Cold Sensation Presentation Based on the Vortex Effect.” <i>IEEE Transactions on Haptics</i>, 15(3), 592–602, 2022. <span class="pub-links mono"><a href="https://doi.org/10.1109/TOH.2022.3187759" target="_blank" rel="noopener">DOI</a> <a href="https://arxiv.org/abs/2208.13229" target="_blank" rel="noopener">arXiv</a></span></p></li>
-          <li class="pub" data-type="conference" data-theme="B" data-selected="1"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-B">Embodiment</span></div><span class="pub-year mono">2026</span><p><span class="star" title="Selected">★</span>C. A. Fan, H. Zhou, A. Maekawa, T. Sasaki, <b>J. Xu</b> and M. Inami. “Armonii: Motion Design for Wearable Supernumerary Robotic Arms Toward Comfort and Embodiment.” <i>ACM UIST 2026</i>.</p></li>
-          <li class="pub" data-type="conference" data-theme="A" data-selected="1"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2026</span><p><span class="star" title="Selected">★</span><b>J. Xu</b>, T. Lei, C. A. Fan and M. Inami. “Achieving Full-Body Heat Perception in VR through Spatially Congruent Facial Thermal Remapping.” <i>EuroHaptics 2026</i>. <span class="pub-links mono"><a href="https://doi.org/10.1007/978-3-032-32230-2_8" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="conference" data-theme="A"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2026</span><p><b>J. Xu</b>, C. A. Fan, Y. Guo, Y. Kuroda and M. Inami. “ChillFactor: A Highly-Responsive Non-Contact Cooling Feedback Interface for VR Headsets Based on Alcohol Mist Evaporation.” <i>IEEE VR 2026</i>. <span class="pub-links mono"><a href="https://doi.org/10.1109/TVCG.2026.3679127" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="conference" data-theme="B"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-B">Embodiment</span></div><span class="pub-year mono">2026</span><p>Y. Zheng, <b>J. Xu</b>, C. A. Fan and Y. Monnai. “A Haptic Guidance Method that Conveys Motion Error Magnitude via Haptic Localization Around the Arm.” <i>Augmented Humans 2026</i>, 41–51. <span class="pub-links mono"><a href="https://doi.org/10.1145/3795011.3795049" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="conference" data-theme="B"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-B">Embodiment</span></div><span class="pub-year mono">2026</span><p>L. Kong, A. Dechaux, M. Yoshida, H. Asahi, <b>J. Xu</b>, G. Gowrishankar and M. Inami. “AdaptiveFly: Bio-Congruent Adaptation for Embodied 3D Locomotion.” <i>Augmented Humans 2026</i>, 345–356. <span class="pub-links mono"><a href="https://doi.org/10.1145/3795011.3795050" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="conference" data-theme="B"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-B">Embodiment</span></div><span class="pub-year mono">2026</span><p>H. Wang, H. Asahi, R. Shao, K. Sakurada, H. Saito, <b>J. Xu</b>, K. Kondo, T. Tokoro and M. Inami. “A Design Framework for Virtual Space based on Spectral Relationships.” <i>Augmented Humans 2026</i>, 141–152. <span class="pub-links mono"><a href="https://doi.org/10.1145/3795011.3795060" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="conference" data-theme="C"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-C">Sensing</span></div><span class="pub-year mono">2025</span><p>N. Kotani, K. Sakurada, <b>J. Xu</b>, M. Inami and Y. Monnai. “Synchro-Thermography: Monitoring ~10 mK Facial Temperature Changes with Heartbeat Referencing for Physiological Sensing.” <i>SICE Annual Conference 2025</i>, 1249–1254. <span class="pub-links mono"><a href="https://doi.org/10.23919/SICEFES67750.2025.11236693" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="conference" data-theme="A"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2025</span><p>K. Akimoto, <b>J. Xu</b>, A. Kaneko, N. Ienaga and Y. Kuroda. “360-Degree Cold Sensation Presentation via Encircling Airflow Based on the Coandă Effect.” <i>IEEE World Haptics Conference 2025</i>. <span class="pub-links mono"><a href="https://doi.org/10.1109/WHC64065.2025.11123245" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="conference" data-theme="A"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2024</span><p>Y. Kuroda, S. Tamaki, <b>J. Xu</b>, S. Hasegawa and N. Ienaga. “Representation of Humidity Change Based on Heating the Local Skin.” <i>ICAT-EGVE 2024</i>.</p></li>
-          <li class="pub" data-type="conference" data-theme="C"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-C">Sensing</span></div><span class="pub-year mono">2024</span><p><b>J. Xu</b> and Y. Aiyama. “Machine Learning-Based Deformation Estimation for Grasping 3D Soft Objects.” <i>IEEE AMC 2024</i>, 1–6. <span class="pub-links mono"><a href="https://doi.org/10.1109/AMC58169.2024.10505694" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="conference" data-theme="A"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2023</span><p>K. Makino, <b>J. Xu</b>, A. Kaneko, N. Ienaga and Y. Kuroda. “Spatially Continuous Non-Contact Cold Sensation Presentation Based on Low-Temperature Airflows.” <i>IEEE World Haptics Conference 2023</i>, 223–229. <span class="pub-links mono"><a href="https://doi.org/10.1109/WHC56415.2023.10224498" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="conference" data-theme="A"><div class="pub-tags"><span class="pub-badge">Conference</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2019</span><p><b>J. Xu</b>, Y. Kuroda, S. Yoshimoto and O. Oshiro. “Non-contact Cold Thermal Display by Controlling Low-temperature Air Flow Generated with Vortex Tube.” <i>IEEE World Haptics Conference 2019</i>, 133–138. <span class="pub-links mono"><a href="https://doi.org/10.1109/WHC.2019.8816089" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="demo" data-theme="A" data-selected="1"><div class="pub-tags"><span class="pub-badge">Demo</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2026</span><p><span class="star" title="Selected">★</span><b>J. Xu</b>, L. Kong, K. Sakurada, N. Obushi and M. Inami. “MoHeat Evo: A Directional Thermal Headphone for Spatial Audio.” <i>ACM SIGGRAPH Asia 2026 Emerging Technologies</i>. <span class="pub-links mono"><a href="https://moheat-evo.github.io/" target="_blank" rel="noopener">Project</a></span></p></li>
-          <li class="pub" data-type="demo" data-theme="B"><div class="pub-tags"><span class="pub-badge">Demo</span><span class="pub-theme th-B">Embodiment</span></div><span class="pub-year mono">2026</span><p>C. A. Fan, H. Zhou, A. Maekawa, T. Sasaki, <b>J. Xu</b>, H. Asahi, H. Shimobayashi and M. Inami. “Armonii Sway: Wearable Robotic Arms Guided by Natural Body Motion.” <i>ACM SIGGRAPH Asia 2026 Emerging Technologies</i>.</p></li>
-          <li class="pub" data-type="demo" data-theme="B"><div class="pub-tags"><span class="pub-badge">Demo</span><span class="pub-theme th-B">Embodiment</span></div><span class="pub-year mono">2026</span><p>L. Kong, A. Dechaux, T. Yoshida, H. Zhang, S. Vishakan, <b>J. Xu</b>, G. Ganesh and M. Inami. “AdaptiveFly: An Adaptive Embodied Control Framework for Navigation and Teleoperation.” <i>ACM SIGGRAPH Asia 2026 Emerging Technologies</i>.</p></li>
-          <li class="pub" data-type="demo" data-theme="B"><div class="pub-tags"><span class="pub-badge">Demo</span><span class="pub-theme th-B">Embodiment</span></div><span class="pub-year mono">2026</span><p>Y. Xu, <b>J. Xu</b>, S. Hasegawa and T. Narumi. “NailShear: A Fingerpad-Free Wearable for Directional Haptic Cues via Paronychial Skin Stretch.” <i>AsiaHaptics 2026</i>.</p></li>
-          <li class="pub" data-type="demo" data-theme="A"><div class="pub-tags"><span class="pub-badge">Demo</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2026</span><p>K. Watanabe, <b>J. Xu</b>, K. Chen and M. Inami. “ThermoTune: High-Speed Thermal Rendering of Music-Evoked Emotion.” <i>AsiaHaptics 2026</i>.</p></li>
-          <li class="pub" data-type="demo" data-theme="A"><div class="pub-tags"><span class="pub-badge">Demo</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2025</span><p><b>J. Xu</b>, K. Chen, Y. Kuroda, I. Kitahara and M. Inami. “Feel What You See: A Novel Sensory Interface Linking Visual Heat Cues and Instant Thermal Feedback.” <i>SIGGRAPH Asia 2025</i>. <span class="pub-links mono"><a href="https://doi.org/10.1145/3757373.3763768" target="_blank" rel="noopener">DOI</a></span></p></li>
-          <li class="pub" data-type="demo" data-theme="A"><div class="pub-tags"><span class="pub-badge">Demo</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2024</span><p><b>J. Xu</b>, K. Nakamura, Y. Kuroda and M. Inami. “MoHeat: A Modular Platform for High-Responsive Non-Contact Thermal Feedback Interactions.” <i>AsiaHaptics 2024</i>. <span class="pub-links mono"><a href="https://arxiv.org/abs/2411.05103" target="_blank" rel="noopener">arXiv</a></span></p></li>
-          <li class="pub" data-type="demo" data-theme="A"><div class="pub-tags"><span class="pub-badge">Demo</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2024</span><p>S. Mizuno, <b>J. Xu</b>, S. Hasegawa, N. Ienaga and Y. Kuroda. “DynaPain: Moving Flame Beetle with Dynamic Pain Illusion Adapting Apparent Movement to Thermal Grill Illusion.” <i>AsiaHaptics 2024</i>.</p></li>
-          <li class="pub" data-type="demo" data-theme="A"><div class="pub-tags"><span class="pub-badge">Demo</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2022</span><p><b>J. Xu</b>, S. Tamaki, K. Makino, S. Yoshimoto, H. Hasegawa, N. Ienaga and Y. Kuroda. “HeatMagic: Intensity-adjustable Thermal Feedback System Based on the Vortex Effect and Thermal Radiation for Non-contact Thermal Interaction.” <i>AsiaHaptics 2022</i>.</p></li>
-          <li class="pub" data-type="demo" data-theme="A"><div class="pub-tags"><span class="pub-badge">Demo</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2019</span><p><b>J. Xu</b>, Y. Kuroda, S. Yoshimoto, H. Ishizuka and O. Oshiro. “Creating an Immersive Experience in a Cooling World with a Non-Contact Cold Thermal Display using Vortex Tube.” <i>IEEE World Haptics Conference 2019</i>, Demo.</p></li>
-          <li class="pub" data-type="article" data-theme="A"><div class="pub-tags"><span class="pub-badge">Article</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2026</span><p><b>許佳禕</b>.「感覚はどこまで拡張できるのか ～「MoHeat Evo」が拓く視聴覚×温度インターフェース～」<i>映画テレビ技術</i>, No. 887, 37–39, 2026.</p></li>
-          <li class="pub" data-type="article" data-theme="A"><div class="pub-tags"><span class="pub-badge">Article</span><span class="pub-theme th-A">Thermal</span></div><span class="pub-year mono">2025</span><p>黒田嘉宏, <b>許佳禕</b>.「温度感覚のバーチャルリアリティと人間の感覚」<i>理科資料</i>, 97, 2025.</p></li>
-      </ol>
-      <p class="pub-empty mono" id="pubEmpty" hidden>No entries match these filters.</p>
-      <details class="pub-more">
-        <summary>Domestic conference presentations <span class="mono">(Japanese · 21)</span></summary>
-        <ol class="dom" lang="ja">
-            <li>渡辺功侑, <b>許佳禕</b>, 稲見昌彦.「Valence-Arousal モデルに基づく高速温冷刺激を用いた音楽体験拡張に関する検討」第31回日本バーチャルリアリティ学会大会, 2026.</li>
-            <li>何紀婷, <b>許佳禕</b>, 櫻田国治, 齊藤寛人, 門内靖明, 稲見昌彦.「非侵襲的温熱刺激による飲用時の主観的印象変容を目的としたシステムの開発」第30回日本バーチャルリアリティ学会大会, 2025.</li>
-            <li>名嘉村和真, <b>許佳禕</b>, 長谷川晶一, 家永直人, 黒田嘉宏.「非接触提示による温知覚制御手法の開発」ヒューマンインタフェースシンポジウム2024, 2024.</li>
-            <li>水野蒼太, <b>許佳禕</b>, 長谷川晶一, 家永直人, 黒田嘉宏.「仮現運動による痛み錯覚の移動感提示装置の開発」第29回日本バーチャルリアリティ学会大会, 2024.</li>
-            <li>秋元快成, <b>許佳禕</b>, 金子暁子, 家永直人, 黒田嘉宏.「コアンダ効果を利用した局所冷刺激による一体感提示」第29回日本バーチャルリアリティ学会大会, 2024.</li>
-            <li>汪君逸, 陳凱旭, <b>許佳禕</b>, 家永直人, 黒田嘉宏.「作業中の覚醒度低下を防ぐための変調気流提示装置」第23回日本VR医学会学術大会, 2024.</li>
-            <li>張皖瑾, <b>許佳禕</b>, 家永直人, 黒田嘉宏.「教育訓練支援のための着座型温冷刺激装置による覚醒度変化に関する研究」第22回日本VR医学会学術大会, 2023.</li>
-            <li>水野蒼太, <b>許佳禕</b>, 長谷川晶一, 家永直人, 黒田嘉宏.「非接触痛み錯覚提示装置の開発」第28回日本バーチャルリアリティ学会大会, 2023.</li>
-            <li>秋元快成, <b>許佳禕</b>, 家永直人, 黒田嘉宏.「冷気流群を用いた非接触首型冷覚提示デバイス」第28回日本バーチャルリアリティ学会大会, 2023.</li>
-            <li>張皖瑾, <b>許佳禕</b>, 家永直人, 黒田嘉宏.「非接触温冷刺激による即時的な温度フィードバック体験」ヒューマンインタフェース学会研究会 SIGMAS-15, 2023.</li>
-            <li><b>許佳禕</b>, 長谷川晶一, 清川清, 家永直人, 黒田嘉宏.「皮膚温度変化をゼロに保ちつつ感覚を生じさせる非接触冷覚提示」第27回日本バーチャルリアリティ学会大会, 2022.</li>
-            <li>牧野皓陽, <b>許佳禕</b>, 家永直人, 金子暁子, 黒田嘉宏.「冷気流群による一体感のある冷空間VRシステムの開発」第27回日本バーチャルリアリティ学会大会, 2022.</li>
-            <li>玉木聖悟, <b>許佳禕</b>, 家永直人, 黒田嘉宏.「独立温湿度刺激による乾燥湿潤VRシステムの開発」ヒューマンインタフェースシンポジウム2022, 2022.</li>
-            <li><b>許佳禕</b>, 清川清, 長谷川晶一, 家永直人, 黒田嘉宏.「非接触温冷刺激による即時的な温度フィードバック体験」ヒューマンインタフェース学会研究会 SIGMAS-13, 2022.</li>
-            <li>玉木聖悟, <b>許佳禕</b>, 家永直人, 黒田嘉宏.「温湿度の独立制御による蒸し暑さ提示デバイスの開発」ヒューマンインタフェース学会研究会 SIGMAS-13, 2022.</li>
-            <li><b>許佳禕</b>, 長谷川晶一, 黒田嘉宏.「不連続的な温度変化による非接触冷覚の連続性に関する評価」第26回日本バーチャルリアリティ学会大会, 2021.</li>
-            <li><b>許佳禕</b>, 長谷川晶一, 黒田嘉宏.「非接触温冷刺激の時分割提示手法の開発」ヒューマンインタフェースサイバーコロキウム2020, 314–317, 2020.</li>
-            <li><b>許佳禕</b>, 吉元俊輔, 石塚裕己, 池田聖, 黒田嘉宏.「即時的な非接触冷覚を制御するための冷却モデルのパラメータ推定」第25回日本バーチャルリアリティ学会大会, 2020.</li>
-            <li><b>許佳禕</b>, 黒田嘉宏, 吉元俊輔, 石塚裕己, 池田聖, 大城理.「冷気流による温度変化を表す物理モデルの構築」ハプティクス研究委員会 第23回研究会, 17–20, 2019.</li>
-            <li><b>許佳禕</b>, 黒田嘉宏, 吉元俊輔, 大城理.「冷気の流速制御による非接触型冷覚提示」第63回システム制御情報学会研究発表講演会, 413–417, 2019.</li>
-            <li><b>許佳禕</b>, 黒田嘉宏, 吉元俊輔, 大城理.「非接触冷覚提示のためのボルテックスチューブを用いた冷気生成システム」第19回計測自動制御学会システムインテグレーション部門講演会, 546–548, 2018.</li>
-        </ol>
-      </details>
-      <h3 class="pub-sub mono">Patents</h3>
-      <ol class="pub-list patents" lang="ja">
-        <li class="pub" data-type="patent"><span class="pub-badge">Granted</span><span class="pub-year">2021</span><p>黒田嘉宏, <b>許佳禕</b>.「冷覚呈示装置及びプログラム」特願2021-091472, PCT/JP2022/021922, <span class="mono">特許第7709781号</span>.</p></li>
-        <li class="pub" data-type="patent"><span class="pub-badge">Filed</span><span class="pub-year">2022</span><p>黒田嘉宏, 牧野皓陽, <b>許佳禕</b>, 金子暁子.「温冷覚呈示装置およびプログラム」特願2022-142263.</p></li>
-        <li class="pub" data-type="patent"><span class="pub-badge">Filed</span><span class="pub-year">2025</span><p>櫻田国治, 稲見昌彦, 鳴海拓志, 中野萌士, <b>許佳禕</b>, 高下修聡, 禰寝崇之, 松本篤弥, 松嵜直幸, 前川知宏.「情報処理装置、情報処理方法、情報処理システム及びプログラム」特願2025-062761.</p></li>
-        <li class="pub" data-type="patent"><span class="pub-badge">Filed</span><span class="pub-year">2025</span><p><b>許佳禕</b>, 稲見昌彦, 松嵜直幸.「刺激提供機能を備えたデバイス」特願2025-181183.</p></li>
-      </ol>
+      <div class="tabs" id="pubTabs" role="tablist" aria-label="Publications"></div>
+      <div id="pubList">
+        <section class="group"><h3>2026</h3><ol>
+          <li class="pub" data-type="journal" data-year="2026"><span class="venue">TVCG</span><div><p class="title">ChillFactor: A Highly-Responsive Non-Contact Cooling Feedback Interface for VR Headsets Based on Alcohol Mist Evaporation</p><p class="authors"><b>J. Xu</b>, C. A. Fan, Y. Guo, Y. Kuroda and M. Inami</p><p class="meta"><i>IEEE Transactions on Visualization and Computer Graphics</i> (Proc. IEEE VR 2026), 32(5), 4041–4050 <a href="https://doi.org/10.1109/TVCG.2026.3679127" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="conference" data-year="2026"><span class="venue">UIST</span><div><p class="title">Armonii: Motion Design for Wearable Supernumerary Robotic Arms Toward Comfort and Embodiment</p><p class="authors">C. A. Fan, H. Zhou, A. Maekawa, T. Sasaki, <b>J. Xu</b> and M. Inami</p><p class="meta"><i>ACM UIST 2026</i></p></div></li>
+          <li class="pub" data-type="conference" data-year="2026"><span class="venue">EuroHaptics</span><div><p class="title">Achieving Full-Body Heat Perception in VR through Spatially Congruent Facial Thermal Remapping</p><p class="authors"><b>J. Xu</b>, T. Lei, C. A. Fan and M. Inami</p><p class="meta"><i>EuroHaptics 2026</i> <a href="https://doi.org/10.1007/978-3-032-32230-2_8" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="conference" data-year="2026"><span class="venue">AHs</span><div><p class="title">A Haptic Guidance Method that Conveys Motion Error Magnitude via Haptic Localization Around the Arm</p><p class="authors">Y. Zheng, <b>J. Xu</b>, C. A. Fan and Y. Monnai</p><p class="meta"><i>Augmented Humans 2026</i>, 41–51 <a href="https://doi.org/10.1145/3795011.3795049" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="conference" data-year="2026"><span class="venue">AHs</span><div><p class="title">AdaptiveFly: Bio-Congruent Adaptation for Embodied 3D Locomotion</p><p class="authors">L. Kong, A. Dechaux, M. Yoshida, H. Asahi, <b>J. Xu</b>, G. Gowrishankar and M. Inami</p><p class="meta"><i>Augmented Humans 2026</i>, 345–356 <a href="https://doi.org/10.1145/3795011.3795050" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="conference" data-year="2026"><span class="venue">AHs</span><div><p class="title">A Design Framework for Virtual Space based on Spectral Relationships</p><p class="authors">H. Wang, H. Asahi, R. Shao, K. Sakurada, H. Saito, <b>J. Xu</b>, K. Kondo, T. Tokoro and M. Inami</p><p class="meta"><i>Augmented Humans 2026</i>, 141–152 <a href="https://doi.org/10.1145/3795011.3795060" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="demo" data-year="2026"><span class="venue">SIGGRAPH Asia</span><div><p class="title">MoHeat Evo: A Directional Thermal Headphone for Spatial Audio</p><p class="authors"><b>J. Xu</b>, L. Kong, K. Sakurada, N. Obushi and M. Inami</p><p class="meta"><i>ACM SIGGRAPH Asia 2026 Emerging Technologies</i> <a href="https://moheat-evo.github.io/" target="_blank" rel="noopener">Project</a></p></div></li>
+          <li class="pub" data-type="demo" data-year="2026"><span class="venue">SIGGRAPH Asia</span><div><p class="title">Armonii Sway: Wearable Robotic Arms Guided by Natural Body Motion</p><p class="authors">C. A. Fan, H. Zhou, A. Maekawa, T. Sasaki, <b>J. Xu</b>, H. Asahi, H. Shimobayashi and M. Inami</p><p class="meta"><i>ACM SIGGRAPH Asia 2026 Emerging Technologies</i></p></div></li>
+          <li class="pub" data-type="demo" data-year="2026"><span class="venue">SIGGRAPH Asia</span><div><p class="title">AdaptiveFly: An Adaptive Embodied Control Framework for Navigation and Teleoperation</p><p class="authors">L. Kong, A. Dechaux, T. Yoshida, H. Zhang, S. Vishakan, <b>J. Xu</b>, G. Ganesh and M. Inami</p><p class="meta"><i>ACM SIGGRAPH Asia 2026 Emerging Technologies</i></p></div></li>
+          <li class="pub" data-type="demo" data-year="2026"><span class="venue">AsiaHaptics</span><div><p class="title">NailShear: A Fingerpad-Free Wearable for Directional Haptic Cues via Paronychial Skin Stretch</p><p class="authors">Y. Xu, <b>J. Xu</b>, S. Hasegawa and T. Narumi</p><p class="meta"><i>AsiaHaptics 2026</i></p></div></li>
+          <li class="pub" data-type="demo" data-year="2026"><span class="venue">AsiaHaptics</span><div><p class="title">ThermoTune: High-Speed Thermal Rendering of Music-Evoked Emotion</p><p class="authors">K. Watanabe, <b>J. Xu</b>, K. Chen and M. Inami</p><p class="meta"><i>AsiaHaptics 2026</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2026" lang="ja"><span class="venue">VRSJ</span><div><p class="title">Valence-Arousal モデルに基づく高速温冷刺激を用いた音楽体験拡張に関する検討</p><p class="authors">渡辺功侑, <b>許佳禕</b>, 稲見昌彦</p><p class="meta"><i>第31回日本バーチャルリアリティ学会大会</i></p></div></li>
+          <li class="pub" data-type="article" data-year="2026" lang="ja"><span class="venue">Article</span><div><p class="title">感覚はどこまで拡張できるのか ～「MoHeat Evo」が拓く視聴覚×温度インターフェース～</p><p class="authors"><b>許佳禕</b></p><p class="meta"><i>映画テレビ技術</i>, No. 887, 37–39</p></div></li>
+        </ol></section>
+        <section class="group"><h3>2025</h3><ol>
+          <li class="pub" data-type="journal" data-year="2025"><span class="venue">Sci. Rep.</span><div><p class="title">Monitoring the effect of alcohol intake via facial temperature variations using thermography synchronized with heartbeat</p><p class="authors">N. Kotani, K. Sakurada, <b>J. Xu</b>, M. Inami and Y. Monnai</p><p class="meta"><i>Scientific Reports</i>, 15, 32249 <a href="https://doi.org/10.1038/s41598-025-17801-9" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="journal" data-year="2025" lang="ja"><span class="venue">HIS Trans.</span><div><p class="title">皮膚温度変化の時間積分量に基づく温覚制御手法の開発</p><p class="authors">名嘉村和真, 伊藤天翔, <b>許佳禕</b>, 長谷川晶一, 家永直人, 黒田嘉宏</p><p class="meta"><i>ヒューマンインタフェース学会論文誌</i>, 27(3)</p></div></li>
+          <li class="pub" data-type="conference" data-year="2025"><span class="venue">SICE</span><div><p class="title">Synchro-Thermography: Monitoring ~10 mK Facial Temperature Changes with Heartbeat Referencing for Physiological Sensing</p><p class="authors">N. Kotani, K. Sakurada, <b>J. Xu</b>, M. Inami and Y. Monnai</p><p class="meta"><i>SICE Annual Conference 2025</i>, 1249–1254 <a href="https://doi.org/10.23919/SICEFES67750.2025.11236693" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="conference" data-year="2025"><span class="venue">WHC</span><div><p class="title">360-Degree Cold Sensation Presentation via Encircling Airflow Based on the Coandă Effect</p><p class="authors">K. Akimoto, <b>J. Xu</b>, A. Kaneko, N. Ienaga and Y. Kuroda</p><p class="meta"><i>IEEE World Haptics Conference 2025</i> <a href="https://doi.org/10.1109/WHC64065.2025.11123245" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="demo" data-year="2025"><span class="venue">SIGGRAPH Asia</span><div><p class="title">Feel What You See: A Novel Sensory Interface Linking Visual Heat Cues and Instant Thermal Feedback</p><p class="authors"><b>J. Xu</b>, K. Chen, Y. Kuroda, I. Kitahara and M. Inami</p><p class="meta"><i>SIGGRAPH Asia 2025</i> <a href="https://doi.org/10.1145/3757373.3763768" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2025" lang="ja"><span class="venue">VRSJ</span><div><p class="title">非侵襲的温熱刺激による飲用時の主観的印象変容を目的としたシステムの開発</p><p class="authors">何紀婷, <b>許佳禕</b>, 櫻田国治, 齊藤寛人, 門内靖明, 稲見昌彦</p><p class="meta"><i>第30回日本バーチャルリアリティ学会大会</i></p></div></li>
+          <li class="pub" data-type="article" data-year="2025" lang="ja"><span class="venue">Article</span><div><p class="title">温度感覚のバーチャルリアリティと人間の感覚</p><p class="authors">黒田嘉宏, <b>許佳禕</b></p><p class="meta"><i>理科資料</i>, 97</p></div></li>
+        </ol></section>
+        <section class="group"><h3>2024</h3><ol>
+          <li class="pub" data-type="journal" data-year="2024"><span class="venue">IEEE Access</span><div><p class="title">PhaseMix: A Periodic Motion Fusion Method for Adult Spinal Deformity Classification</p><p class="authors">K. Chen, <b>J. Xu</b>, T. Asada, K. Miura, K. Sakashita, T. Sunami, H. Kadone, M. Yamazaki, N. Ienaga and Y. Kuroda</p><p class="meta"><i>IEEE Access</i>, 12, 152358–152376 <a href="https://doi.org/10.1109/ACCESS.2024.3479165" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="conference" data-year="2024"><span class="venue">ICAT-EGVE</span><div><p class="title">Representation of Humidity Change Based on Heating the Local Skin</p><p class="authors">Y. Kuroda, S. Tamaki, <b>J. Xu</b>, S. Hasegawa and N. Ienaga</p><p class="meta"><i>ICAT-EGVE 2024</i></p></div></li>
+          <li class="pub" data-type="conference" data-year="2024"><span class="venue">AMC</span><div><p class="title">Machine Learning-Based Deformation Estimation for Grasping 3D Soft Objects</p><p class="authors"><b>J. Xu</b> and Y. Aiyama</p><p class="meta"><i>IEEE AMC 2024</i>, 1–6 <a href="https://doi.org/10.1109/AMC58169.2024.10505694" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="demo" data-year="2024"><span class="venue">AsiaHaptics</span><div><p class="title">MoHeat: A Modular Platform for High-Responsive Non-Contact Thermal Feedback Interactions</p><p class="authors"><b>J. Xu</b>, K. Nakamura, Y. Kuroda and M. Inami</p><p class="meta"><i>AsiaHaptics 2024</i> <a href="https://arxiv.org/abs/2411.05103" target="_blank" rel="noopener">arXiv</a></p></div></li>
+          <li class="pub" data-type="demo" data-year="2024"><span class="venue">AsiaHaptics</span><div><p class="title">DynaPain: Moving Flame Beetle with Dynamic Pain Illusion Adapting Apparent Movement to Thermal Grill Illusion</p><p class="authors">S. Mizuno, <b>J. Xu</b>, S. Hasegawa, N. Ienaga and Y. Kuroda</p><p class="meta"><i>AsiaHaptics 2024</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2024" lang="ja"><span class="venue">HI Symp.</span><div><p class="title">非接触提示による温知覚制御手法の開発</p><p class="authors">名嘉村和真, <b>許佳禕</b>, 長谷川晶一, 家永直人, 黒田嘉宏</p><p class="meta"><i>ヒューマンインタフェースシンポジウム2024</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2024" lang="ja"><span class="venue">VRSJ</span><div><p class="title">仮現運動による痛み錯覚の移動感提示装置の開発</p><p class="authors">水野蒼太, <b>許佳禕</b>, 長谷川晶一, 家永直人, 黒田嘉宏</p><p class="meta"><i>第29回日本バーチャルリアリティ学会大会</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2024" lang="ja"><span class="venue">VRSJ</span><div><p class="title">コアンダ効果を利用した局所冷刺激による一体感提示</p><p class="authors">秋元快成, <b>許佳禕</b>, 金子暁子, 家永直人, 黒田嘉宏</p><p class="meta"><i>第29回日本バーチャルリアリティ学会大会</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2024" lang="ja"><span class="venue">JSMVR</span><div><p class="title">作業中の覚醒度低下を防ぐための変調気流提示装置</p><p class="authors">汪君逸, 陳凱旭, <b>許佳禕</b>, 家永直人, 黒田嘉宏</p><p class="meta"><i>第23回日本VR医学会学術大会</i></p></div></li>
+        </ol></section>
+        <section class="group"><h3>2023</h3><ol>
+          <li class="pub" data-type="journal" data-year="2023"><span class="venue">ToH</span><div><p class="title">Integration of Independent Heat Transfer Mechanisms for Non-Contact Cold Sensation Presentation with Low Residual Heat</p><p class="authors"><b>J. Xu</b>, S. Hasegawa, K. Kiyokawa, N. Ienaga and Y. Kuroda</p><p class="meta"><i>IEEE Transactions on Haptics</i>, 16(4), 770–784 <a href="https://doi.org/10.1109/TOH.2023.3324754" target="_blank" rel="noopener">DOI</a> <a href="https://arxiv.org/abs/2310.14672" target="_blank" rel="noopener">arXiv</a></p></div></li>
+          <li class="pub" data-type="conference" data-year="2023"><span class="venue">WHC</span><div><p class="title">Spatially Continuous Non-Contact Cold Sensation Presentation Based on Low-Temperature Airflows</p><p class="authors">K. Makino, <b>J. Xu</b>, A. Kaneko, N. Ienaga and Y. Kuroda</p><p class="meta"><i>IEEE World Haptics Conference 2023</i>, 223–229 <a href="https://doi.org/10.1109/WHC56415.2023.10224498" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2023" lang="ja"><span class="venue">JSMVR</span><div><p class="title">教育訓練支援のための着座型温冷刺激装置による覚醒度変化に関する研究</p><p class="authors">張皖瑾, <b>許佳禕</b>, 家永直人, 黒田嘉宏</p><p class="meta"><i>第22回日本VR医学会学術大会</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2023" lang="ja"><span class="venue">VRSJ</span><div><p class="title">非接触痛み錯覚提示装置の開発</p><p class="authors">水野蒼太, <b>許佳禕</b>, 長谷川晶一, 家永直人, 黒田嘉宏</p><p class="meta"><i>第28回日本バーチャルリアリティ学会大会</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2023" lang="ja"><span class="venue">VRSJ</span><div><p class="title">冷気流群を用いた非接触首型冷覚提示デバイス</p><p class="authors">秋元快成, <b>許佳禕</b>, 家永直人, 黒田嘉宏</p><p class="meta"><i>第28回日本バーチャルリアリティ学会大会</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2023" lang="ja"><span class="venue">HIS SIGMAS</span><div><p class="title">非接触温冷刺激による即時的な温度フィードバック体験</p><p class="authors">張皖瑾, <b>許佳禕</b>, 家永直人, 黒田嘉宏</p><p class="meta"><i>ヒューマンインタフェース学会研究会 SIGMAS-15</i></p></div></li>
+        </ol></section>
+        <section class="group"><h3>2022</h3><ol>
+          <li class="pub" data-type="journal" data-year="2022"><span class="venue">ToH</span><div><p class="title">Intensity-Adjustable Non-Contact Cold Sensation Presentation Based on the Vortex Effect</p><p class="authors"><b>J. Xu</b>, S. Yoshimoto, N. Ienaga and Y. Kuroda</p><p class="meta"><i>IEEE Transactions on Haptics</i>, 15(3), 592–602 <a href="https://doi.org/10.1109/TOH.2022.3187759" target="_blank" rel="noopener">DOI</a> <a href="https://arxiv.org/abs/2208.13229" target="_blank" rel="noopener">arXiv</a></p></div></li>
+          <li class="pub" data-type="demo" data-year="2022"><span class="venue">AsiaHaptics</span><div><p class="title">HeatMagic: Intensity-adjustable Thermal Feedback System Based on the Vortex Effect and Thermal Radiation for Non-contact Thermal Interaction</p><p class="authors"><b>J. Xu</b>, S. Tamaki, K. Makino, S. Yoshimoto, H. Hasegawa, N. Ienaga and Y. Kuroda</p><p class="meta"><i>AsiaHaptics 2022</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2022" lang="ja"><span class="venue">VRSJ</span><div><p class="title">皮膚温度変化をゼロに保ちつつ感覚を生じさせる非接触冷覚提示</p><p class="authors"><b>許佳禕</b>, 長谷川晶一, 清川清, 家永直人, 黒田嘉宏</p><p class="meta"><i>第27回日本バーチャルリアリティ学会大会</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2022" lang="ja"><span class="venue">VRSJ</span><div><p class="title">冷気流群による一体感のある冷空間VRシステムの開発</p><p class="authors">牧野皓陽, <b>許佳禕</b>, 家永直人, 金子暁子, 黒田嘉宏</p><p class="meta"><i>第27回日本バーチャルリアリティ学会大会</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2022" lang="ja"><span class="venue">HI Symp.</span><div><p class="title">独立温湿度刺激による乾燥湿潤VRシステムの開発</p><p class="authors">玉木聖悟, <b>許佳禕</b>, 家永直人, 黒田嘉宏</p><p class="meta"><i>ヒューマンインタフェースシンポジウム2022</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2022" lang="ja"><span class="venue">HIS SIGMAS</span><div><p class="title">非接触温冷刺激による即時的な温度フィードバック体験</p><p class="authors"><b>許佳禕</b>, 清川清, 長谷川晶一, 家永直人, 黒田嘉宏</p><p class="meta"><i>ヒューマンインタフェース学会研究会 SIGMAS-13</i></p></div></li>
+          <li class="pub" data-type="domestic" data-year="2022" lang="ja"><span class="venue">HIS SIGMAS</span><div><p class="title">温湿度の独立制御による蒸し暑さ提示デバイスの開発</p><p class="authors">玉木聖悟, <b>許佳禕</b>, 家永直人, 黒田嘉宏</p><p class="meta"><i>ヒューマンインタフェース学会研究会 SIGMAS-13</i></p></div></li>
+        </ol></section>
+        <section class="group"><h3>2021</h3><ol>
+          <li class="pub" data-type="domestic" data-year="2021" lang="ja"><span class="venue">VRSJ</span><div><p class="title">不連続的な温度変化による非接触冷覚の連続性に関する評価</p><p class="authors"><b>許佳禕</b>, 長谷川晶一, 黒田嘉宏</p><p class="meta"><i>第26回日本バーチャルリアリティ学会大会</i></p></div></li>
+        </ol></section>
+        <section class="group"><h3>2020</h3><ol>
+          <li class="pub" data-type="domestic" data-year="2020" lang="ja"><span class="venue">HI Colloq.</span><div><p class="title">非接触温冷刺激の時分割提示手法の開発</p><p class="authors"><b>許佳禕</b>, 長谷川晶一, 黒田嘉宏</p><p class="meta"><i>ヒューマンインタフェースサイバーコロキウム2020</i>, 314–317</p></div></li>
+          <li class="pub" data-type="domestic" data-year="2020" lang="ja"><span class="venue">VRSJ</span><div><p class="title">即時的な非接触冷覚を制御するための冷却モデルのパラメータ推定</p><p class="authors"><b>許佳禕</b>, 吉元俊輔, 石塚裕己, 池田聖, 黒田嘉宏</p><p class="meta"><i>第25回日本バーチャルリアリティ学会大会</i></p></div></li>
+        </ol></section>
+        <section class="group"><h3>2019</h3><ol>
+          <li class="pub" data-type="conference" data-year="2019"><span class="venue">WHC</span><div><p class="title">Non-contact Cold Thermal Display by Controlling Low-temperature Air Flow Generated with Vortex Tube</p><p class="authors"><b>J. Xu</b>, Y. Kuroda, S. Yoshimoto and O. Oshiro</p><p class="meta"><i>IEEE World Haptics Conference 2019</i>, 133–138 <a href="https://doi.org/10.1109/WHC.2019.8816089" target="_blank" rel="noopener">DOI</a></p></div></li>
+          <li class="pub" data-type="demo" data-year="2019"><span class="venue">WHC</span><div><p class="title">Creating an Immersive Experience in a Cooling World with a Non-Contact Cold Thermal Display using Vortex Tube</p><p class="authors"><b>J. Xu</b>, Y. Kuroda, S. Yoshimoto, H. Ishizuka and O. Oshiro</p><p class="meta"><i>IEEE World Haptics Conference 2019</i>, Demo</p></div></li>
+          <li class="pub" data-type="domestic" data-year="2019" lang="ja"><span class="venue">Haptics WG</span><div><p class="title">冷気流による温度変化を表す物理モデルの構築</p><p class="authors"><b>許佳禕</b>, 黒田嘉宏, 吉元俊輔, 石塚裕己, 池田聖, 大城理</p><p class="meta"><i>ハプティクス研究委員会 第23回研究会</i>, 17–20</p></div></li>
+          <li class="pub" data-type="domestic" data-year="2019" lang="ja"><span class="venue">ISCIE</span><div><p class="title">冷気の流速制御による非接触型冷覚提示</p><p class="authors"><b>許佳禕</b>, 黒田嘉宏, 吉元俊輔, 大城理</p><p class="meta"><i>第63回システム制御情報学会研究発表講演会</i>, 413–417</p></div></li>
+        </ol></section>
+        <section class="group"><h3>2018</h3><ol>
+          <li class="pub" data-type="domestic" data-year="2018" lang="ja"><span class="venue">SICE SI</span><div><p class="title">非接触冷覚提示のためのボルテックスチューブを用いた冷気生成システム</p><p class="authors"><b>許佳禕</b>, 黒田嘉宏, 吉元俊輔, 大城理</p><p class="meta"><i>第19回計測自動制御学会システムインテグレーション部門講演会</i>, 546–548</p></div></li>
+        </ol></section>
+      </div>
+
+      <h3 class="sub">Patents</h3>
+      <ul class="rows" lang="ja">
+        <li><time>2021</time><span>黒田嘉宏, <b>許佳禕</b>.「冷覚呈示装置及びプログラム」特願2021-091472, PCT/JP2022/021922, 特許第7709781号 <em>Granted</em></span></li>
+        <li><time>2022</time><span>黒田嘉宏, 牧野皓陽, <b>許佳禕</b>, 金子暁子.「温冷覚呈示装置およびプログラム」特願2022-142263 <em>Filed</em></span></li>
+        <li><time>2025</time><span>櫻田国治, 稲見昌彦, 鳴海拓志, 中野萌士, <b>許佳禕</b>, 高下修聡, 禰寝崇之, 松本篤弥, 松嵜直幸, 前川知宏.「情報処理装置、情報処理方法、情報処理システム及びプログラム」特願2025-062761 <em>Filed</em></span></li>
+        <li><time>2025</time><span><b>許佳禕</b>, 稲見昌彦, 松嵜直幸.「刺激提供機能を備えたデバイス」特願2025-181183 <em>Filed</em></span></li>
+      </ul>
     </section>
 
     <!-- CV -->
-    <section id="cv" class="block wrap">
-      <div class="block-head"><span class="mono idx">06</span><h2>CV</h2></div>
-      <div class="cv-grid">
-        <div>
-          <h3 class="mono sub">Appointments &amp; education</h3>
-          <ol class="timeline">
-            <li><time class="mono">2025 — now</time><b>Project Assistant Professor</b><span>RCAST, The University of Tokyo</span></li>
-            <li><time class="mono">2024 — 2025</time><b>Project Researcher</b><span>RCAST, The University of Tokyo</span></li>
-            <li><time class="mono">2023 — 2024</time><b>Researcher</b><span><a href="https://sites.google.com/ms.esys.tsukuba.ac.jp/www/home" target="_blank" rel="noopener">Aiyama Lab</a>, University of Tsukuba</span></li>
-            <li class="edu"><time class="mono">2023</time><b>Ph.D. in Engineering</b><span>Systems and Information Engineering, University of Tsukuba · <a href="https://www.lelab.jp/en" target="_blank" rel="noopener">Life Engineering Lab</a></span></li>
-            <li class="edu"><time class="mono">2020</time><b>M.Eng.</b><span>Graduate School of Engineering Science, Osaka University</span></li>
-            <li><time class="mono">2017 — 2018</time><b>Research Student</b><span>School of Engineering Science, Osaka University</span></li>
-            <li class="edu"><time class="mono">2017</time><b>B.Eng. in Software Engineering</b><span>Wuhan University of Science and Technology, China</span></li>
-          </ol>
-          <h3 class="mono sub">Grants</h3>
-          <ul class="rows">
-            <li><time class="mono">2026–2028</time><span>JSPS KAKENHI Grant-in-Aid for Early-Career Scientists (PI)</span></li>
-            <li><time class="mono">2024–2025</time><span>JSPS KAKENHI Grant-in-Aid for Research Activity Start-up (PI)</span></li>
-            <li><time class="mono">2021–2022</time><span>JST SPRING Fellowship, University of Tsukuba</span></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="mono sub">Awards</h3>
-          <ul class="rows">
-            <li><time class="mono">2026</time><span><b>Best Student Paper Honorable Mention</b> — Augmented Humans 2026</span></li>
-            <li><time class="mono">2026</time><span><b>26th Paper Award</b> — Human Interface Society</span></li>
-            <li><time class="mono">2024</time><span><b>Best Paper Award Finalist</b> — ICAT-EGVE 2024</span></li>
-            <li><time class="mono">2024</time><span><b>Honorable Mention Award</b> — AsiaHaptics 2024</span></li>
-            <li><time class="mono">2023</time><span><b>Academic Encouragement Award</b> — 27th VRSJ Annual Conference</span></li>
-            <li><time class="mono">2022</time><span><b>Best Demonstration Award, Bronze</b> — AsiaHaptics 2022 Tokyo Satellite</span></li>
-            <li><time class="mono">2021</time><span><b>Grand Prize</b> — University of Tsukuba EDGE-NEXT</span></li>
-            <li><time class="mono">2020</time><span><b>Excellent Presentation Award</b> — Human Interface Cyber Colloquium</span></li>
-          </ul>
-          <h3 class="mono sub">Service</h3>
-          <ul class="rows">
-            <li><time class="mono">PC</time><span>SIGGRAPH Asia E-Tech 2025, 2026 · Augmented Humans 2026 · ICAT-EGVE 2025</span></li>
-            <li><time class="mono">Committee</time><span>Haptics Committee, Virtual Reality Society of Japan (2026–) · Judge, IVRC 2026</span></li>
-            <li><time class="mono">Reviewer</time><span>IEEE VR, IEEE WHC, ICAT-EGVE, AHs · IEEE ToH, Computers &amp; Graphics</span></li>
-          </ul>
-          <h3 class="mono sub">Teaching &amp; mentoring</h3>
-          <ul class="rows">
-            <li><time class="mono">2026</time><span>Guest lecture, Special Lecture on Artificial Reality (graduate), UTokyo</span></li>
-            <li><time class="mono">2025–2026</time><span>First-Year Seminar: Practical Cybernetics, UTokyo</span></li>
-            <li><time class="mono">2024–now</time><span>Supervised 3 master’s graduates; currently 2 master’s students and interns</span></li>
-          </ul>
-        </div>
+    <section id="cv" class="block">
+      <h2>CV</h2>
+      <div class="cv">
+        <section class="cv-part">
+        <h3>Appointments</h3>
+        <ol class="cv-list">
+          <li><time>2025 – now</time><div><b>Project Assistant Professor</b><span><a href="https://star.rcast.u-tokyo.ac.jp/" target="_blank" rel="noopener">Inami &amp; Monnai Lab</a>, RCAST, The University of Tokyo</span></div></li>
+          <li><time>2024 – 2025</time><div><b>Project Researcher</b><span><a href="https://star.rcast.u-tokyo.ac.jp/" target="_blank" rel="noopener">Inami &amp; Monnai Lab</a>, RCAST, The University of Tokyo</span></div></li>
+          <li><time>2023 – 2024</time><div><b>Researcher</b><span><a href="https://sites.google.com/ms.esys.tsukuba.ac.jp/www/home" target="_blank" rel="noopener">Aiyama Lab</a>, University of Tsukuba</span></div></li>
+          <li><time>2017 – 2018</time><div><b>Research Student</b><span><a href="https://oshiro.bpe.es.osaka-u.ac.jp/" target="_blank" rel="noopener">Oshiro Lab</a>, School of Engineering Science, Osaka University</span></div></li>
+        </ol>
+        </section>
+        <section class="cv-part">
+        <h3>Education</h3>
+        <ol class="cv-list">
+          <li><time>2023</time><div><b>Ph.D. in Engineering</b><span><a href="https://www.lelab.jp/en" target="_blank" rel="noopener">Life Engineering Lab</a>, Systems and Information Engineering, University of Tsukuba</span></div></li>
+          <li><time>2020</time><div><b>M.Eng.</b><span><a href="https://oshiro.bpe.es.osaka-u.ac.jp/" target="_blank" rel="noopener">Oshiro Lab</a>, Graduate School of Engineering Science, Osaka University</span></div></li>
+          <li><time>2017</time><div><b>B.Eng. in Software Engineering</b><span>Wuhan University of Science and Technology, China</span></div></li>
+        </ol>
+        </section>
+        <section class="cv-part">
+        <h3>Grants</h3>
+        <ol class="cv-list">
+          <li><time>2026 – 2028</time><div><b>JSPS KAKENHI Grant-in-Aid for Early-Career Scientists</b><span>Principal Investigator</span></div></li>
+          <li><time>2024 – 2025</time><div><b>JSPS KAKENHI Grant-in-Aid for Research Activity Start-up</b><span>Principal Investigator</span></div></li>
+          <li><time>2021 – 2022</time><div><b>JST SPRING Fellowship</b><span>University of Tsukuba</span></div></li>
+        </ol>
+        </section>
+        <section class="cv-part">
+        <h3>Awards</h3>
+        <ol class="cv-list compact">
+          <li><time>2026</time><div><b>Best Student Paper Honorable Mention</b><span>Augmented Humans 2026</span></div></li>
+          <li><time>2026</time><div><b>26th Paper Award</b><span>Human Interface Society</span></div></li>
+          <li><time>2024</time><div><b>Best Paper Award Finalist</b><span>ICAT-EGVE 2024</span></div></li>
+          <li><time>2024</time><div><b>Honorable Mention Award</b><span>AsiaHaptics 2024</span></div></li>
+          <li><time>2023</time><div><b>Academic Encouragement Award</b><span>27th VRSJ Annual Conference</span></div></li>
+          <li><time>2022</time><div><b>Best Demonstration Award, Bronze</b><span>AsiaHaptics 2022 Tokyo Satellite</span></div></li>
+          <li><time>2021</time><div><b>Grand Prize</b><span>University of Tsukuba EDGE-NEXT</span></div></li>
+          <li><time>2020</time><div><b>Excellent Presentation Award</b><span>Human Interface Cyber Colloquium</span></div></li>
+        </ol>
+        </section>
+        <section class="cv-part">
+        <h3>Service</h3>
+        <ol class="cv-list">
+          <li><time aria-hidden="true"></time><div><b>Program Committee</b><span>SIGGRAPH Asia E-Tech 2025, 2026 · Augmented Humans 2026 · ICAT-EGVE 2025</span></div></li>
+          <li><time aria-hidden="true"></time><div><b>Committees</b><span>Haptics Committee, Virtual Reality Society of Japan (2026–) · Judge, IVRC 2026</span></div></li>
+          <li><time aria-hidden="true"></time><div><b>Reviewer</b><span>IEEE VR, IEEE WHC, ICAT-EGVE, AHs · IEEE ToH, Computers &amp; Graphics</span></div></li>
+        </ol>
+        </section>
+        <section class="cv-part">
+        <h3>Teaching &amp; mentoring</h3>
+        <ol class="cv-list">
+          <li><time>2026</time><div><b>Guest lecture, Special Lecture on Artificial Reality</b><span>Graduate course, The University of Tokyo</span></div></li>
+          <li><time>2025 – 2026</time><div><b>First-Year Seminar: Practical Cybernetics</b><span>The University of Tokyo</span></div></li>
+          <li><time>2024 – now</time><div><b>Student supervision</b><span>3 master’s graduates; currently 2 master’s students and interns</span></div></li>
+        </ol>
+        </section>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="block wrap contact">
-      <div class="contact-card">
-        <p class="mono kicker"><span class="pulse"></span>OPEN TO COLLABORATION · STUDENTS · INDUSTRY</p>
-        <h2>Let’s build interfaces you can <span class="temp">feel</span>.</h2>
-        <a class="mail" href="mailto:xu.jiayi@star.rcast.u-tokyo.ac.jp">xu.jiayi@star.rcast.u-tokyo.ac.jp</a>
-        <div class="contact-grid">
-          <div><p class="mono label">Affiliation</p><p>Information Somatics Lab (Inami Lab)<br>Research Center for Advanced Science and Technology<br>The University of Tokyo</p></div>
-          <div class="ids"><p class="mono label">Researcher IDs</p>
-            <dl class="mono">
-              <dt>Scholar</dt><dd><a href="https://scholar.google.com/citations?user=hhRvwysAAAAJ" target="_blank" rel="noopener">hhRvwysAAAAJ</a></dd>
-              <dt>ORCID</dt><dd><a href="https://orcid.org/0000-0002-3675-5902" target="_blank" rel="noopener">0000-0002-3675-5902</a></dd>
-              <dt>researchmap</dt><dd><a href="https://researchmap.jp/jiayi-xu/" target="_blank" rel="noopener">R000030183</a></dd>
-              <dt>KAKEN</dt><dd><a href="https://nrid.nii.ac.jp/en/nrid/1000020996433/" target="_blank" rel="noopener">20996433</a></dd>
-              <dt>J-GLOBAL</dt><dd><a href="https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=202101010961986566" target="_blank" rel="noopener">202101010961986566</a></dd>
-            </dl>
-          </div>
-          <div><p class="mono label">Links</p><p><a href="https://star.rcast.u-tokyo.ac.jp/en/" target="_blank" rel="noopener">Information Somatics Lab ↗</a><br><a href="https://www.lelab.jp/en" target="_blank" rel="noopener">Life Engineering Lab, Univ. of Tsukuba ↗</a><br><a href="https://moheat-evo.github.io/" target="_blank" rel="noopener">MoHeat Evo ↗</a></p></div>
+    <section id="contact" class="block">
+      <h2>Contact</h2>
+      <p class="lead">I’m open to collaboration with researchers, students and industry.</p>
+      <div class="contact-grid">
+        <div>
+          <h3 class="sub">Email</h3>
+          <p><a href="mailto:xu.jiayi@star.rcast.u-tokyo.ac.jp">xu.jiayi@star.rcast.u-tokyo.ac.jp</a></p>
+        </div>
+        <div>
+          <h3 class="sub">Address</h3>
+          <p>Inami &amp; Monnai Lab<br>Research Center for Advanced Science and Technology<br>The University of Tokyo</p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="wrap footer mono">© 2026 Jiayi Xu · Tokyo</footer>
-  <script src="script.js?v=202610011753"></script>
+  <dialog id="player" aria-label="Project video">
+    <button class="close" aria-label="Close">×</button>
+    <video controls playsinline></video>
+    <p class="caption"></p>
+  </dialog>
+
+  <footer class="wrap footer">© 2026 Jiayi Xu · Tokyo</footer>
+  <script src="script.js?v=202610240200"></script>
 </body>
 </html>
