@@ -10,17 +10,22 @@ index.html              Content (intro, news, projects, research, publications, 
 styles.css              Soft blue palette + frosted surfaces
 script.js               Projects video player · Publications tabs · nav highlight
 projects/               Standalone research archive; ?view=all opens all projects
+  projects.js           Project catalogue (cards, details, versions)
+  module.js/.css        Archive page logic and styles
 assets/
   images/profile.jpg    Portrait
   papers/               Hosted paper PDFs (only open-licence ones, e.g. CC BY)
-  projects/             One video + poster per project, named by project
-    moheat-evo.mp4/.jpg   (web-compressed: 720p H.264, ~1.8 Mbps)
-    …
-tools/                  Swift helpers: transcode.swift (compress video), frames.swift (grab poster frames)
+  projects/             All project media for both pages, named by project
+    NAME.mp4/.jpg         Video + poster (web-compressed: 720p H.264, ~1.8 Mbps)
+    NAME-detail.jpg       Larger figure shown in the archive's detail view
+tools/
+  transcode.swift       Compress a video
+  frames.swift          Grab poster frames
+  preview.py            Local preview server (public files only)
+  check-public-release.py  Pre-publish audit (paths exist, 2027 work stays locked)
 _private/               Git-ignored, never published
-  cv/                   CV PDF
-  photos/               Original portrait photos
-  videos/               Original project videos (incl. unreleased 2027 ones)
+  cv/ photos/ videos/   CV PDF, original portraits, original videos (incl. unreleased 2027 ones)
+  papers/ thesis/ presentations/ previews/ restricted-media/
 ```
 
 ## Updating
@@ -29,7 +34,7 @@ Run `python3 tools/check-public-release.py` before publishing. Only the unpublis
 ```bash
 git add -A && git commit -m "Describe the change" && git push
 ```
-After changing `styles.css` or `script.js`, bump the `?v=` number on their tags in `index.html` so browsers load the new files.
+After changing `styles.css` or `script.js`, bump the `?v=` number on their tags in `index.html`; likewise for `projects/*.js|css` in `projects/index.html`. Browsers then load the new files.
 
 ## Publications
 Each publication is one `<li class="pub">` inside `#pubList` with `data-year` and `data-type` (journal / conference / demo / domestic / article); the type sets the badge colour and the badge (`.venue`) is the short venue name. Add new entries anywhere in the list — `script.js` builds the tabs and counts:

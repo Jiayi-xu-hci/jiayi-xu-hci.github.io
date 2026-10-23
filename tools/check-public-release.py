@@ -52,7 +52,7 @@ class MediaCheck(HTMLParser):
 MediaCheck().feed((ROOT / 'index.html').read_text())
 
 # The user restricts only the unpublished 2027 studies; 2026 accepted work stays visible.
-for directory in [ROOT / 'assets/projects', ROOT / 'projects/assets/projects']:
+for directory in [ROOT / 'assets/projects']:
     for path in directory.glob('*'):
         if any(name in path.name.lower() for name in ['2027', 'thermalbreath', 'panosomafly', 'predictivefly']):
             errors.append('Unpublished 2027 media found in public assets')

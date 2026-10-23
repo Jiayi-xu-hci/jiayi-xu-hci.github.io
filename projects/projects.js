@@ -157,7 +157,7 @@ const PROJECTS = [
           "Armonii assigns low-intensity supportive movement to the robotic arm not currently under active control, regulating motion-induced loads within perceptually acceptable bounds.",
           "User studies found that prioritizing gravity compensation reduced perceived burden while preserving embodiment."
         ],
-        "image": "assets/projects/armonii.jpg",
+        "image": "../assets/projects/armonii.jpg",
         "alt": "Armonii — original research illustration",
         "source": "Original paper · Fig. 1",
         "selected": false,
@@ -169,7 +169,7 @@ const PROJECTS = [
         ],
         "status": "Accepted",
         "rank": 100,
-        "detailImage": "assets/projects/armonii-detail.jpg"
+        "detailImage": "../assets/projects/armonii-detail.jpg"
       }
     ]
   },
@@ -242,7 +242,7 @@ const PROJECTS = [
         "href": "https://arxiv.org/abs/2506.04748"
       }
     ],
-    "image": "assets/projects/synchro-thermography.jpg",
+    "image": "../assets/projects/synchro-thermography.jpg",
     "alt": "Thermal imaging and heartbeat signals combined to reveal small changes in facial temperature",
     "source": "SICE paper · Fig. 1",
     "venue": "SICE Annual Conference 2025",
@@ -257,7 +257,7 @@ const PROJECTS = [
     "selected": false,
     "shortVenue": "SICE",
     "rank": 100,
-    "detailImage": "assets/projects/synchro-thermography-detail.jpg",
+    "detailImage": "../assets/projects/synchro-thermography-detail.jpg",
     "versions": [
       {
         "links": [
@@ -266,7 +266,7 @@ const PROJECTS = [
             "href": "https://arxiv.org/abs/2506.04748"
           }
         ],
-        "image": "assets/projects/synchro-thermography.jpg",
+        "image": "../assets/projects/synchro-thermography.jpg",
         "alt": "Thermal imaging and heartbeat signals combined to reveal small changes in facial temperature",
         "source": "SICE paper · Fig. 1",
         "venue": "SICE Annual Conference 2025",
@@ -281,7 +281,7 @@ const PROJECTS = [
         "selected": false,
         "shortVenue": "SICE",
         "rank": 100,
-        "detailImage": "assets/projects/synchro-thermography-detail.jpg"
+        "detailImage": "../assets/projects/synchro-thermography-detail.jpg"
       },
       {
         "id": "alcohol-thermography",
@@ -294,7 +294,7 @@ const PROJECTS = [
           "The study applies synchronized thermal imaging to monitor changes following alcohol intake, comparing facial temperature fluctuations with heartbeat timing.",
           "Synchrony weakened within 10–30 minutes after drinking, including in participants without visible flushing; these preliminary findings concern physiological monitoring rather than a validated sobriety test."
         ],
-        "image": "assets/projects/alcohol-thermography.jpg",
+        "image": "../assets/projects/alcohol-thermography.jpg",
         "alt": "Alcohol Effects in Facial Thermography — original research illustration",
         "source": "Original paper · Fig. 1",
         "selected": false,
@@ -305,7 +305,7 @@ const PROJECTS = [
           }
         ],
         "rank": 100,
-        "detailImage": "assets/projects/alcohol-thermography-detail.jpg"
+        "detailImage": "../assets/projects/alcohol-thermography-detail.jpg"
       }
     ]
   },
@@ -378,7 +378,7 @@ const PROJECTS = [
         "href": "https://doi.org/10.1007/978-3-032-32230-2_8"
       }
     ],
-    "image": "assets/projects/facial-thermal-remapping.jpg",
+    "image": "../assets/projects/facial-thermal-remapping.jpg",
     "alt": "Headset-mounted LED array maps local facial heat cues to virtual hands and feet",
     "source": "EuroHaptics paper · Fig. 1",
     "venue": "EuroHaptics 2026",
@@ -393,7 +393,7 @@ const PROJECTS = [
     "selected": false,
     "shortVenue": "EuroHaptics",
     "rank": 100,
-    "detailImage": "assets/projects/facial-thermal-remapping-detail.jpg"
+    "detailImage": "../assets/projects/facial-thermal-remapping-detail.jpg"
   },
   {
     "links": [
@@ -426,7 +426,7 @@ const PROJECTS = [
         "href": "https://doi.org/10.1109/TOH.2023.3324754"
       }
     ],
-    "image": "assets/projects/low-residual-cold.jpg",
+    "image": "../assets/projects/low-residual-cold.jpg",
     "alt": "Alternating cold airflow and light-based heating produces persistent cold while keeping skin temperature near its starting point",
     "source": "IEEE ToH paper · Fig. 1",
     "venue": "IEEE Transactions on Haptics 2023",
@@ -441,7 +441,7 @@ const PROJECTS = [
     "selected": false,
     "shortVenue": "IEEE ToH",
     "rank": 100,
-    "detailImage": "assets/projects/low-residual-cold-detail.jpg",
+    "detailImage": "../assets/projects/low-residual-cold-detail.jpg",
     "versions": [
       {
         "links": [
@@ -450,7 +450,7 @@ const PROJECTS = [
             "href": "https://doi.org/10.1109/TOH.2023.3324754"
           }
         ],
-        "image": "assets/projects/low-residual-cold.jpg",
+        "image": "../assets/projects/low-residual-cold.jpg",
         "alt": "Alternating cold airflow and light-based heating produces persistent cold while keeping skin temperature near its starting point",
         "source": "IEEE ToH paper · Fig. 1",
         "venue": "IEEE Transactions on Haptics 2023",
@@ -465,7 +465,7 @@ const PROJECTS = [
         "selected": false,
         "shortVenue": "IEEE ToH",
         "rank": 100,
-        "detailImage": "assets/projects/low-residual-cold-detail.jpg"
+        "detailImage": "../assets/projects/low-residual-cold-detail.jpg"
       },
       {
         "id": "cold-continuity-vrsj",
@@ -477,11 +477,11 @@ const PROJECTS = [
           "Rapid cooling alternates with slower warming on the same skin region to investigate a continuous cold sensation with little net temperature change.",
           "The Japanese report describes the non-contact airflow-and-light prototype and evaluates the continuity of cold perception."
         ],
-        "image": "assets/projects/low-residual-cold.jpg",
+        "image": "../assets/projects/low-residual-cold.jpg",
         "alt": "Alternating cold airflow and light-based heating produces persistent cold while keeping skin temperature near its starting point",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s IEEE ToH paper · Fig. 1",
         "links": [],
-        "detailImage": "assets/projects/low-residual-cold-detail.jpg"
+        "detailImage": "../assets/projects/low-residual-cold-detail.jpg"
       },
       {
         "id": "zero-skin-temperature-vrsj",
@@ -493,7 +493,7 @@ const PROJECTS = [
           "Perceptible temperature decreases alternate with imperceptible increases to sustain a cold sensation while keeping skin temperature nearly unchanged.",
           "This domestic demonstration presents the approach later developed in the IEEE Transactions on Haptics study."
         ],
-        "image": "assets/projects/low-residual-cold.jpg",
+        "image": "../assets/projects/low-residual-cold.jpg",
         "alt": "Alternating cold airflow and light-based heating produces persistent cold while keeping skin temperature near its starting point",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s IEEE ToH paper · Fig. 1",
         "links": [
@@ -502,14 +502,14 @@ const PROJECTS = [
             "href": "https://conference.vrsj.org/ac2022/program/doc/2G-22.pdf"
           }
         ],
-        "detailImage": "assets/projects/low-residual-cold-detail.jpg"
+        "detailImage": "../assets/projects/low-residual-cold-detail.jpg"
       }
     ]
   },
   {
     "links": [],
-    "video": "assets/projects/heatmagic.mp4",
-    "image": "assets/projects/heatmagic.jpg",
+    "video": "../assets/projects/heatmagic.mp4",
+    "image": "../assets/projects/heatmagic.jpg",
     "venue": "AsiaHaptics 2022",
     "title": "HeatMagic / Vortex Cooling",
     "summary": "Adjustable cold air and radiant heat bring virtual ice and fire to bare skin.",
@@ -527,8 +527,8 @@ const PROJECTS = [
     "versions": [
       {
         "links": [],
-        "video": "assets/projects/heatmagic.mp4",
-        "image": "assets/projects/heatmagic.jpg",
+        "video": "../assets/projects/heatmagic.mp4",
+        "image": "../assets/projects/heatmagic.jpg",
         "venue": "AsiaHaptics 2022",
         "title": "HeatMagic",
         "summary": "Non-contact thermal feedback lets bare skin feel a virtual wizard’s ice and fire.",
@@ -555,7 +555,7 @@ const PROJECTS = [
           "Cold air generated by the vortex effect is controlled through flow rate and distance to the skin, linking hardware settings to skin-temperature changes and distinguishable sensation levels.",
           "The model estimated skin-temperature changes with an RMSE of 0.16 °C, providing a design basis for graded thermal feedback; this develops earlier vortex-tube work presented at WHC 2019."
         ],
-        "image": "assets/projects/vortex-cooling.jpg",
+        "image": "../assets/projects/vortex-cooling.jpg",
         "alt": "Intensity-Adjustable Vortex Cooling — original research illustration",
         "source": "Original paper · Fig. 1",
         "selected": false,
@@ -566,7 +566,7 @@ const PROJECTS = [
           }
         ],
         "rank": 100,
-        "detailImage": "assets/projects/vortex-cooling-detail.jpg"
+        "detailImage": "../assets/projects/vortex-cooling-detail.jpg"
       }
     ]
   },
@@ -581,7 +581,7 @@ const PROJECTS = [
         "href": "https://github.com/ChenKaiXuSan/Skeleton_ASD_PyTorch"
       }
     ],
-    "image": "assets/projects/phasemix.jpg",
+    "image": "../assets/projects/phasemix.jpg",
     "alt": "Video-based gait analysis pipeline from person detection and segmentation to movement classification",
     "source": "IEEE Access paper · Fig. 1",
     "venue": "IEEE Access 2024",
@@ -596,7 +596,7 @@ const PROJECTS = [
     "selected": false,
     "shortVenue": "IEEE Access",
     "rank": 100,
-    "detailImage": "assets/projects/phasemix-detail.jpg"
+    "detailImage": "../assets/projects/phasemix-detail.jpg"
   },
   {
     "id": "nailshear",
@@ -609,14 +609,14 @@ const PROJECTS = [
       "Four motor-driven tethers stretch the skin around the nail folds, producing directional traction in a 6.1 g prototype that leaves the fingerpad available for pinching and touching real objects.",
       "Four-direction recognition reached 81.9%, showing a haptic channel compatible with natural fingertip contact."
     ],
-    "image": "assets/projects/nailshear.jpg",
+    "image": "../assets/projects/nailshear.jpg",
     "alt": "NailShear — original research illustration",
     "source": "Original paper · Fig. 1",
     "selected": false,
     "links": [],
     "status": "Accepted",
     "rank": 100,
-    "detailImage": "assets/projects/nailshear-detail.jpg"
+    "detailImage": "../assets/projects/nailshear-detail.jpg"
   },
   {
     "id": "dynapain",
@@ -629,7 +629,7 @@ const PROJECTS = [
       "Cold airflow and optical heating create a non-contact thermal grill illusion; switching its location produces apparent movement synchronized with a virtual beetle.",
       "The demonstration explores moving heat and pain-like sensations as a dynamic medium for virtual interactions."
     ],
-    "image": "assets/projects/dynapain.jpg",
+    "image": "../assets/projects/dynapain.jpg",
     "alt": "DynaPain — original research illustration",
     "source": "Embedded presentation video · virtual stimulus",
     "selected": false,
@@ -639,7 +639,7 @@ const PROJECTS = [
         "href": "https://arxiv.org/abs/2411.05155"
       }
     ],
-    "video": "assets/projects/dynapain.mp4",
+    "video": "../assets/projects/dynapain.mp4",
     "rank": 100,
     "versions": [
       {
@@ -653,7 +653,7 @@ const PROJECTS = [
           "Cold airflow and optical heating create a non-contact thermal grill illusion; switching its location produces apparent movement synchronized with a virtual beetle.",
           "The demonstration explores moving heat and pain-like sensations as a dynamic medium for virtual interactions."
         ],
-        "image": "assets/projects/dynapain.jpg",
+        "image": "../assets/projects/dynapain.jpg",
         "alt": "DynaPain — original research illustration",
         "source": "Embedded presentation video · virtual stimulus",
         "selected": false,
@@ -663,7 +663,7 @@ const PROJECTS = [
             "href": "https://arxiv.org/abs/2411.05155"
           }
         ],
-        "video": "assets/projects/dynapain.mp4",
+        "video": "../assets/projects/dynapain.mp4",
         "rank": 100
       },
       {
@@ -676,7 +676,7 @@ const PROJECTS = [
           "Cold airflow and optical heating create spatial patterns of warm and cool stimulation without a contact pad.",
           "The prototype enables investigation of how stimulus intensity and distribution affect the thermal grill illusion, forming the foundation for the later moving-pain demonstration."
         ],
-        "image": "assets/projects/dynapain.jpg",
+        "image": "../assets/projects/dynapain.jpg",
         "alt": "DynaPain — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s Embedded presentation video · virtual stimulus",
         "links": [
@@ -696,7 +696,7 @@ const PROJECTS = [
           "Apparent motion is applied to a non-contact thermal-grill interface to move the perceived location of a pain-like thermal illusion.",
           "The report investigates how the time interval between presentations affects the continuity of the moving sensation."
         ],
-        "image": "assets/projects/dynapain.jpg",
+        "image": "../assets/projects/dynapain.jpg",
         "alt": "DynaPain — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s Embedded presentation video · virtual stimulus",
         "links": [
@@ -719,7 +719,7 @@ const PROJECTS = [
       "An armband encodes error magnitude through the location of vibration rather than intensity alone, using Slider and Bar patterns.",
       "Compared with intensity-based feedback, spatial cues produced a more linear magnitude scale and reduced task completion time by 10.8–17.2% in a grip-force guidance task."
     ],
-    "image": "assets/projects/haptic-guidance.jpg",
+    "image": "../assets/projects/haptic-guidance.jpg",
     "alt": "Spatial Haptic Guidance — original research illustration",
     "source": "Original paper · Fig. 1",
     "selected": false,
@@ -730,7 +730,7 @@ const PROJECTS = [
       }
     ],
     "rank": 100,
-    "detailImage": "assets/projects/haptic-guidance-detail.jpg"
+    "detailImage": "../assets/projects/haptic-guidance-detail.jpg"
   },
   {
     "id": "spectral-space",
@@ -743,7 +743,7 @@ const PROJECTS = [
       "Objects are assigned visibility functions along an additional non-spatial frequency axis, allowing users to move through continuous overlaps between virtual scenes.",
       "The framework offers an alternative to discrete portals and scene switches for designing layered, subjective virtual spaces."
     ],
-    "image": "assets/projects/spectral-space.jpg",
+    "image": "../assets/projects/spectral-space.jpg",
     "alt": "Spectral Space — original research illustration",
     "source": "Original paper · Fig. 1",
     "selected": false,
@@ -754,7 +754,7 @@ const PROJECTS = [
       }
     ],
     "rank": 100,
-    "detailImage": "assets/projects/spectral-space-detail.jpg"
+    "detailImage": "../assets/projects/spectral-space-detail.jpg"
   },
   {
     "id": "coanda-cold",
@@ -767,7 +767,7 @@ const PROJECTS = [
       "The interface uses the Coandă effect to guide cold jets around a curved body surface, testing nozzle arrangements with a silicone phantom and human participants.",
       "It investigates how airflow geometry can reduce the hardware needed for broad-area thermal sensations."
     ],
-    "image": "assets/projects/coanda-cold.jpg",
+    "image": "../assets/projects/coanda-cold.jpg",
     "alt": "360° Cold with Encircling Airflow — original research illustration",
     "source": "Original paper · Fig. 1",
     "selected": false,
@@ -778,7 +778,7 @@ const PROJECTS = [
       }
     ],
     "rank": 100,
-    "detailImage": "assets/projects/coanda-cold-detail.jpg",
+    "detailImage": "../assets/projects/coanda-cold-detail.jpg",
     "versions": [
       {
         "id": "coanda-cold",
@@ -791,7 +791,7 @@ const PROJECTS = [
           "The interface uses the Coandă effect to guide cold jets around a curved body surface, testing nozzle arrangements with a silicone phantom and human participants.",
           "It investigates how airflow geometry can reduce the hardware needed for broad-area thermal sensations."
         ],
-        "image": "assets/projects/coanda-cold.jpg",
+        "image": "../assets/projects/coanda-cold.jpg",
         "alt": "360° Cold with Encircling Airflow — original research illustration",
         "source": "Original paper · Fig. 1",
         "selected": false,
@@ -802,7 +802,7 @@ const PROJECTS = [
           }
         ],
         "rank": 100,
-        "detailImage": "assets/projects/coanda-cold-detail.jpg"
+        "detailImage": "../assets/projects/coanda-cold-detail.jpg"
       },
       {
         "id": "neck-cold-vrsj",
@@ -814,7 +814,7 @@ const PROJECTS = [
           "An airflow-array display is designed to produce a unified cold sensation around the neck.",
           "The Japanese presentation reports the design of an accessible neck-focused device for thermal environmental feedback in VR."
         ],
-        "image": "assets/projects/coanda-cold.jpg",
+        "image": "../assets/projects/coanda-cold.jpg",
         "alt": "360° Cold with Encircling Airflow — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s Original paper · Fig. 1",
         "links": [
@@ -823,7 +823,7 @@ const PROJECTS = [
             "href": "https://conference.vrsj.org/ac2023/program/doc/2A2-03.pdf"
           }
         ],
-        "detailImage": "assets/projects/coanda-cold-detail.jpg"
+        "detailImage": "../assets/projects/coanda-cold-detail.jpg"
       },
       {
         "id": "coanda-vrsj",
@@ -835,7 +835,7 @@ const PROJECTS = [
           "Jets that follow a curved surface are used to investigate how local cooling can be perceived as a unified stimulus.",
           "Temperature measurements and simulations examine the contributions of temperature-change rate and pressure to this perceptual continuity."
         ],
-        "image": "assets/projects/coanda-cold.jpg",
+        "image": "../assets/projects/coanda-cold.jpg",
         "alt": "360° Cold with Encircling Airflow — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s Original paper · Fig. 1",
         "links": [
@@ -844,7 +844,7 @@ const PROJECTS = [
             "href": "https://conference.vrsj.org/ac2024/program/doc/1D1-12.pdf"
           }
         ],
-        "detailImage": "assets/projects/coanda-cold-detail.jpg"
+        "detailImage": "../assets/projects/coanda-cold-detail.jpg"
       }
     ]
   },
@@ -859,7 +859,7 @@ const PROJECTS = [
       "Measurements at selected positions train a model to predict force and deformation responses at other positions on a sponge and a plastic bottle.",
       "Deformation estimation errors stayed within ±0.67 mm for tested deformations up to 10 mm, supporting more informed gripping-force selection."
     ],
-    "image": "assets/projects/soft-object.jpg",
+    "image": "../assets/projects/soft-object.jpg",
     "alt": "Learning to Grasp Soft Objects — original research illustration",
     "source": "Original paper · Fig. 1",
     "selected": false,
@@ -870,7 +870,7 @@ const PROJECTS = [
       }
     ],
     "rank": 100,
-    "detailImage": "assets/projects/soft-object-detail.jpg"
+    "detailImage": "../assets/projects/soft-object-detail.jpg"
   },
   {
     "id": "humidity",
@@ -883,7 +883,7 @@ const PROJECTS = [
       "The device combines LED heating with mist and dry-air generation to manipulate humidity near a small region of the skin.",
       "User studies found stronger humid sensations with heating and suggested that time-divided stimulation reduced variability."
     ],
-    "image": "assets/projects/humidity.jpg",
+    "image": "../assets/projects/humidity.jpg",
     "alt": "Localized Humidity Feedback — original research illustration",
     "source": "Original paper · Fig. 1",
     "selected": false,
@@ -894,7 +894,7 @@ const PROJECTS = [
       }
     ],
     "rank": 100,
-    "detailImage": "assets/projects/humidity-detail.jpg"
+    "detailImage": "../assets/projects/humidity-detail.jpg"
   },
   {
     "id": "thermal-control",
@@ -907,13 +907,13 @@ const PROJECTS = [
       "The method models thermal sensation onset using the time integral of skin-temperature change and adjusts the heating stimulus using real-time temperature measurements.",
       "Experiments reported onset timing accuracy ranging from 0.59 to 1.54 seconds, addressing synchronization between thermal feedback and virtual events."
     ],
-    "image": "assets/projects/thermal-control.jpg",
+    "image": "../assets/projects/thermal-control.jpg",
     "alt": "Timing Thermal Perception — original research illustration",
     "source": "Original paper · Fig. 1",
     "selected": false,
     "links": [],
     "rank": 100,
-    "detailImage": "assets/projects/thermal-control-detail.jpg",
+    "detailImage": "../assets/projects/thermal-control-detail.jpg",
     "versions": [
       {
         "id": "thermal-control",
@@ -926,13 +926,13 @@ const PROJECTS = [
           "The method models thermal sensation onset using the time integral of skin-temperature change and adjusts the heating stimulus using real-time temperature measurements.",
           "Experiments reported onset timing accuracy ranging from 0.59 to 1.54 seconds, addressing synchronization between thermal feedback and virtual events."
         ],
-        "image": "assets/projects/thermal-control.jpg",
+        "image": "../assets/projects/thermal-control.jpg",
         "alt": "Timing Thermal Perception — original research illustration",
         "source": "Original paper · Fig. 1",
         "selected": false,
         "links": [],
         "rank": 100,
-        "detailImage": "assets/projects/thermal-control-detail.jpg"
+        "detailImage": "../assets/projects/thermal-control-detail.jpg"
       },
       {
         "id": "feedback-warmth-his",
@@ -944,11 +944,11 @@ const PROJECTS = [
           "A small non-contact temperature sensor measures skin temperature in real time, allowing feedback control of LED heating toward a target temperature profile.",
           "The study examines how skin-temperature change rate affects sensation onset and how the time integral of temperature relates to warmth intensity."
         ],
-        "image": "assets/projects/thermal-control.jpg",
+        "image": "../assets/projects/thermal-control.jpg",
         "alt": "Timing Thermal Perception — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s Original paper · Fig. 1",
         "links": [],
-        "detailImage": "assets/projects/thermal-control-detail.jpg"
+        "detailImage": "../assets/projects/thermal-control-detail.jpg"
       }
     ]
   },
@@ -963,13 +963,13 @@ const PROJECTS = [
       "The research measures the separation at which cold stimuli are felt as distinct and relates this threshold to the heat-transfer capability of airflow.",
       "It provides a perceptual basis for covering larger skin regions with an economical number of cold-air outlets."
     ],
-    "image": "assets/projects/spatial-cold.jpg",
+    "image": "../assets/projects/spatial-cold.jpg",
     "alt": "Spatially Continuous Cold — original research illustration",
     "source": "Original paper · Fig. 1",
     "selected": false,
     "links": [],
     "rank": 100,
-    "detailImage": "assets/projects/spatial-cold-detail.jpg",
+    "detailImage": "../assets/projects/spatial-cold-detail.jpg",
     "versions": [
       {
         "id": "spatial-cold",
@@ -982,13 +982,13 @@ const PROJECTS = [
           "The research measures the separation at which cold stimuli are felt as distinct and relates this threshold to the heat-transfer capability of airflow.",
           "It provides a perceptual basis for covering larger skin regions with an economical number of cold-air outlets."
         ],
-        "image": "assets/projects/spatial-cold.jpg",
+        "image": "../assets/projects/spatial-cold.jpg",
         "alt": "Spatially Continuous Cold — original research illustration",
         "source": "Original paper · Fig. 1",
         "selected": false,
         "links": [],
         "rank": 100,
-        "detailImage": "assets/projects/spatial-cold-detail.jpg"
+        "detailImage": "../assets/projects/spatial-cold-detail.jpg"
       },
       {
         "id": "cold-vr-space-vrsj",
@@ -1000,11 +1000,11 @@ const PROJECTS = [
           "An array of cold-air outlets recreates the feeling of placing an arm into a cold region such as a virtual waterfall.",
           "The prototype uses measured cold two-point discrimination thresholds to choose nozzle spacing so separate air jets can be perceived as one continuous cold region."
         ],
-        "image": "assets/projects/spatial-cold.jpg",
+        "image": "../assets/projects/spatial-cold.jpg",
         "alt": "Spatially Continuous Cold — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s Original paper · Fig. 1",
         "links": [],
-        "detailImage": "assets/projects/spatial-cold-detail.jpg"
+        "detailImage": "../assets/projects/spatial-cold-detail.jpg"
       }
     ]
   },
@@ -1021,8 +1021,8 @@ const PROJECTS = [
       "A camera- or sensor-based drinking event triggers controlled LED heating near the back of the neck, with adjustable timing and intensity. The system connects drinking detection, thermal stimulation and subjective ratings in one experimental workflow.",
       "The Japanese report presents the prototype and stimulus design for studying impressions such as warmth, flavor and relaxation; evaluation of perceptual effects is ongoing."
     ],
-    "image": "assets/projects/drinking-thermal.jpg",
-    "detailImage": "assets/projects/drinking-thermal-detail.jpg",
+    "image": "../assets/projects/drinking-thermal.jpg",
+    "detailImage": "../assets/projects/drinking-thermal-detail.jpg",
     "alt": "Original system diagram showing drinking-triggered thermal feedback",
     "source": "VRSJ 2025 · Fig. 1: detect drinking → deliver timed warmth → rate beverage impressions; English description translated from the Japanese source",
     "links": [
@@ -1045,8 +1045,8 @@ const PROJECTS = [
       "The Japanese presentation investigates an airflow display intended to counter declining alertness during work. Its stimulus design varies the frequency or amplitude of the airflow over time.",
       "The accompanying lecture material contrasts a regular sinusoidal stimulus with frequency- and amplitude-modulated patterns, exploring modulation as a way to reduce sensory adaptation."
     ],
-    "image": "assets/projects/airflow-alertness.jpg",
-    "detailImage": "assets/projects/airflow-alertness-detail.jpg",
+    "image": "../assets/projects/airflow-alertness.jpg",
+    "detailImage": "../assets/projects/airflow-alertness-detail.jpg",
     "alt": "Original lecture figure comparing frequency-modulated and amplitude-modulated airflow",
     "source": "Original lecture, slide 70: frequency modulation (left), amplitude modulation (right); English introduction translated from the Japanese project title and figure",
     "links": []
