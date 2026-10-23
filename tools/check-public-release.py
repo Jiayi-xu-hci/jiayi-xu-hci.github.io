@@ -2,8 +2,10 @@
 """Audit the public project catalogue and static assets before publishing."""
 from pathlib import Path
 from html.parser import HTMLParser
+from urllib.parse import quote, unquote
 import hashlib
 import json
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 errors = []
@@ -24,7 +26,8 @@ def public_file(path, base):
         errors.append(f'Missing public file: {path}')
 
 for project in records:
-    for record in [project] + project.get('versions', []):
+    versions = [{**project, **v} if v['id'] == project['id'] else v for v in project.get('versions', [])]
+    for record in [project] + versions:
         if record.get('locked'):
             if set(record) - LOCKED_FIELDS:
                 errors.append('Locked record contains content, links or media')
@@ -36,6 +39,8 @@ for project in records:
         for key in ['image', 'detailImage', 'video']:
             if record.get(key):
                 public_file(record[key], ROOT / 'projects')
+        if record.get('video'):
+            public_file(record['video'].replace('.mp4', '-preview.mp4'), ROOT / 'projects')
         for link in record.get('links', []):
             if '_private' in link['href']:
                 errors.append('Private link in public catalogue')
@@ -45,11 +50,20 @@ for project in records:
 class MediaCheck(HTMLParser):
     def handle_starttag(self, tag, attrs):
         for key, value in attrs:
-            if key in {'src', 'poster'} and value and not value.startswith(('https:', 'data:')):
+            if key in {'src', 'poster', 'data-full'} and value and not value.startswith(('https:', 'data:')):
                 if value.split('?')[0] in {'script.js', 'styles.css'}:
                     continue
                 public_file(value, ROOT)
-MediaCheck().feed((ROOT / 'index.html').read_text())
+home = (ROOT / 'index.html').read_text()
+MediaCheck().feed(home)
+
+# The Japanese web font is subset to the page's CJK characters; new characters must be added to its URL.
+font = re.search(r'family=Noto\+Sans\+JP[^"]*&text=([^"]*)"', home)
+cjk = ''.join(sorted({c for c in home if ord(c) > 0x2E80}))
+if not font:
+    errors.append('Noto Sans JP link with &text= not found in index.html')
+elif set(cjk) - set(unquote(font.group(1))):
+    errors.append(f'Japanese font subset is missing characters; replace its &text= value with:\n{quote(cjk)}')
 
 # The user restricts only the unpublished 2027 studies; 2026 accepted work stays visible.
 for directory in [ROOT / 'assets/projects']:

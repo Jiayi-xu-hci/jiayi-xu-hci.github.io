@@ -18,9 +18,11 @@ assets/
   projects/             All project media for both pages, named by project
     NAME.mp4/.jpg         Video + poster (web-compressed: 720p H.264, ~1.8 Mbps)
     NAME-detail.jpg       Larger figure shown in the archive's detail view
+    NAME-preview.mp4      6 s silent clip played on hover (~0.7 MB)
 tools/
   transcode.swift       Compress a video
   frames.swift          Grab poster frames
+  clip.swift            Cut a short silent hover-preview clip
   preview.py            Local preview server (public files only)
   check-public-release.py  Pre-publish audit (paths exist, 2027 work stays locked)
 _private/               Git-ignored, never published
@@ -42,14 +44,27 @@ Each publication is one `<li class="pub">` inside `#pubList` with `data-year` an
 - *By type*: one tab per type, newest first.
 
 ## Adding a project video
-Keep the original in `_private/videos/`, then compress it and grab a poster frame (GitHub rejects files over 100 MB):
+Keep the original in `_private/videos/`, then compress it, grab a poster frame and cut a short hover-preview clip (GitHub rejects files over 100 MB):
 ```bash
-swiftc -O tools/transcode.swift -o /tmp/transcode && swiftc -O tools/frames.swift -o /tmp/frames
+swiftc -O tools/transcode.swift -o /tmp/transcode && swiftc -O tools/frames.swift -o /tmp/frames && swiftc -O tools/clip.swift -o /tmp/clip
 /tmp/transcode _private/videos/ORIGINAL.mp4 assets/projects/NAME.mp4 1280 1800000
 /tmp/frames assets/projects/NAME.mp4 /tmp/NAME 960 0.5   # 0.5 = halfway; writes /tmp/NAME-0.jpg
 mv /tmp/NAME-0.jpg assets/projects/NAME.jpg
+/tmp/clip assets/projects/NAME.mp4 assets/projects/NAME-preview.mp4 0.6 6 854 900000   # 6 s from 60 %, silent, ~0.7 MB
 ```
-Then copy an `<article class="project">` block in the Projects section of `index.html` and point it at `assets/projects/NAME.mp4` / `.jpg`.
+Pick a clip start that shows the device in use rather than a title card (check with `/tmp/frames … 0.1 0.2 … 0.9`).
+Both pages play `NAME-preview.mp4` on hover and load the full `NAME.mp4` only when opened.
+Then copy an `<article class="project">` block in the Projects section of `index.html`: `src` is the preview clip, `data-full` the full video.
+For the archive, add a record to `projects/projects.js` with `"video": "../assets/projects/NAME.mp4"`; the preview is found by name.
+
+## Project archive data
+`projects/projects.js` holds one record per card. A project with several studies lists them in `versions` (one tab each).
+A version whose `id` equals the project's own `id` inherits every project field and only states what its tab shows differently
+(e.g. a shorter `title`); other versions are full records. Locked 2027 versions hold only `id`, `year`, `title`, `locked`.
+
+## Japanese font
+`index.html` loads Noto Sans JP only for the CJK characters it uses (`&text=` on the font link): ~0.45 MB instead of ~4.6 MB.
+After adding Japanese text, run the release check; if characters are missing it prints the new `&text=` value to paste in.
 
 ## Paper PDF links
 Add a `<a class="pdf" href="…">PDF</a>` after the DOI link in a publication's `.meta` line.

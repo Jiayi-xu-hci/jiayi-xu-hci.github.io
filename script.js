@@ -50,7 +50,7 @@ document.querySelector('.seg').addEventListener('click', (e) => { const b = e.ta
 tabs.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) show(b.dataset.k); });
 setMode('year');
 
-// Projects gallery: muted preview while hovering (mouse only); click opens the full video with sound.
+// Projects gallery: a short muted clip (NAME-preview.mp4) while hovering (mouse only); click opens the full video with sound.
 const player = document.getElementById('player');
 const playerVideo = player.querySelector('video');
 const canHover = matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches;
@@ -65,7 +65,7 @@ document.querySelectorAll('.project').forEach((card) => {
   }
   thumb.addEventListener('click', () => {
     preview.pause();
-    playerVideo.src = preview.getAttribute('src');
+    playerVideo.src = preview.dataset.full;
     playerVideo.poster = preview.getAttribute('poster');
     player.querySelector('.caption').textContent = `${card.querySelector('h3').textContent} · ${card.querySelector('.project-venue').textContent}`;
     player.showModal();

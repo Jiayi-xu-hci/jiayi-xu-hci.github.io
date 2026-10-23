@@ -1,4 +1,5 @@
 // 2027 unpublished studies expose their names only; all other projects retain their full presentation.
+// In "versions", an entry with the project's own id inherits every project field and lists only what its tab shows differently.
 const PROJECTS = [
   {
     "links": [
@@ -26,29 +27,7 @@ const PROJECTS = [
     "rank": 0,
     "versions": [
       {
-        "links": [
-          {
-            "label": "Project page",
-            "href": "https://moheat-evo.github.io/"
-          }
-        ],
-        "video": "../assets/projects/moheat-evo.mp4",
-        "image": "../assets/projects/moheat-evo.jpg",
-        "venue": "SIGGRAPH Asia 2026 E-Tech (accepted) · CES 2026",
-        "title": "MoHeat Evo",
-        "summary": "Thermal headphones let you feel the direction and texture of spatial audio.",
-        "detail": [
-          "Independent warm and cool feedback around each ear adds a physical dimension to spatial audio—from a nearby whisper to a passing cold breeze.",
-          "Joint research with Suntory; exhibited at CES 2026 and featured on NHK WORLD."
-        ],
-        "id": "moheat-evo",
-        "year": 2026,
-        "selected": true,
-        "shortVenue": "SIGGRAPH Asia · CES",
-        "status": "Accepted",
-        "source": "Original project video",
-        "alt": "MoHeat Evo research demonstration",
-        "rank": 0
+        "id": "moheat-evo"
       },
       {
         "id": "thermalbreath",
@@ -127,24 +106,10 @@ const PROJECTS = [
     "rank": 1,
     "versions": [
       {
-        "links": [],
-        "video": "../assets/projects/armonii-sway.mp4",
-        "image": "../assets/projects/armonii-sway.jpg",
-        "venue": "SIGGRAPH Asia 2026 Emerging Technologies · Accepted",
+        "id": "armonii-sway",
         "title": "Armonii Sway",
         "summary": "Natural shifts of body weight guide extra robotic arms with supportive coordination.",
-        "detail": [
-          "Shifts in the wearer’s center of pressure guide one robotic arm at a time, leaving the hands free. The inactive arm performs supportive motion to reduce the torque transmitted to the body.",
-          "The demonstration combines natural whole-body control with coordinated movement that makes additional limbs feel lighter and more intuitive to operate."
-        ],
-        "id": "armonii-sway",
-        "year": 2026,
-        "selected": true,
-        "shortVenue": "SIGGRAPH Asia",
-        "status": "Accepted",
-        "source": "Original project video",
-        "alt": "Armonii Sway research demonstration",
-        "rank": 1
+        "shortVenue": "SIGGRAPH Asia"
       },
       {
         "id": "armonii",
@@ -198,28 +163,7 @@ const PROJECTS = [
     "rank": 2,
     "versions": [
       {
-        "links": [
-          {
-            "label": "Paper",
-            "href": "https://doi.org/10.1145/3795011.3795050"
-          }
-        ],
-        "video": "../assets/projects/adaptivefly.mp4",
-        "image": "../assets/projects/adaptivefly.jpg",
-        "venue": "Augmented Humans 2026 · SIGGRAPH Asia 2026 E-Tech (accepted)",
-        "title": "AdaptiveFly",
-        "summary": "Adaptive body-based controls make 3D flight and drone navigation feel more natural.",
-        "detail": [
-          "Leaning and head motion steer through 3D space. The system adapts steering to speed, allowing free looking during slow exploration and tighter control during fast flight.",
-          "Evaluated in VR, with a proof-of-concept extension to physical drone control."
-        ],
-        "id": "adaptivefly",
-        "year": 2026,
-        "selected": true,
-        "shortVenue": "Augmented Humans · SIGGRAPH Asia",
-        "source": "Original project video",
-        "alt": "AdaptiveFly research demonstration",
-        "rank": 2
+        "id": "adaptivefly"
       },
       {
         "id": "panosomafly",
@@ -260,28 +204,8 @@ const PROJECTS = [
     "detailImage": "../assets/projects/synchro-thermography-detail.jpg",
     "versions": [
       {
-        "links": [
-          {
-            "label": "Method",
-            "href": "https://arxiv.org/abs/2506.04748"
-          }
-        ],
-        "image": "../assets/projects/synchro-thermography.jpg",
-        "alt": "Thermal imaging and heartbeat signals combined to reveal small changes in facial temperature",
-        "source": "SICE paper · Fig. 1",
-        "venue": "SICE Annual Conference 2025",
-        "title": "Synchro-Thermography",
-        "summary": "Heartbeat-referenced thermal imaging reveals facial temperature changes as small as 0.01 °C.",
-        "detail": [
-          "Thermal frames are aligned to heartbeat timing and averaged to recover weak, pulse-related changes in facial skin temperature.",
-          "Experiments with eight participants captured changes of around 10 mK and improved temperature resolution by a factor of two or more, establishing a method for physiological sensing."
-        ],
         "id": "synchro-thermography",
-        "year": 2025,
-        "selected": false,
-        "shortVenue": "SICE",
-        "rank": 100,
-        "detailImage": "../assets/projects/synchro-thermography-detail.jpg"
+        "summary": "Heartbeat-referenced thermal imaging reveals facial temperature changes as small as 0.01 °C."
       },
       {
         "id": "alcohol-thermography",
@@ -330,24 +254,7 @@ const PROJECTS = [
     "rank": 3,
     "versions": [
       {
-        "links": [],
-        "video": "../assets/projects/thermotune.mp4",
-        "image": "../assets/projects/thermotune.jpg",
-        "venue": "AsiaHaptics 2026 (accepted)",
-        "title": "ThermoTune",
-        "summary": "Thermal headphones translate musical emotion and your physiological responses into warmth and coolness.",
-        "detail": [
-          "Thermal headphones translate estimated musical emotion—or the listener’s measured heart rate and skin conductance—into changing warm and cool sensations.",
-          "Makes both musical expression and the listener’s physiological response available as bodily feedback."
-        ],
-        "id": "thermotune",
-        "year": 2026,
-        "selected": true,
-        "shortVenue": "AsiaHaptics",
-        "status": "Accepted",
-        "source": "Original project video",
-        "alt": "ThermoTune research demonstration",
-        "rank": 3
+        "id": "thermotune"
       },
       {
         "id": "thermotune-vrsj",
@@ -444,28 +351,7 @@ const PROJECTS = [
     "detailImage": "../assets/projects/low-residual-cold-detail.jpg",
     "versions": [
       {
-        "links": [
-          {
-            "label": "Paper",
-            "href": "https://doi.org/10.1109/TOH.2023.3324754"
-          }
-        ],
-        "image": "../assets/projects/low-residual-cold.jpg",
-        "alt": "Alternating cold airflow and light-based heating produces persistent cold while keeping skin temperature near its starting point",
-        "source": "IEEE ToH paper · Fig. 1",
-        "venue": "IEEE Transactions on Haptics 2023",
-        "title": "Low-Residual Cold Feedback",
-        "summary": "Alternating cold air and radiant heat sustains cold sensations with little net change in skin temperature.",
-        "detail": [
-          "Rapidly alternating perceptible cooling and imperceptible warming produces persistent cold sensations while keeping skin temperature nearly constant.",
-          "Addresses residual heat, a key obstacle to repeated and sustained thermal feedback."
-        ],
-        "id": "low-residual-cold",
-        "year": 2023,
-        "selected": false,
-        "shortVenue": "IEEE ToH",
-        "rank": 100,
-        "detailImage": "../assets/projects/low-residual-cold-detail.jpg"
+        "id": "low-residual-cold"
       },
       {
         "id": "cold-continuity-vrsj",
@@ -526,23 +412,10 @@ const PROJECTS = [
     "rank": 100,
     "versions": [
       {
-        "links": [],
-        "video": "../assets/projects/heatmagic.mp4",
-        "image": "../assets/projects/heatmagic.jpg",
-        "venue": "AsiaHaptics 2022",
+        "id": "heatmagic",
         "title": "HeatMagic",
         "summary": "Non-contact thermal feedback lets bare skin feel a virtual wizard’s ice and fire.",
-        "detail": [
-          "Vortex-generated cold air and LED-based radiant heating deliver three levels of thermal feedback to bare skin. A VR game synchronizes these cues with a wizard’s ice and fire attacks.",
-          "This interactive demonstration translates adjustable non-contact thermal stimulation into a working immersive experience."
-        ],
-        "id": "heatmagic",
-        "year": 2022,
-        "selected": false,
-        "shortVenue": "AsiaHaptics",
-        "source": "Original project video",
-        "alt": "HeatMagic research demonstration",
-        "rank": 100
+        "shortVenue": "AsiaHaptics"
       },
       {
         "id": "vortex-cooling",
@@ -643,28 +516,7 @@ const PROJECTS = [
     "rank": 100,
     "versions": [
       {
-        "id": "dynapain",
-        "title": "DynaPain",
-        "year": 2024,
-        "venue": "AsiaHaptics 2024",
-        "shortVenue": "AsiaHaptics",
-        "summary": "A moving thermal illusion makes a virtual flame beetle feel as if it travels along the arm.",
-        "detail": [
-          "Cold airflow and optical heating create a non-contact thermal grill illusion; switching its location produces apparent movement synchronized with a virtual beetle.",
-          "The demonstration explores moving heat and pain-like sensations as a dynamic medium for virtual interactions."
-        ],
-        "image": "../assets/projects/dynapain.jpg",
-        "alt": "DynaPain — original research illustration",
-        "source": "Embedded presentation video · virtual stimulus",
-        "selected": false,
-        "links": [
-          {
-            "label": "Paper",
-            "href": "https://arxiv.org/abs/2411.05155"
-          }
-        ],
-        "video": "../assets/projects/dynapain.mp4",
-        "rank": 100
+        "id": "dynapain"
       },
       {
         "id": "dynapain-vrsj2023",
@@ -781,28 +633,7 @@ const PROJECTS = [
     "detailImage": "../assets/projects/coanda-cold-detail.jpg",
     "versions": [
       {
-        "id": "coanda-cold",
-        "title": "360° Cold with Encircling Airflow",
-        "year": 2025,
-        "venue": "IEEE World Haptics Conference 2025",
-        "shortVenue": "IEEE WHC",
-        "summary": "Airflow that follows the curve of the neck creates surrounding cold with fewer nozzles.",
-        "detail": [
-          "The interface uses the Coandă effect to guide cold jets around a curved body surface, testing nozzle arrangements with a silicone phantom and human participants.",
-          "It investigates how airflow geometry can reduce the hardware needed for broad-area thermal sensations."
-        ],
-        "image": "../assets/projects/coanda-cold.jpg",
-        "alt": "360° Cold with Encircling Airflow — original research illustration",
-        "source": "Original paper · Fig. 1",
-        "selected": false,
-        "links": [
-          {
-            "label": "Paper",
-            "href": "https://doi.org/10.1109/WHC64065.2025.11123245"
-          }
-        ],
-        "rank": 100,
-        "detailImage": "../assets/projects/coanda-cold-detail.jpg"
+        "id": "coanda-cold"
       },
       {
         "id": "neck-cold-vrsj",
@@ -916,23 +747,7 @@ const PROJECTS = [
     "detailImage": "../assets/projects/thermal-control-detail.jpg",
     "versions": [
       {
-        "id": "thermal-control",
-        "title": "Timing Thermal Perception",
-        "year": 2025,
-        "venue": "Human Interface Society Transactions 2025",
-        "shortVenue": "HIS Transactions",
-        "summary": "Feedback control helps warmth arrive at the intended moment and intensity.",
-        "detail": [
-          "The method models thermal sensation onset using the time integral of skin-temperature change and adjusts the heating stimulus using real-time temperature measurements.",
-          "Experiments reported onset timing accuracy ranging from 0.59 to 1.54 seconds, addressing synchronization between thermal feedback and virtual events."
-        ],
-        "image": "../assets/projects/thermal-control.jpg",
-        "alt": "Timing Thermal Perception — original research illustration",
-        "source": "Original paper · Fig. 1",
-        "selected": false,
-        "links": [],
-        "rank": 100,
-        "detailImage": "../assets/projects/thermal-control-detail.jpg"
+        "id": "thermal-control"
       },
       {
         "id": "feedback-warmth-his",
@@ -972,23 +787,7 @@ const PROJECTS = [
     "detailImage": "../assets/projects/spatial-cold-detail.jpg",
     "versions": [
       {
-        "id": "spatial-cold",
-        "title": "Spatially Continuous Cold",
-        "year": 2023,
-        "venue": "IEEE World Haptics Conference 2023",
-        "shortVenue": "IEEE WHC",
-        "summary": "Carefully spaced cold air jets merge into a continuous thermal sensation.",
-        "detail": [
-          "The research measures the separation at which cold stimuli are felt as distinct and relates this threshold to the heat-transfer capability of airflow.",
-          "It provides a perceptual basis for covering larger skin regions with an economical number of cold-air outlets."
-        ],
-        "image": "../assets/projects/spatial-cold.jpg",
-        "alt": "Spatially Continuous Cold — original research illustration",
-        "source": "Original paper · Fig. 1",
-        "selected": false,
-        "links": [],
-        "rank": 100,
-        "detailImage": "../assets/projects/spatial-cold-detail.jpg"
+        "id": "spatial-cold"
       },
       {
         "id": "cold-vr-space-vrsj",

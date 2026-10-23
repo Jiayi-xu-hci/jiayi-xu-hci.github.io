@@ -52,7 +52,7 @@ function openProject(project) {
   list.querySelectorAll('video').forEach(v => v.pause());
   document.getElementById('detail-title').textContent = project.title;
   const tabs = document.getElementById('version-tabs');
-  const versions = project.versions || [project];
+  const versions = (project.versions || [project]).map(version => version.id === project.id ? { ...project, ...version } : version);
   const publicVersions = versions.filter(version => !version.locked);
   tabs.replaceChildren();
   tabs.hidden = versions.length < 2;
@@ -113,7 +113,7 @@ function makeCard(project) {
     if (hoverPreview) {
       button.addEventListener('mouseenter', () => {
         if (dialog.open) return;
-        if (!media.getAttribute('src')) media.src = project.video;
+        if (!media.getAttribute('src')) media.src = project.video.replace(/\.mp4$/, '-preview.mp4');
         media.play().catch(() => {});
       });
       button.addEventListener('mouseleave', () => media.pause());
