@@ -2,13 +2,14 @@
 
 Live: https://jiayi-xu-hci.github.io/
 
-Static site, no build step. Preview with `python3 -m http.server 8080`.
+Static site, no build step. Preview with `python3 tools/preview.py` (public files only).
 
 ## Structure
 ```
 index.html              Content (intro, news, projects, research, publications, CV, contact)
-styles.css              Styles (light + dark)
+styles.css              Soft blue palette + frosted surfaces
 script.js               Projects video player · Publications tabs · nav highlight
+projects/               Standalone research archive; ?view=all opens all projects
 assets/
   images/profile.jpg    Portrait
   papers/               Hosted paper PDFs (only open-licence ones, e.g. CC BY)
@@ -23,6 +24,8 @@ _private/               Git-ignored, never published
 ```
 
 ## Updating
+Run `python3 tools/check-public-release.py` before publishing. Only the unpublished 2027 studies are locked: their project names remain visible, while descriptions, links and media stay private. All other years, including accepted 2026 work, retain their full presentation. Locked entries do not load a hidden image or abstract.
+
 ```bash
 git add -A && git commit -m "Describe the change" && git push
 ```

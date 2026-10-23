@@ -2,3 +2,13 @@
 .claude/
 _private/
 *.code-workspace
+
+# Unpublished 2027 media stays private, even if exported with a project name.
+/assets/projects/*2027*
+/projects/assets/projects/*2027*
+/assets/projects/thermalbreath*
+/assets/projects/panosomafly*
+/assets/projects/predictivefly*
+/projects/assets/projects/thermalbreath*
+/projects/assets/projects/panosomafly*
+/projects/assets/projects/predictivefly*

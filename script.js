@@ -56,7 +56,9 @@ const playerVideo = player.querySelector('video');
 const canHover = matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches;
 document.querySelectorAll('.project').forEach((card) => {
   const thumb = card.querySelector('.thumb');
+  if (!thumb || card.dataset.locked === 'true') return;
   const preview = thumb.querySelector('video');
+  if (!preview) return;
   if (canHover) {
     thumb.addEventListener('mouseenter', () => preview.play().catch(() => {}));
     thumb.addEventListener('mouseleave', () => preview.pause());
