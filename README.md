@@ -11,6 +11,7 @@ styles.css              Styles (light + dark)
 script.js               Projects video player · Publications tabs · nav highlight
 assets/
   images/profile.jpg    Portrait
+  papers/               Hosted paper PDFs (only open-licence ones, e.g. CC BY)
   projects/             One video + poster per project, named by project
     moheat-evo.mp4/.jpg   (web-compressed: 720p H.264, ~1.8 Mbps)
     …
@@ -41,3 +42,9 @@ swiftc -O tools/transcode.swift -o /tmp/transcode && swiftc -O tools/frames.swif
 mv /tmp/NAME-0.jpg assets/projects/NAME.jpg
 ```
 Then copy an `<article class="project">` block in the Projects section of `index.html` and point it at `assets/projects/NAME.mp4` / `.jpg`.
+
+## Paper PDF links
+Add a `<a class="pdf" href="…">PDF</a>` after the DOI link in a publication's `.meta` line.
+Only link versions you may share publicly: open-access publisher PDFs, arXiv preprints, the conference's own public
+proceedings (e.g. VRSJ), or files under a CC licence copied into `assets/papers/`. Do not host IEEE/ACM/Springer
+publisher PDFs; for those, an author-accepted manuscript is fine if the publisher's policy allows it.

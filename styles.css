@@ -145,6 +145,8 @@ h2{font-size:26px;font-weight:700;letter-spacing:-.015em;padding-bottom:12px;mar
 .meta{font-size:14px;color:var(--muted)}
 .meta a{display:inline-block;margin-left:6px;padding:0 7px;border:1px solid var(--line);border-radius:4px;font-size:12px;font-weight:600;line-height:1.6}
 .meta a:hover{border-color:var(--link);text-decoration:none}
+.meta a.pdf{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.meta a.pdf:hover{border-color:var(--accent)}
 
 /* Rows (CV, patents) */
 .rows{list-style:none;margin:0;padding:0}
