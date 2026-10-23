@@ -27,8 +27,13 @@ tools/
   preview.py            Local preview server (public files only)
   check-public-release.py  Pre-publish audit (paths exist, 2027 work stays locked)
 _private/               Git-ignored, never published
-  cv/ photos/ videos/   CV PDF, original portraits, original videos (incl. unreleased 2027 ones)
-  papers/ thesis/ presentations/ previews/ restricted-media/
+  cv/                   CV PDF and job-application packages
+  papers/ thesis/       Paper PDFs (by type, incl. in-review) and the Ph.D. thesis
+  presentations/        Slides: domestic, international, talks
+  videos/               Original project videos (incl. unreleased 2027 ones)
+  photos/ images/       Original portraits; unused project figures
+  restricted-media/     Unreleased 2027 media (unreleased-2027/) and manifest-2027.json,
+                        which check-public-release.py uses to catch renamed copies
 ```
 
 ## Updating
