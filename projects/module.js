@@ -148,7 +148,7 @@ function render() {
   list.querySelectorAll('video').forEach(stopVideo);
   const visible = PROJECTS.filter(p => activeFilter === 'selected' ? p.selected : activeFilter === 'all' || p.year === Number(activeFilter));
   const groups = activeFilter === 'selected' ? (() => {
-    const grid = element('div', 'gallery');
+    const grid = element('div', 'gallery featured');
     grid.append(...visible.sort((a, b) => a.rank - b.rank).map(makeCard));
     return [grid];
   })() : years.filter(year => visible.some(p => p.year === year)).map(year => {

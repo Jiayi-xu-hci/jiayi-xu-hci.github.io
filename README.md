@@ -11,7 +11,8 @@ styles.css              Soft blue palette + frosted surfaces
 script.js               Projects video player · Publications tabs · nav highlight
 projects/               Standalone research archive; ?view=all opens all projects
   projects.js           Project catalogue (cards, details, versions)
-  module.js/.css        Archive page logic and styles
+  module.js/.css        Archive page logic and styles (module.css repeats the colour tokens and top navigation of
+                        styles.css, including dark mode: change both together)
 assets/
   images/profile.jpg    Portrait
   papers/               Hosted paper PDFs (only open-licence ones, e.g. CC BY)
