@@ -26,14 +26,16 @@ tools/
   clip.swift            Cut a short silent hover-preview clip
   preview.py            Local preview server (public files only)
   check-public-release.py  Pre-publish audit (paths exist, 2027 work stays locked)
-_private/               Git-ignored, never published
-  cv/                   CV PDF and job-application packages
+_private/               Git-ignored, never published (see _private/README.md)
+  cv/                   Current CV PDF
+  applications/         Job applications, one folder each: YYYY-MM_Institution_Position
+  documents/            Personal documents (degree verification)
   papers/ thesis/       Paper PDFs (by type, incl. in-review) and the Ph.D. thesis
   presentations/        Slides: domestic, international, talks
-  videos/               Original project videos (incl. unreleased 2027 ones)
-  photos/ images/       Original portraits; unused project figures
-  restricted-media/     Unreleased 2027 media (unreleased-2027/) and manifest-2027.json,
-                        which check-public-release.py uses to catch renamed copies
+  videos/               Original project videos, YEAR_Venue_Project.mp4 like papers/
+  images/               Original portraits; unused project figures
+  unreleased-2027/      2027 media and manifest-2027.json (hashes check-public-release.py uses
+                        to catch renamed copies of unpublished files)
 ```
 
 ## Updating
@@ -53,7 +55,7 @@ Each publication is one `<li class="pub">` inside `#pubList` with `data-year` an
 Keep the original in `_private/videos/`, then compress it, grab a poster frame and cut a short hover-preview clip (GitHub rejects files over 100 MB):
 ```bash
 swiftc -O tools/transcode.swift -o /tmp/transcode && swiftc -O tools/frames.swift -o /tmp/frames && swiftc -O tools/clip.swift -o /tmp/clip
-/tmp/transcode _private/videos/ORIGINAL.mp4 assets/projects/NAME.mp4 1280 1800000
+/tmp/transcode _private/videos/YEAR_Venue_Project.mp4 assets/projects/NAME.mp4 1280 1800000
 /tmp/frames assets/projects/NAME.mp4 /tmp/NAME 960 0.5   # 0.5 = halfway; writes /tmp/NAME-0.jpg
 mv /tmp/NAME-0.jpg assets/projects/NAME.jpg
 /tmp/clip assets/projects/NAME.mp4 assets/projects/NAME-preview.mp4 0.6 6 854 900000   # 6 s from 60 %, silent, ~0.7 MB

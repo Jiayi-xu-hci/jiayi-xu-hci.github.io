@@ -72,7 +72,7 @@ for directory in [ROOT / 'assets/projects']:
             errors.append('Unpublished 2027 media found in public assets')
 
 # If the private migration manifest is available, detect renamed copies by content hash.
-manifest = ROOT / '_private/restricted-media/manifest-2027.json'
+manifest = ROOT / '_private/unreleased-2027/manifest-2027.json'
 if manifest.exists():
     restricted_hashes = {x['sha256'] for x in json.loads(manifest.read_text())}
     for directory in [ROOT / 'assets', ROOT / 'projects']:
