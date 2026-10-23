@@ -8,3 +8,6 @@ _private/
 /assets/projects/thermalbreath*
 /assets/projects/panosomafly*
 /assets/projects/predictivefly*
+
+# Temporary files left by sandboxed writes
+*.sb-*
