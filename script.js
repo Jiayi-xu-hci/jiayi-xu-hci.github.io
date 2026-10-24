@@ -82,3 +82,36 @@ const spy = new IntersectionObserver((entries) => entries.forEach((e) => {
   if (e.isIntersecting) navLinks.forEach((a) => a.classList.toggle('active', a.hash === `#${e.target.id}`));
 }), { rootMargin: '-45% 0px -50% 0px' });
 navLinks.forEach((a) => { const sec = document.querySelector(a.hash); if (sec) spy.observe(sec); });
+
+// Phones: long lists show their first items with a "Show all" button, the second bio paragraph folds,
+// and CV sections become an accordion. Desktop CSS ignores these classes, so nothing changes there.
+const toggle = (label, onClick) => {
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'm-toggle';
+  b.textContent = label;
+  b.addEventListener('click', () => { onClick(); b.remove(); });
+  return b;
+};
+document.querySelectorAll('[data-mobile-limit]').forEach((list) => {
+  const items = [...list.children];
+  const n = Number(list.dataset.mobileLimit);
+  if (items.length <= n) return;
+  items.slice(n).forEach((li) => li.classList.add('m-more'));
+  list.after(toggle(`Show all ${items.length}`, () => list.classList.add('m-open')));
+});
+document.querySelectorAll('[data-mobile-fold]').forEach((p) => {
+  p.after(toggle('Read more', () => p.classList.add('m-open')));
+});
+const phone = matchMedia('(max-width: 760px)').matches;
+document.querySelectorAll('.cv-part').forEach((part, i) => {
+  if (!phone) return;
+  const head = part.querySelector('h3');
+  head.setAttribute('role', 'button');
+  head.tabIndex = 0;
+  const set = (open) => { part.classList.toggle('m-closed', !open); head.setAttribute('aria-expanded', String(open)); };
+  set(i === 0);
+  const flip = () => set(part.classList.contains('m-closed'));
+  head.addEventListener('click', flip);
+  head.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); } });
+});

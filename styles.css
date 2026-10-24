@@ -252,4 +252,30 @@ button:focus-visible,a:focus-visible{outline:3px solid #5085d2;outline-offset:4p
   .nav-links{gap:0}
 }
 @media (max-width:370px){.nav-links a{font-size:13px}}
+
+/* Phones: shorter page. Projects and research threads scroll sideways; long lists, the second bio
+   paragraph and CV sections fold behind buttons added by script.js. */
+.m-toggle{display:none}
+@media (max-width:760px){
+  .gallery,.threads{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:-16px;margin-right:-16px;padding:2px 16px 14px;scrollbar-width:none;overscroll-behavior-x:contain}
+  .gallery::-webkit-scrollbar,.threads::-webkit-scrollbar{display:none}
+  .gallery>.project,.threads>.thread{flex:0 0 84%;scroll-snap-align:start;min-width:0}
+  .project.wide{display:block}
+  .project.wide h3{font-size:17px}
+  .project.wide .project-body p{font-size:14px}
+  .threads{margin-top:20px}
+  .thread .ill{height:96px}
+  .section-heading::after{content:"Swipe for more →";flex-basis:100%;order:3;margin-top:2px;font-size:12px;font-weight:500;letter-spacing:0;color:var(--faint)}
+  #research .threads::before{content:none}
+  [data-mobile-limit]:not(.m-open)>.m-more,[data-mobile-fold]:not(.m-open){display:none}
+  .m-toggle{display:inline-block;margin-top:10px;padding:7px 16px;border:1px solid var(--glass-line);border-radius:999px;background:var(--surface);color:var(--ink);font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+  .bio .m-toggle{margin:0 0 12px;grid-column:1/-1;justify-self:start}
+  .cv-part{padding:12px 0}
+  .cv-part h3{display:flex;justify-content:space-between;align-items:center;cursor:pointer;-webkit-user-select:none;user-select:none}
+  .cv-part h3::after{content:"−";font-weight:400;color:var(--faint)}
+  .cv-part.m-closed h3::after{content:"+"}
+  .cv-part.m-closed .cv-list{display:none}
+  .news li{padding:5px 0}
+}
+
 @media (max-width:520px){.gallery{grid-template-columns:1fr}}
