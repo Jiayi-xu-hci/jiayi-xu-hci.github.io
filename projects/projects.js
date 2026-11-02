@@ -508,8 +508,8 @@ const PROJECTS = [
       "The demonstration explores moving heat and pain-like sensations as a dynamic medium for virtual interactions."
     ],
     "image": "../assets/projects/dynapain.jpg",
-    "alt": "DynaPain — original research illustration",
-    "source": "Embedded presentation video · virtual stimulus",
+    "alt": "Explainer animation: a non-contact thermal grill illusion switched between two areas of the forearm so the burn seems to move",
+    "source": "Explainer animation based on the AsiaHaptics paper and the VRSJ 2023/2024 reports, with the original VR demo footage · Music: “Rhinoceros” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "selected": false,
     "links": [
       {
