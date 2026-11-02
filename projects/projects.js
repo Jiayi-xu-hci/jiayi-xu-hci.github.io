@@ -285,9 +285,10 @@ const PROJECTS = [
         "href": "https://doi.org/10.1007/978-3-032-32230-2_8"
       }
     ],
+    "video": "../assets/projects/facial-thermal-remapping.mp4",
     "image": "../assets/projects/facial-thermal-remapping.jpg",
-    "alt": "Headset-mounted LED array maps local facial heat cues to virtual hands and feet",
-    "source": "EuroHaptics paper · Fig. 1",
+    "alt": "Explainer animation: a headset-mounted LED array maps local facial heat cues to virtual hands and feet",
+    "source": "Explainer animation from the EuroHaptics paper and talk · Music: “Digital Lemonade” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "venue": "EuroHaptics 2026",
     "title": "Facial Thermal Remapping",
     "summary": "Localized facial heat cues evoke richer thermal experiences across the virtual body.",
