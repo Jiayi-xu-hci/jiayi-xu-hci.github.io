@@ -186,9 +186,10 @@ const PROJECTS = [
         "href": "https://arxiv.org/abs/2506.04748"
       }
     ],
+    "video": "../assets/projects/synchro-thermography.mp4",
     "image": "../assets/projects/synchro-thermography.jpg",
     "alt": "Thermal imaging and heartbeat signals combined to reveal small changes in facial temperature",
-    "source": "SICE paper · Fig. 1",
+    "source": "Explainer animation based on the original publication · Music: “Electrodoodle” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "venue": "SICE Annual Conference 2025",
     "title": "Synchro-Thermography",
     "summary": "Heartbeat-referenced facial thermography reveals subtle physiological changes, including responses to alcohol.",
@@ -334,9 +335,10 @@ const PROJECTS = [
         "href": "https://doi.org/10.1109/TOH.2023.3324754"
       }
     ],
+    "video": "../assets/projects/low-residual-cold.mp4",
     "image": "../assets/projects/low-residual-cold.jpg",
     "alt": "Alternating cold airflow and light-based heating produces persistent cold while keeping skin temperature near its starting point",
-    "source": "IEEE ToH paper · Fig. 1",
+    "source": "Explainer animation based on the original publication · Music: “Overcast” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "venue": "IEEE Transactions on Haptics 2023",
     "title": "Low-Residual Cold Feedback",
     "summary": "Alternating cold air and radiant heat sustains cold sensations with little net change in skin temperature.",
@@ -455,9 +457,10 @@ const PROJECTS = [
         "href": "https://github.com/ChenKaiXuSan/Skeleton_ASD_PyTorch"
       }
     ],
+    "video": "../assets/projects/phasemix.mp4",
     "image": "../assets/projects/phasemix.jpg",
     "alt": "Video-based gait analysis pipeline from person detection and segmentation to movement classification",
-    "source": "IEEE Access paper · Fig. 1",
+    "source": "Explainer animation based on the original publication · Music: “EDM Detection Mode” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "venue": "IEEE Access 2024",
     "title": "PhaseMix",
     "summary": "Gait timing and left–right symmetry help video models classify spinal and related disorders.",
@@ -483,9 +486,10 @@ const PROJECTS = [
       "Four motor-driven tethers stretch the skin around the nail folds, producing directional traction in a 6.1 g prototype that leaves the fingerpad available for pinching and touching real objects.",
       "Four-direction recognition reached 81.9%, showing a haptic channel compatible with natural fingertip contact."
     ],
+    "video": "../assets/projects/nailshear.mp4",
     "image": "../assets/projects/nailshear.jpg",
     "alt": "NailShear — original research illustration",
-    "source": "Original paper · Fig. 1",
+    "source": "Explainer animation based on the original publication · Music: “Werq” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "selected": false,
     "links": [],
     "status": "Accepted",
@@ -572,9 +576,10 @@ const PROJECTS = [
       "An armband encodes error magnitude through the location of vibration rather than intensity alone, using Slider and Bar patterns.",
       "Compared with intensity-based feedback, spatial cues produced a more linear magnitude scale and reduced task completion time by 10.8–17.2% in a grip-force guidance task."
     ],
+    "video": "../assets/projects/haptic-guidance.mp4",
     "image": "../assets/projects/haptic-guidance.jpg",
     "alt": "Spatial Haptic Guidance — original research illustration",
-    "source": "Original paper · Fig. 1",
+    "source": "Explainer animation based on the original publication · Music: “Rhinoceros” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "selected": false,
     "links": [
       {
@@ -596,9 +601,10 @@ const PROJECTS = [
       "Objects are assigned visibility functions along an additional non-spatial frequency axis, allowing users to move through continuous overlaps between virtual scenes.",
       "The framework offers an alternative to discrete portals and scene switches for designing layered, subjective virtual spaces."
     ],
+    "video": "../assets/projects/spectral-space.mp4",
     "image": "../assets/projects/spectral-space.jpg",
     "alt": "Spectral Space — original research illustration",
-    "source": "Original paper · Fig. 1",
+    "source": "Explainer animation based on the original publication · Music: “Wholesome” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "selected": false,
     "links": [
       {
@@ -620,9 +626,10 @@ const PROJECTS = [
       "The interface uses the Coandă effect to guide cold jets around a curved body surface, testing nozzle arrangements with a silicone phantom and human participants.",
       "It investigates how airflow geometry can reduce the hardware needed for broad-area thermal sensations."
     ],
+    "video": "../assets/projects/coanda-cold.mp4",
     "image": "../assets/projects/coanda-cold.jpg",
     "alt": "360° Cold with Encircling Airflow — original research illustration",
-    "source": "Original paper · Fig. 1",
+    "source": "Explainer animation based on the original publication · Music: “Digital Lemonade” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "selected": false,
     "links": [
       {
@@ -691,9 +698,10 @@ const PROJECTS = [
       "Measurements at selected positions train a model to predict force and deformation responses at other positions on a sponge and a plastic bottle.",
       "Deformation estimation errors stayed within ±0.67 mm for tested deformations up to 10 mm, supporting more informed gripping-force selection."
     ],
+    "video": "../assets/projects/soft-object.mp4",
     "image": "../assets/projects/soft-object.jpg",
     "alt": "Learning to Grasp Soft Objects — original research illustration",
-    "source": "Original paper · Fig. 1",
+    "source": "Explainer animation based on the original publication · Music: “Werq” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "selected": false,
     "links": [
       {
@@ -715,9 +723,10 @@ const PROJECTS = [
       "The device combines LED heating with mist and dry-air generation to manipulate humidity near a small region of the skin.",
       "User studies found stronger humid sensations with heating and suggested that time-divided stimulation reduced variability."
     ],
+    "video": "../assets/projects/humidity.mp4",
     "image": "../assets/projects/humidity.jpg",
     "alt": "Localized Humidity Feedback — original research illustration",
-    "source": "Original paper · Fig. 1",
+    "source": "Explainer animation based on the original publication · Music: “Pixelland” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "selected": false,
     "links": [
       {
@@ -739,9 +748,10 @@ const PROJECTS = [
       "The method models thermal sensation onset using the time integral of skin-temperature change and adjusts the heating stimulus using real-time temperature measurements.",
       "Experiments reported onset timing accuracy ranging from 0.59 to 1.54 seconds, addressing synchronization between thermal feedback and virtual events."
     ],
+    "video": "../assets/projects/thermal-control.mp4",
     "image": "../assets/projects/thermal-control.jpg",
     "alt": "Timing Thermal Perception — original research illustration",
-    "source": "Original paper · Fig. 1",
+    "source": "Explainer animation based on the original publication · Music: “Inspired” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "selected": false,
     "links": [],
     "rank": 100,
@@ -779,9 +789,10 @@ const PROJECTS = [
       "The research measures the separation at which cold stimuli are felt as distinct and relates this threshold to the heat-transfer capability of airflow.",
       "It provides a perceptual basis for covering larger skin regions with an economical number of cold-air outlets."
     ],
+    "video": "../assets/projects/spatial-cold.mp4",
     "image": "../assets/projects/spatial-cold.jpg",
     "alt": "Spatially Continuous Cold — original research illustration",
-    "source": "Original paper · Fig. 1",
+    "source": "Explainer animation based on the original publication · Music: “Blue Sizzle” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "selected": false,
     "links": [],
     "rank": 100,
@@ -821,10 +832,11 @@ const PROJECTS = [
       "A camera- or sensor-based drinking event triggers controlled LED heating near the back of the neck, with adjustable timing and intensity. The system connects drinking detection, thermal stimulation and subjective ratings in one experimental workflow.",
       "The Japanese report presents the prototype and stimulus design for studying impressions such as warmth, flavor and relaxation; evaluation of perceptual effects is ongoing."
     ],
+    "video": "../assets/projects/drinking-thermal.mp4",
     "image": "../assets/projects/drinking-thermal.jpg",
     "detailImage": "../assets/projects/drinking-thermal-detail.jpg",
     "alt": "Original system diagram showing drinking-triggered thermal feedback",
-    "source": "VRSJ 2025 · Fig. 1: detect drinking → deliver timed warmth → rate beverage impressions; English description translated from the Japanese source",
+    "source": "Explainer animation based on the original Japanese publication; English description translated from the Japanese source · Music: “Life of Riley” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "links": [
       {
         "label": "Paper (Japanese)",
@@ -845,10 +857,11 @@ const PROJECTS = [
       "The Japanese presentation investigates an airflow display intended to counter declining alertness during work. Its stimulus design varies the frequency or amplitude of the airflow over time.",
       "The accompanying lecture material contrasts a regular sinusoidal stimulus with frequency- and amplitude-modulated patterns, exploring modulation as a way to reduce sensory adaptation."
     ],
+    "video": "../assets/projects/airflow-alertness.mp4",
     "image": "../assets/projects/airflow-alertness.jpg",
     "detailImage": "../assets/projects/airflow-alertness-detail.jpg",
     "alt": "Original lecture figure comparing frequency-modulated and amplitude-modulated airflow",
-    "source": "Original lecture, slide 70: frequency modulation (left), amplitude modulation (right); English introduction translated from the Japanese project title and figure",
+    "source": "Explainer animation based on the original Japanese publication; English description translated from the Japanese source · Music: “Wholesome” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "links": []
   }
 ];
