@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Thermal HCI Handbook · 温度与人机交互</title>
+<title>Temperature, the Next Language of Interaction · 温度，下一种交互语言</title>
 <meta name="description" content="A plain-language, searchable library of research on temperature in human–computer interaction: perception, illusions, sensing, thermal feedback and applications. 中文 / 日本語 / English.">
 <link rel="canonical" href="https://jiayi-xu-hci.github.io/thermal-hci/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://jiayi-xu-hci.github.io/thermal-hci/">
-<meta property="og:title" content="Thermal HCI Handbook">
+<meta property="og:title" content="Temperature, the Next Language of Interaction">
 <meta property="og:description" content="A plain-language, searchable library of 576 papers on temperature in human–computer interaction, with explainer videos. English · 日本語 · 中文.">
 <meta property="og:image" content="https://jiayi-xu-hci.github.io/thermal-hci/og.jpg">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Thermal HCI Handbook">
+<meta name="twitter:title" content="Temperature, the Next Language of Interaction">
 <meta name="twitter:description" content="A plain-language, searchable library of 576 papers on temperature in human–computer interaction, with explainer videos. English · 日本語 · 中文.">
 <meta name="twitter:image" content="https://jiayi-xu-hci.github.io/thermal-hci/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,6 +71,18 @@ h2{font-size:26px;line-height:1.3;letter-spacing:-.015em;margin:12px 0 16px;font
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px}
 .card h3{margin:0 0 8px}
 .card p{color:var(--muted);font-size:16px}
+.modes svg.mode{width:100%;height:84px;display:block;margin:-4px 0 10px}
+svg.mode .sk{fill:#f2d3bc}svg.mode .pl{fill:var(--warm)}svg.mode .src{fill:var(--ink)}
+svg.mode .dots circle{fill:var(--warm);animation:mdown 2.4s ease-in infinite}svg.mode .dots circle:nth-child(2){animation-delay:.8s}svg.mode .dots circle:nth-child(3){animation-delay:1.6s}
+svg.mode .flow{fill:none;stroke:var(--cool);stroke-width:4;stroke-linecap:round;stroke-dasharray:12 10;animation:mflow 1.2s linear infinite}
+svg.mode .ray{fill:none;stroke:var(--warm);stroke-width:3;stroke-dasharray:6 6;animation:mflow 1s linear infinite}
+svg.mode .vap circle{fill:var(--cool);animation:mup 2.4s ease-out infinite}svg.mode .vap circle:nth-child(2){animation-delay:.8s}svg.mode .vap circle:nth-child(3){animation-delay:1.6s}
+svg.mode .sw circle{fill:#fff;stroke:var(--ink);stroke-width:2.5;animation:msw 3s ease-in-out infinite}
+@keyframes mdown{0%{transform:translateY(-14px);opacity:0}30%{opacity:1}100%{transform:translateY(14px);opacity:0}}
+@keyframes mup{0%{transform:translateY(0);opacity:1}100%{transform:translateY(-50px);opacity:0}}
+@keyframes mflow{to{stroke-dashoffset:-44}}
+@keyframes msw{0%,100%{fill:#fff}50%{fill:var(--warm)}}
+@media (prefers-reduced-motion:reduce){svg.mode *{animation:none!important}}
 .card.heat h3{color:var(--warm)} .card.cold h3{color:var(--cool)}
 .card .try{margin-top:14px;font-size:14px;color:var(--ink);border-top:1px solid var(--line);padding-top:12px}
 .cites{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
@@ -225,8 +237,9 @@ body.side-open .side{transform:none;box-shadow:0 0 0 100vmax rgba(0,0,0,.25)}}
 <script>
 /* ---------------- text (zh / ja / en). {{id}} = citation chip, *x* = warm accent, _x_ = cool accent ---------------- */
 const T = {
-kicker:{zh:'资料库 · 手册',ja:'資料集 · ハンドブック',en:'Library · Handbook'},
-title:{zh:'*温度*与人机_交互_',ja:'*温度*とヒューマン・_コンピュータ_・インタラクション',en:'*Temperature* in Human–Computer _Interaction_'},
+mechsH:{zh:'具体方法',ja:'具体的な方法',en:'The methods'},
+kicker:{zh:'人机交互中的温度 · 资料库与手册',ja:'インタラクションと温度 · 資料集とハンドブック',en:'Temperature in HCI · Library & Handbook'},
+title:{zh:'*温度*，下一种交互语言',ja:'*温度*は、次のインタラクション言語',en:'*Temperature*,<br>the next language of interaction'},
 sub:{zh:'我们怎样感觉冷和热？机器怎样测量温度，又怎样把冷热“送”给人？一份人人都能读懂、也能深入检索的资料库。',ja:'人はどうやって冷たさや温かさを感じるのか。機械はどう温度を測り、どう人に届けるのか。誰でも読めて、深く検索もできる資料集です。',en:'How do we feel hot and cold? How do machines measure temperature, and how can they send warmth and coolness to people? A library anyone can read, and researchers can search.'},
 btnSearch:{zh:'搜索文献',ja:'文献を検索',en:'Search the library'},
 btnStart:{zh:'从头读起',ja:'最初から読む',en:'Start reading'},
@@ -390,6 +403,15 @@ cards:[
 S.push({id:'feedback',cat:'feedback',nav:L3('反馈','フィードバック','Feedback'),chip:L3('第四部分 · 反馈','第4部 · フィードバック','Part 4 · Feedback'),
 title:L3('把冷热送给人：*贴着*，或者_隔空_','冷温を届ける：*触れて*、または_離れて_','Sending warm and cool: *by touch* or _through the air_'),
 lead:L3('最常见的是贴在皮肤上的“珀尔帖”小板（一通电就一面热一面冷）；也有用水、风、光、雾、超声，甚至辣椒素和错觉的方法。各有快慢、远近和安全上的取舍。','いちばん多いのは肌に当てる「ペルチェ素子」（電気を流すと片面が熱く、片面が冷たくなる板）。ほかに水・風・光・ミスト・超音波、さらには唐辛子成分や錯覚を使う方法も。速さ・距離・安全性にそれぞれ一長一短があります。','The most common tool is a Peltier element on the skin—a small plate that gets hot on one side and cold on the other when powered. Others use water, air, light, mist, ultrasound, even chili and illusions. Each trades off speed, distance and safety.'),
+modes:{h:L3('先懂原理：热量有四种走法','まず原理：熱の伝わり方は4つ','First, the physics: four ways heat travels'),
+ p:L3('不管是什么设备，热量进出皮肤只有几条路。知道是哪一条，就能猜到它快不快、要不要贴着皮肤、能不能降温。','どんな装置でも、熱が皮膚に出入りする道は限られています。どの道かが分かれば、速さ・接触の要否・冷やせるかが見えてきます。','Whatever the device, heat can only reach or leave the skin in a few ways. Knowing which one tells you how fast it is, whether it must touch, and whether it can cool.'),
+ list:[
+ {k:'cond',h:L3('传导：贴着传','伝導：触れて伝える','Conduction: by touch'),p:L3('两个东西贴在一起，热量从热的一方流向冷的一方。金属摸起来凉，就是因为它把手上的热量很快导走。珀尔帖片、水管、热电手套都靠它。','触れ合うと、熱は温かい方から冷たい方へ流れます。金属が冷たく感じるのは、手の熱を速く奪うから。ペルチェ素子・水流・熱電グローブはこれを使います。','When two things touch, heat flows from the warmer to the cooler one. Metal feels cold because it pulls heat from your hand quickly. Peltier plates, water tubes and thermal gloves all work this way.'),c:['ino1993display','hayakawa2015waterflow','kim2020glove','ho2018material']},
+ {k:'conv',h:L3('对流：让风带着走','対流：風が運ぶ','Convection: carried by air'),p:L3('流动的空气（或水）把热量带过来或带走。吹风扇觉得凉就是对流。不用接触皮肤，但风也会被同时感觉到。','流れる空気（や水）が熱を運びます。扇風機で涼しいのが対流。肌に触れずに済みますが、風そのものも感じます。','Moving air (or water) carries heat to or away from the skin—that is why a fan feels cool. No contact is needed, but you feel the breeze too.'),c:['ranasinghe2017ambiotherm','xu2022vortex','akimoto2025coanda']},
+ {k:'rad',h:L3('辐射：用光隔空送','放射：光で離れて届ける','Radiation: sent by light'),p:L3('光和红外线不需要任何介质，就能把能量送到皮肤上，就像晒太阳会觉得暖。适合隔空加热，但很难用它降温。','光や赤外線は何も介さずに皮膚へエネルギーを届けます。日なたが暖かいのと同じ。離れて温めるのは得意ですが、冷やすのは苦手です。','Light and infrared deliver energy across empty space—like feeling warm in the sun. Great for heating from afar, but hard to use for cooling.'),c:['saga2015heathapt','iwai2019noncontactthermod1f3','xu2023integration']},
+ {k:'evap',h:L3('蒸发：变成气体时带走热','蒸発：気体になるとき熱を奪う','Evaporation: vapour takes heat away'),p:L3('液体在皮肤上变成气体时，会带走很多热量，所以出汗后吹风特别凉。把细雾或酒精送到皮肤上，就能隔空快速降温。','液体が皮膚の上で気体になると多くの熱を奪います。汗をかいて風に当たると涼しいのはこのため。ミストやアルコールを届ければ、離れたまま素早く冷やせます。','A liquid turning into vapour on the skin takes a lot of heat with it—why sweat in a breeze feels so cool. Delivering fine mist or alcohol cools quickly without contact.'),c:['nakajima2021mist','xu2026chillfactor']},
+ {k:'chem',h:L3('另类：化学物质“骗”开关','番外：化学物質でスイッチをだます','A shortcut: chemicals trick the sensors'),p:L3('辣椒素和薄荷醇不改变皮肤温度，而是直接打开皮肤里的“热”和“冷”开关，所以严格说不是传热，但同样能带来冷热感。','カプサイシンやメントールは皮膚温度を変えず、皮膚の「熱」「冷」スイッチを直接オンにします。厳密には伝熱ではありませんが、冷温感を生みます。','Capsaicin and menthol leave skin temperature unchanged; they switch the heat and cold sensors on directly. Strictly not heat transfer—but you still feel warm or cool.'),c:['lu2021chemical','hamazaki2022chemicalinducedtd402']}
+ ]},
 mechs:[
  ['peltier',L3('通电后一面热一面冷的小板，贴在皮肤上。','電気で片面が熱く、片面が冷たくなる板を肌に当てる。','A plate that heats one side and cools the other, placed on skin.'),L3('能热也能冷，最普及','加熱も冷却もでき、最も普及','Heats and cools; most widely used'),L3('背面会积热，越用越慢','裏面に熱がたまり遅くなる','Heat builds up on the back and slows it down'),['ino1993display','jones2008warm','kim2020glove'],'h'],
  ['resistive_heating',L3('电流通过电阻丝发热，像电热毯。','電熱線に電流を流して発熱（電気毛布のように）。','Current through a wire makes heat, like an electric blanket.'),L3('简单、轻、便宜','シンプル・軽い・安い','Simple, light, cheap'),L3('只能加热，降温靠自然冷却','加熱のみ、冷却は自然まかせ','Heat only; cooling is slow'),['kuroda2024representationof0b7d'],'h'],
@@ -476,6 +498,12 @@ const REC=[['linden2015touch',L3('入门首选：用有趣的故事讲触觉，�
 const LIB=window.LIB, BOOKS=window.BOOKS, BY={}; LIB.forEach(p=>BY[p.i]=p);
 const QS=new URLSearchParams(location.search);
 let lang=(()=>{if(['zh','ja','en'].includes(QS.get('lang')))return QS.get('lang');try{const s=localStorage.getItem('thci-lang');if(s)return s}catch(e){} const n=(navigator.language||'').toLowerCase();return n.startsWith('ja')?'ja':n.startsWith('zh')?'zh':'en'})();
+const MODESVG={
+ cond:'<rect x="20" y="70" width="200" height="22" rx="6" class="sk"/><rect class="pl" x="70" y="48" width="100" height="18" rx="4"/><g class="dots"><circle cx="90" cy="74" r="3"/><circle cx="120" cy="76" r="3"/><circle cx="150" cy="74" r="3"/></g>',
+ conv:'<rect x="20" y="70" width="200" height="22" rx="6" class="sk"/><path class="flow" d="M14 22 C90 22 130 30 180 64 M14 36 C80 36 120 44 160 66"/>',
+ rad:'<rect x="20" y="70" width="200" height="22" rx="6" class="sk"/><rect x="80" y="6" width="80" height="14" rx="4" class="src"/><path class="ray" d="M95 24 q6 10 0 20 q-6 10 0 20 M120 24 q6 10 0 20 q-6 10 0 20 M145 24 q6 10 0 20 q-6 10 0 20"/>',
+ evap:'<rect x="20" y="70" width="200" height="22" rx="6" class="sk"/><g class="vap"><circle cx="70" cy="60" r="4"/><circle cx="120" cy="56" r="4"/><circle cx="170" cy="60" r="4"/></g>',
+ chem:'<rect x="20" y="70" width="200" height="22" rx="6" class="sk"/><g class="sw"><circle cx="80" cy="70" r="7"/><circle cx="120" cy="70" r="7"/><circle cx="160" cy="70" r="7"/></g>'};
 const tx=o=>o?(o[lang]??o.en??o):'';
 const acc=s=>s.replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/_(.+?)_/g,'<i>$1</i>');
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -521,6 +549,7 @@ function sec(s){
   if(s.body) h+=fill(tx(s.body));
   if(s.timeline) h+=`<div class="tl">${s.timeline.map(([y,t,id,k])=>`<div class="ev ${k||''}"><div class="yr">${y}</div><div class="tx">${tx(t)} ${chip(id)}</div></div>`).join('')}</div>`;
   if(s.cards) h+=`<div class="grid" style="margin-top:18px">${s.cards.map(c=>`<div class="card ${c.k==='h'?'heat':c.k==='c'?'cold':''}"><h3>${tx(c.h)}</h3><p>${tx(c.p)}</p>${c.t?`<div class="try">${tx(c.t)}</div>`:''}${cites(c.c)}</div>`).join('')}</div>`;
+  if(s.modes) h+=`<h3 class="sub">${tx(s.modes.h)}</h3><p>${fill(tx(s.modes.p))}</p><div class="grid two modes">${s.modes.list.map(m=>`<div class="card"><svg class="mode m-${m.k}" viewBox="0 0 240 96" aria-hidden="true">${MODESVG[m.k]}</svg><h3>${tx(m.h)}</h3><p>${tx(m.p)}</p>${cites(m.c)}</div>`).join('')}</div><h3 class="sub">${tx(T.mechsH)}</h3>`;
   if(s.mechs) h+=`<div class="grid two">${s.mechs.map(([m,how,pro,con,c,k])=>{const n=LIB.filter(p=>p.m===m&&(p.c==='feedback'||p.c==='application'||p.c==='illusion')).length;return `<div class="card ${k==='h'?'heat':k==='c'?'cold':''}"><h3>${tx(MECH[m])}</h3><p>${tx(how)}</p>${cites(c)}</div>`}).join('')}</div>`;
   if(s.table){const hd=tx(s.table.head);h+=`<div class="tblwrap"><table class="tbl"><tr>${hd.map(x=>`<th>${x}</th>`).join('')}</tr>${s.table.rows.map(r=>`<tr><td>${tx(MECH[r[0]])}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${tx(r[4])}</td></tr>`).join('')}</table></div>`}
   if(s.extra) h+=fill(tx(s.extra));
@@ -566,9 +595,9 @@ function search(reset){
   document.getElementById('res').innerHTML=r.slice(0,shown).map(p=>`<div class="item" id="p-${p.i}"><a class="tt" href="${esc(p.u)}" target="_blank" rel="noopener">${hl(p.t)}</a><div class="mt">${hl(p.a)} · ${p.y||''} · ${hl(p.v)}</div><div class="sm">${hl(p[lang]||p.en||p.zh)}</div><div class="badges"><span class="bd">${tx(CAT[p.c])}</span>${p.m&&MECH[p.m]?`<span class="bd">${tx(MECH[p.m])}</span>`:''}${p.g?`<span class="bd">${esc(p.g)}</span>`:''}${p.p?`<span class="bd">${tx(T.oa)}</span>`:`<span class="bd">${tx(T.nopdf)}</span>`}${p.o?`<span class="bd own">${tx(T.own)}</span>`:''}</div></div>`).join('');
   document.getElementById('more').style.display=r.length>shown?'block':'none';
 }
-function foot(){return tx({zh:`<b>Thermal HCI Handbook</b><span class="ver">v0.1 · 2026-11</span><br>这是持续更新的工作版本，不是最终版。文献检索自 Crossref、Semantic Scholar、OpenAlex、DBLP、PubMed 等，每条都打开过题录页面核验；一句话摘要由编者用通俗语言概括，以原文为准。“无公开全文”表示我们没有找到合法的公开 PDF，不代表论文不可读。<br>编者：许佳禕（Jiayi Xu），东京大学先端科学技术研究中心。<br><br><b>引用本手册</b>：Jiayi Xu. <i>Thermal HCI Handbook</i>, v0.1, 2026. https://jiayi-xu-hci.github.io/thermal-hci/<br><b>版本记录</b>：v0.1（2026-11-04）首次公开：576 篇论文、50 本书、18 段视频。`,
-ja:`<b>Thermal HCI Handbook</b><span class="ver">v0.1 · 2026-11</span><br>随時更新する作業版で、完成版ではありません。文献は Crossref・Semantic Scholar・OpenAlex・DBLP・PubMed などから収集し、各文献の書誌ページを開いて確認しました。一文要約は編者による平易な要約で、原文を優先してください。「全文非公開」は合法的な公開PDFが見つからなかったことを示します。<br>編者：許佳禕（Jiayi Xu）、東京大学先端科学技術研究センター。<br><br><b>引用</b>：Jiayi Xu. <i>Thermal HCI Handbook</i>, v0.1, 2026. https://jiayi-xu-hci.github.io/thermal-hci/<br><b>更新履歴</b>：v0.1（2026-11-04）初公開。論文576本、書籍50冊、動画18本。`,
-en:`<b>Thermal HCI Handbook</b><span class="ver">v0.1 · 2026-11</span><br>A living working version, not a final edition. Sources were collected from Crossref, Semantic Scholar, OpenAlex, DBLP, PubMed and others, and each record was checked on its bibliographic page. One-line summaries are plain-language paraphrases by the editor—always defer to the original. “No open full text” means we found no legal open PDF, not that the paper cannot be read.<br>Editor: Jiayi Xu, RCAST, The University of Tokyo.<br><br><b>How to cite</b>: Jiayi Xu. <i>Thermal HCI Handbook</i>, v0.1, 2026. https://jiayi-xu-hci.github.io/thermal-hci/<br><b>Versions</b>: v0.1 (2026-11-04) first public release — 576 papers, 50 books, 18 videos.`})}
+function foot(){return tx({zh:`<b>温度，下一种交互语言</b><span class="ver">v0.1 · 2026-11</span><br>这是持续更新的工作版本，不是最终版。文献检索自 Crossref、Semantic Scholar、OpenAlex、DBLP、PubMed 等，每条都打开过题录页面核验；一句话摘要由编者用通俗语言概括，以原文为准。“无公开全文”表示我们没有找到合法的公开 PDF，不代表论文不可读。<br>编者：许佳禕（Jiayi Xu），东京大学先端科学技术研究中心。<br><br><b>引用本手册</b>：Jiayi Xu. <i>Thermal HCI Handbook</i>, v0.1, 2026. https://jiayi-xu-hci.github.io/thermal-hci/<br><b>版本记录</b>：v0.1（2026-11-04）首次公开：576 篇论文、50 本书、18 段视频。`,
+ja:`<b>温度は、次のインタラクション言語</b><span class="ver">v0.1 · 2026-11</span><br>随時更新する作業版で、完成版ではありません。文献は Crossref・Semantic Scholar・OpenAlex・DBLP・PubMed などから収集し、各文献の書誌ページを開いて確認しました。一文要約は編者による平易な要約で、原文を優先してください。「全文非公開」は合法的な公開PDFが見つからなかったことを示します。<br>編者：許佳禕（Jiayi Xu）、東京大学先端科学技術研究センター。<br><br><b>引用</b>：Jiayi Xu. <i>Thermal HCI Handbook</i>, v0.1, 2026. https://jiayi-xu-hci.github.io/thermal-hci/<br><b>更新履歴</b>：v0.1（2026-11-04）初公開。論文576本、書籍50冊、動画18本。`,
+en:`<b>Temperature, the Next Language of Interaction</b><span class="ver">v0.1 · 2026-11</span><br>A living working version, not a final edition. Sources were collected from Crossref, Semantic Scholar, OpenAlex, DBLP, PubMed and others, and each record was checked on its bibliographic page. One-line summaries are plain-language paraphrases by the editor—always defer to the original. “No open full text” means we found no legal open PDF, not that the paper cannot be read.<br>Editor: Jiayi Xu, RCAST, The University of Tokyo.<br><br><b>How to cite</b>: Jiayi Xu. <i>Thermal HCI Handbook</i>, v0.1, 2026. https://jiayi-xu-hci.github.io/thermal-hci/<br><b>Versions</b>: v0.1 (2026-11-04) first public release — 576 papers, 50 books, 18 videos.`})}
 
 /* events */
 const fc=document.getElementById('fc'),fs=document.getElementById('fs'),fm=document.getElementById('fm'),fg=document.getElementById('fg'),fy=document.getElementById('fy'),foa=document.getElementById('foa'),fown=document.getElementById('fown'),qi=document.getElementById('q');
