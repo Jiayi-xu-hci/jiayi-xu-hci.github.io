@@ -20,7 +20,7 @@ class PublicHandler(SimpleHTTPRequestHandler):
             return None
         parts = relative.parts
         root_page = not parts or (len(parts) == 1 and parts[0] in PUBLIC_ROOT_FILES)
-        asset_page = bool(parts) and parts[0] in {'assets', 'projects'} and not any(p.startswith(('.', '_')) for p in parts)
+        asset_page = bool(parts) and parts[0] in {'assets', 'projects', 'thermal-hci'} and not any(p.startswith(('.', '_')) for p in parts)
         if not (root_page or asset_page):
             self.send_error(403, 'Private local content is not served')
             return None

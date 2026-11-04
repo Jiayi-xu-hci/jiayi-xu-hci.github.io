@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thermal HCI Handbook · 温度与人机交互</title>
+<meta name="description" content="A plain-language, searchable library of research on temperature in human–computer interaction: perception, illusions, sensing, thermal feedback and applications. 中文 / 日本語 / English.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f6f3;--card:#fff;--ink:#17201e;--muted:#5b6865;--line:#dde2de;--teal:#1d6f66;--heat:#e2601a;--heat-soft:#fdeee3;--cold:#2a7fd4;--cold-soft:#e6f0fb;--chip:#eef1ef;--shadow:0 4px 18px rgba(0,0,0,.05)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121615;--card:#1b2120;--ink:#e8eeec;--muted:#a3afac;--line:#2c3533;--teal:#4fb3a6;--heat:#ff8a4c;--heat-soft:#3a2418;--cold:#6bb6ff;--cold-soft:#17283b;--chip:#232b29;--shadow:none}}
+:root[data-theme="dark"]{--bg:#121615;--card:#1b2120;--ink:#e8eeec;--muted:#a3afac;--line:#2c3533;--teal:#4fb3a6;--heat:#ff8a4c;--heat-soft:#3a2418;--cold:#6bb6ff;--cold-soft:#17283b;--chip:#232b29;--shadow:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Inter,"Noto Sans SC","Noto Sans JP",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html[lang=ja] body{font-family:Inter,"Noto Sans JP","Noto Sans SC",system-ui,sans-serif}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+/* top bar */
+header.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:14px;height:60px}
+.brand{font-weight:800;letter-spacing:-.01em;white-space:nowrap;text-decoration:none}
+.brand span{color:var(--heat)} .brand b{color:var(--cold);font-weight:800}
+nav.toc{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+nav.toc::-webkit-scrollbar{display:none}
+nav.toc a{font-size:14px;text-decoration:none;color:var(--muted);padding:6px 10px;border-radius:999px;white-space:nowrap}
+nav.toc a:hover,nav.toc a.on{background:var(--chip);color:var(--ink)}
+.lang{display:flex;gap:2px;background:var(--chip);border-radius:999px;padding:3px}
+.lang button{border:0;background:none;color:var(--muted);font:600 13px Inter,sans-serif;padding:5px 10px;border-radius:999px;cursor:pointer}
+.lang button.on{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+/* hero */
+.hero{padding:72px 0 40px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.hero h1{font-size:clamp(38px,6vw,68px);line-height:1.08;letter-spacing:-.03em;margin:14px 0 18px;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--heat)} .hero h1 i{font-style:normal;color:var(--cold)}
+.hero p.lead{font-size:20px;color:var(--muted);max-width:760px;margin:0}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 20px;min-width:150px}
+.stat b{display:block;font-size:30px;line-height:1.1;letter-spacing:-.02em}
+.stat span{font-size:14px;color:var(--muted)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;font-size:15px;padding:11px 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.video{margin-top:30px;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#000;aspect-ratio:16/9}
+.video video{width:100%;height:100%;display:block}
+.video.missing{display:none}
+/* sections */
+section.sec{padding:56px 0;border-top:1px solid var(--line)}
+.chip{display:inline-block;background:var(--teal);color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:6px}
+h2{font-size:clamp(28px,3.6vw,40px);line-height:1.18;letter-spacing:-.02em;margin:12px 0 10px;font-weight:800}
+h2 em{font-style:normal;color:var(--heat)} h2 i{font-style:normal;color:var(--cold)}
+.sec>.wrap>p.lead{font-size:19px;color:var(--muted);max-width:820px;margin:0 0 26px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.grid.two{grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px;box-shadow:var(--shadow)}
+.card h3{font-size:19px;line-height:1.35;margin:0 0 6px;letter-spacing:-.01em}
+.card p{margin:0;color:var(--muted);font-size:15.5px}
+.card .big{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:6px}
+.card.heat{background:var(--heat-soft);border-color:transparent} .card.heat .big,.card.heat h3{color:var(--heat)}
+.card.cold{background:var(--cold-soft);border-color:transparent} .card.cold .big,.card.cold h3{color:var(--cold)}
+.card.dark{background:var(--ink);color:var(--bg);border-color:transparent} .card.dark p{color:color-mix(in srgb,var(--bg) 75%,transparent)}
+.card .try{margin-top:10px;font-size:14.5px;background:var(--chip);border-radius:10px;padding:8px 12px;color:var(--ink)}
+.card .meta{margin-top:10px;font-size:13px;color:var(--muted)}
+.cites{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.cite{font-size:12.5px;text-decoration:none;background:var(--chip);color:var(--ink);padding:2px 9px;border-radius:999px;border:0;cursor:pointer;font-family:inherit}
+.cite:hover{background:var(--teal);color:#fff}
+.cite.own{box-shadow:inset 0 0 0 1.5px var(--heat)}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.tbl th,.tbl td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-size:13px;color:var(--muted);font-weight:700;background:var(--chip)}
+.tblwrap{overflow-x:auto;margin-top:18px}
+.note{font-size:14px;color:var(--muted);margin-top:14px}
+details.more{margin-top:18px}
+details.more summary{cursor:pointer;font-weight:700;color:var(--teal)}
+/* receptor pills */
+.rec{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 18px}
+.rec div{flex:1;min-width:260px;border-radius:18px;padding:18px 22px;color:#fff}
+.rec .h{background:linear-gradient(120deg,#e2601a,#f29b4c)} .rec .c{background:linear-gradient(120deg,#2a7fd4,#6bb6ff)}
+.rec b{font-size:24px} .rec p{margin:4px 0 0;font-size:15px;opacity:.95}
+/* timeline */
+.tl{position:relative;margin-top:10px}
+.tl:before{content:"";position:absolute;left:84px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl .ev{display:grid;grid-template-columns:72px 1fr;gap:26px;padding:8px 0;position:relative}
+.tl .ev:before{content:"";position:absolute;left:78px;top:17px;width:14px;height:14px;border-radius:50%;background:var(--card);border:3px solid var(--teal)}
+.tl .ev.h:before{border-color:var(--heat)} .tl .ev.c:before{border-color:var(--cold)}
+.tl .yr{font-weight:800;text-align:right;font-variant-numeric:tabular-nums}
+.tl .tx{font-size:15.5px}
+/* bars */
+.bars{display:grid;gap:7px;margin-top:10px}
+.barrow{display:grid;grid-template-columns:150px 1fr 40px;gap:10px;align-items:center;font-size:14px;cursor:pointer;border:0;background:none;color:inherit;text-align:left;font-family:inherit;padding:2px 0}
+.barrow .b{height:16px;border-radius:6px;background:var(--teal);opacity:.85}
+.barrow.key .b{background:var(--heat)}
+.barrow:hover .b{opacity:1}
+/* library */
+.search{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.search input[type=search]{flex:1;min-width:240px;font:inherit;padding:12px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.filters select{font:inherit;font-size:14px;padding:7px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);max-width:220px}
+.filters label{font-size:14px;display:flex;gap:6px;align-items:center;color:var(--muted)}
+.count{font-size:14px;color:var(--muted);margin:6px 0 12px}
+.res{display:grid;gap:10px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+.item .tt{font-weight:700;line-height:1.4;text-decoration:none}
+.item .tt:hover{color:var(--teal)}
+.item .mt{font-size:13.5px;color:var(--muted);margin:2px 0 6px}
+.item .sm{font-size:15px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.bd{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--chip);color:var(--muted)}
+.bd.oa{background:#e3f4ec;color:#1d6f4a} .bd.no{background:var(--chip);color:var(--muted)}
+.bd.own{background:var(--heat-soft);color:var(--heat);font-weight:700}
+.bd.num{background:var(--cold-soft);color:var(--cold)}
+mark{background:#ffe9a8;color:inherit;border-radius:3px}
+.morebtn{margin:14px auto 0;display:block}
+footer{padding:40px 0 60px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.ver{display:inline-block;font-size:12px;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:middle;color:var(--muted)}
+@media (max-width:720px){.barrow{grid-template-columns:110px 1fr 34px}.tl:before{left:58px}.tl .ev{grid-template-columns:48px 1fr;gap:24px}.tl .ev:before{left:52px}}
+</style>
+</head>
+<body>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="#top">Thermal <span>H</span>C<b>I</b></a>
+  <nav class="toc" id="toc"></nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button data-l="zh">中</button><button data-l="ja">日</button><button data-l="en">EN</button>
+  </div>
+</div></header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="kicker" data-t="kicker"></div>
+    <h1 data-h="title"></h1>
+    <p class="lead" data-t="sub"></p>
+    <div class="stats" id="stats"></div>
+    <div class="btns">
+      <a class="btn primary" href="#library" data-t="btnSearch"></a>
+      <a class="btn" href="#why" data-t="btnStart"></a>
+    </div>
+    <div class="video" id="v-overview"><video controls preload="metadata" playsinline></video></div><p class="note vhtml" data-v="overview"></p>
+  </div>
+  <div id="sections"></div>
+
+  <section class="sec" id="library"><div class="wrap">
+    <span class="chip" data-t="libChip"></span>
+    <h2 data-h="libTitle"></h2>
+    <p class="lead" data-t="libLead"></p>
+    <div class="search"><input type="search" id="q" autocomplete="off"><button class="btn" id="reset" data-t="reset"></button></div>
+    <div class="filters">
+      <select id="fc"></select><select id="fs"></select><select id="fm"></select><select id="fg"></select><select id="fy"></select>
+      <label><input type="checkbox" id="foa"><span data-t="oaOnly"></span></label>
+      <label><input type="checkbox" id="fown"><span data-t="ownOnly"></span></label>
+    </div>
+    <div class="count" id="count"></div>
+    <div class="res" id="res"></div>
+    <button class="btn morebtn" id="more" data-t="showMore"></button>
+  </div></section>
+</main>
+
+<footer><div class="wrap" id="foot"></div></footer>
+
+<script src="data.js"></script>
+<script src="books.js"></script>
+<script>
+/* ---------------- text (zh / ja / en). {{id}} = citation chip, *x* = warm accent, _x_ = cool accent ---------------- */
+const T = {
+kicker:{zh:'资料库 · 手册',ja:'資料集 · ハンドブック',en:'Library · Handbook'},
+title:{zh:'*温度*与人机_交互_',ja:'*温度*とヒューマン・_コンピュータ_・インタラクション',en:'*Temperature* in Human–Computer _Interaction_'},
+sub:{zh:'我们怎样感觉冷和热？机器怎样测量温度，又怎样把冷热“送”给人？一份人人都能读懂、也能深入检索的资料库。',ja:'人はどうやって冷たさや温かさを感じるのか。機械はどう温度を測り、どう人に届けるのか。誰でも読めて、深く検索もできる資料集です。',en:'How do we feel hot and cold? How do machines measure temperature, and how can they send warmth and coolness to people? A library anyone can read, and researchers can search.'},
+btnSearch:{zh:'搜索文献',ja:'文献を検索',en:'Search the library'},
+btnStart:{zh:'从头读起',ja:'最初から読む',en:'Start reading'},
+sPapers:{zh:'篇论文与资料',ja:'本の論文・資料',en:'papers & sources'},
+sBooks:{zh:'本相关书籍',ja:'冊の関連書籍',en:'related books'},
+sYears:{zh:'年跨度（1724–2026）',ja:'年の幅（1724–2026）',en:'years covered (1724–2026)'},
+sOA:{zh:'篇有公开全文',ja:'本は全文公開',en:'with open full text'},
+libChip:{zh:'资料库',ja:'資料集',en:'Library'},
+libTitle:{zh:'按*关键词*搜索全部文献',ja:'*キーワード*で全文献を検索',en:'Search every paper by *keyword*'},
+libLead:{zh:'中文、日文、英文关键词都可以，比如：珀尔帖、冷感、VR、thermal grill、ロボット。没有公开全文的文献也收录了，并做了标注。',ja:'日本語・中国語・英語のどれでも検索できます（例：ペルチェ、冷感、VR、thermal grill、机器人）。全文が公開されていない文献も収録し、印をつけています。',en:'Search in English, Japanese or Chinese, e.g. Peltier, cooling, VR, thermal grill, ロボット. Papers without open full text are included and marked.'},
+reset:{zh:'清除',ja:'クリア',en:'Clear'},
+oaOnly:{zh:'只看有公开全文',ja:'全文公開のみ',en:'Open full text only'},
+ownOnly:{zh:'作者本人研究',ja:'作者自身の研究',en:'Author’s own work'},
+showMore:{zh:'显示更多',ja:'さらに表示',en:'Show more'},
+qph:{zh:'输入关键词，例如：冷感 VR / Peltier / 错觉',ja:'キーワードを入力（例：冷感 VR / ペルチェ / 錯覚）',en:'Type keywords, e.g. cooling VR / Peltier / illusion'},
+found:{zh:'找到 {n} 篇',ja:'{n} 件見つかりました',en:'{n} found'},
+all:{zh:'全部',ja:'すべて',en:'All'},
+oa:{zh:'有公开全文',ja:'全文公開',en:'Open full text'},
+nopdf:{zh:'无公开全文',ja:'全文非公開',en:'No open full text'},
+own:{zh:'作者本人',ja:'作者自身',en:'Author’s work'},
+seeAll:{zh:'在资料库中查看这一类（{n} 篇）→',ja:'この分類を資料集で見る（{n} 件）→',en:'See all {n} in the library →'},
+fCat:{zh:'类别',ja:'分類',en:'Category'},fSub:{zh:'主题',ja:'トピック',en:'Topic'},fMech:{zh:'机制',ja:'仕組み',en:'Mechanism'},fVen:{zh:'会议/期刊',ja:'会議・論文誌',en:'Venue'},fYear:{zh:'年代',ja:'年代',en:'Decade'},
+};
+const CAT={history:{zh:'历史',ja:'歴史',en:'History'},perception:{zh:'感知',ja:'知覚',en:'Perception'},illusion:{zh:'错觉',ja:'錯覚',en:'Illusions'},sensing:{zh:'传感',ja:'センシング',en:'Sensing'},feedback:{zh:'反馈',ja:'フィードバック',en:'Feedback'},application:{zh:'应用',ja:'応用',en:'Applications'}};
+const MECH={peltier:{zh:'珀尔帖（热电）',ja:'ペルチェ（熱電）',en:'Peltier (thermoelectric)'},resistive_heating:{zh:'电阻加热',ja:'抵抗加熱',en:'Resistive heating'},fluid:{zh:'水/液体',ja:'水・液体',en:'Water / fluid'},air_convection:{zh:'气流',ja:'気流',en:'Airflow'},radiation:{zh:'光/红外辐射',ja:'光・赤外線',en:'Light / infrared'},evaporative:{zh:'蒸发/雾',ja:'蒸発・ミスト',en:'Evaporation / mist'},ultrasound:{zh:'超声波',ja:'超音波',en:'Ultrasound'},chemical:{zh:'化学（辣椒素/薄荷）',ja:'化学（カプサイシン・メントール）',en:'Chemical (capsaicin / menthol)'},electrocaloric:{zh:'电卡效应',ja:'電気熱量効果',en:'Electrocaloric'},illusion_based:{zh:'利用错觉',ja:'錯覚の利用',en:'Illusion-based'},mixed:{zh:'混合',ja:'複合',en:'Mixed'},electrical_stimulation:{zh:'电刺激',ja:'電気刺激',en:'Electrical stimulation'},phase_change:{zh:'相变材料',ja:'相変化材料',en:'Phase change'},thermoelectric:{zh:'热电偶/热电',ja:'熱電対・熱電',en:'Thermoelectric'},resistive:{zh:'电阻式',ja:'抵抗式',en:'Resistive'},semiconductor:{zh:'半导体',ja:'半導体',en:'Semiconductor'},infrared:{zh:'红外',ja:'赤外線',en:'Infrared'},optical:{zh:'光学',ja:'光学',en:'Optical'},thermochromic:{zh:'热致变色',ja:'サーモクロミック',en:'Thermochromic'},ionic:{zh:'离子',ja:'イオン',en:'Ionic'},heat_flux:{zh:'热流',ja:'熱流束',en:'Heat flux'}};
+
+/* sections: each {id, nav, chip, title, lead, html(lang)} */
+const S = [];
+const L3=(zh,ja,en)=>({zh,ja,en});
+
+S.push({id:'why',nav:L3('为什么','なぜ温度','Why'),chip:L3('为什么是温度','なぜ温度なのか','Why temperature'),
+title:L3('辣椒为什么“烫”，薄荷为什么“凉”？<br>这个问题拿了*诺贝尔奖*。','唐辛子はなぜ「熱く」、ミントはなぜ「涼しい」？<br>この問いが*ノーベル賞*に。','Why does chili feel *hot* and mint feel _cool_?<br>That question won a *Nobel Prize*.'),
+lead:L3('2021 年诺贝尔生理学或医学奖颁给了 David Julius 和 Ardem Patapoutian，理由是“发现了温度和触觉的受体”。皮肤里有专门感受热和冷的分子开关，辣椒素和薄荷醇正好能把它们打开。','2021年のノーベル生理学・医学賞は、「温度と触覚の受容体の発見」でデビッド・ジュリアスとアーデム・パタプティアンに贈られました。皮膚には熱さと冷たさを感じる分子のスイッチがあり、カプサイシンやメントールはそれを直接オンにします。','The 2021 Nobel Prize in Physiology or Medicine went to David Julius and Ardem Patapoutian “for their discoveries of receptors for temperature and touch”. Our skin has molecular switches for heat and cold, and chili (capsaicin) and mint (menthol) flip them directly.'),
+body:{zh:`<div class="rec"><div class="h"><b>TRPV1 · 热 / 辣椒</b><p>大约 43 °C 以上开始响应，辣椒素也能打开它。{{caterina1997trpv1}}</p></div><div class="c"><b>TRPM8 · 冷 / 薄荷</b><p>感受凉意，薄荷醇也能打开它。{{mckemy2002trpm8}} {{peier2002trpm8}}</p></div></div>
+<h3 style="margin:26px 0 10px">温度为什么重要？</h3>
+<div class="grid">
+<div class="card heat"><h3>它告诉身体：热量在进还是在出</h3><p>烫伤和冻伤的警报都来自温度感觉。人能察觉非常小的温度变化，但前提是变化不能太慢。{{filingeri2016neurophysiology}}</p></div>
+<div class="card cold"><h3>它帮我们认识东西</h3><p>同样是室温，金属摸起来比木头凉，因为金属把手上的热量带走得更快。{{ho2008model}} {{bergmanntiest2009diffusivity}}</p></div>
+<div class="card"><h3>它和心情连在一起</h3><p>我们说“热情”“冷淡”。不过，“握一杯热饮会让人更友善”的著名实验，后来的大规模重复并没有得到同样结果。科学要看证据。{{williams2008warmth}} {{lynott2014replication}} {{chabris2019noevidence}}</p></div>
+</div>
+<h3 style="margin:30px 0 10px">如果电脑能给出冷和热，会怎样？</h3>
+<div class="grid">
+<div class="card"><h3>☀️ VR 里的阳光和风</h3><p>头戴设备吹出热风、凉风，让虚拟世界更真实。{{ranasinghe2017ambiotherm}} {{peiris2017thermovr}}</p></div>
+<div class="card"><h3>🤝 隔着屏幕牵手</h3><p>远方的人握住设备，你的手心感到对方的温度。{{gooch2012itsneattofeeltheace7}}</p></div>
+<div class="card"><h3>🎵 会变暖变凉的音乐</h3><p>耳机随音乐的高潮变暖、随安静段落变凉。{{watanabe2026thermotune}} {{xu2024moheat}}</p></div>
+<div class="card"><h3>🦾 让假手重新感到冷热</h3><p>给截肢者的残肢加热或降温，他们感觉像是“消失的手”在碰到冷热。{{iberite2023restoration}}</p></div>
+<div class="card"><h3>🤖 温暖的机器人</h3><p>柔软又温暖的机器人拥抱，更受人喜欢。{{block2018robothugs}} {{nie2012holdhand}}</p></div>
+<div class="card"><h3>🧭 用冷热指路</h3><p>左边变暖就向左转，不用看屏幕也能导航。{{tewell2017heatnav}}</p></div>
+</div>
+<p class="note">这本手册按四个问题展开：我们怎样感觉冷热（感知、错觉）？机器怎样测量温度（传感）？怎样把冷热“送”给人（反馈）？可以用在哪里（应用）？</p>`,
+ja:`<div class="rec"><div class="h"><b>TRPV1 · 熱 / 唐辛子</b><p>およそ43 °C以上で反応し、カプサイシンでもオンになります。{{caterina1997trpv1}}</p></div><div class="c"><b>TRPM8 · 冷 / ミント</b><p>涼しさを感じ、メントールでもオンになります。{{mckemy2002trpm8}} {{peier2002trpm8}}</p></div></div>
+<h3 style="margin:26px 0 10px">温度はなぜ大切？</h3>
+<div class="grid">
+<div class="card heat"><h3>熱が入るか出るかを教えてくれる</h3><p>やけどや凍傷の警報は温度の感覚から来ます。人はとても小さな温度変化に気づけますが、変化がゆっくりすぎると気づきにくくなります。{{filingeri2016neurophysiology}}</p></div>
+<div class="card cold"><h3>モノを見分ける手がかり</h3><p>同じ室温でも、金属は木より冷たく感じます。金属のほうが手の熱を速く奪うからです。{{ho2008model}} {{bergmanntiest2009diffusivity}}</p></div>
+<div class="card"><h3>気持ちともつながる</h3><p>「温かい人」「冷たい態度」と言いますね。ただし「温かい飲み物を持つと人に親切になる」という有名な実験は、大規模な追試では再現されませんでした。証拠を見ることが大切です。{{williams2008warmth}} {{lynott2014replication}} {{chabris2019noevidence}}</p></div>
+</div>
+<h3 style="margin:30px 0 10px">コンピュータが冷たさ・温かさを出せたら？</h3>
+<div class="grid">
+<div class="card"><h3>☀️ VRの日差しと風</h3><p>ヘッドセットから温風や涼風が出て、仮想世界がもっとリアルに。{{ranasinghe2017ambiotherm}} {{peiris2017thermovr}}</p></div>
+<div class="card"><h3>🤝 画面越しに手をつなぐ</h3><p>遠くの人がデバイスを握ると、あなたの手のひらにその温もりが届きます。{{gooch2012itsneattofeeltheace7}}</p></div>
+<div class="card"><h3>🎵 温かくなる音楽</h3><p>サビで温かく、静かな部分で涼しくなるヘッドホン。{{watanabe2026thermotune}} {{xu2024moheat}}</p></div>
+<div class="card"><h3>🦾 義手でもう一度冷温を</h3><p>切断した腕の残りの部分を温めたり冷やしたりすると、失った手で触れているように感じられます。{{iberite2023restoration}}</p></div>
+<div class="card"><h3>🤖 温かいロボット</h3><p>柔らかくて温かいロボットのハグは、より好まれました。{{block2018robothugs}} {{nie2012holdhand}}</p></div>
+<div class="card"><h3>🧭 冷温で道案内</h3><p>左が温かくなったら左へ。画面を見ずにナビゲーション。{{tewell2017heatnav}}</p></div>
+</div>
+<p class="note">このハンドブックは4つの問いで進みます。人はどう冷温を感じる？（知覚・錯覚）機械はどう測る？（センシング）どう人に届ける？（フィードバック）どこで使える？（応用）</p>`,
+en:`<div class="rec"><div class="h"><b>TRPV1 · heat / chili</b><p>Responds above about 43 °C, and capsaicin from chili also switches it on. {{caterina1997trpv1}}</p></div><div class="c"><b>TRPM8 · cold / mint</b><p>Senses coolness, and menthol from mint also switches it on. {{mckemy2002trpm8}} {{peier2002trpm8}}</p></div></div>
+<h3 style="margin:26px 0 10px">Why does temperature matter?</h3>
+<div class="grid">
+<div class="card heat"><h3>It tells the body whether heat is coming in or going out</h3><p>Warnings of burns and frostbite come from temperature sense. We notice tiny changes, but only if they are not too slow. {{filingeri2016neurophysiology}}</p></div>
+<div class="card cold"><h3>It helps us recognise things</h3><p>At the same room temperature, metal feels colder than wood because it pulls heat from your hand faster. {{ho2008model}} {{bergmanntiest2009diffusivity}}</p></div>
+<div class="card"><h3>It is tied to feelings</h3><p>We say “warm-hearted” and “a cold welcome”. But the famous finding that holding a hot drink makes people friendlier did not hold up in large repeat studies. Evidence matters. {{williams2008warmth}} {{lynott2014replication}} {{chabris2019noevidence}}</p></div>
+</div>
+<h3 style="margin:30px 0 10px">What if computers could give us warm and cold?</h3>
+<div class="grid">
+<div class="card"><h3>☀️ Sun and wind in VR</h3><p>Headsets blow warm or cool air to make virtual worlds feel real. {{ranasinghe2017ambiotherm}} {{peiris2017thermovr}}</p></div>
+<div class="card"><h3>🤝 Holding hands at a distance</h3><p>Someone far away squeezes a device and your palm feels their warmth. {{gooch2012itsneattofeeltheace7}}</p></div>
+<div class="card"><h3>🎵 Music that warms and cools</h3><p>Headphones that warm up at the chorus and cool down in quiet parts. {{watanabe2026thermotune}} {{xu2024moheat}}</p></div>
+<div class="card"><h3>🦾 Feeling hot and cold again</h3><p>Warming or cooling the arm of amputees made them feel temperature in their missing hand. {{iberite2023restoration}}</p></div>
+<div class="card"><h3>🤖 Warm robots</h3><p>Robot hugs were liked more when the robot was soft and warm. {{block2018robothugs}} {{nie2012holdhand}}</p></div>
+<div class="card"><h3>🧭 Directions by warmth</h3><p>Your left side warms up, so you turn left—no screen needed. {{tewell2017heatnav}}</p></div>
+</div>
+<p class="note">The handbook follows four questions: how do we feel hot and cold (perception, illusions)? How do machines measure temperature (sensing)? How can we send warmth and coolness to people (feedback)? Where can it be used (applications)?</p>`}});
+
+S.push({id:'perception',cat:'perception',nav:L3('感知','知覚','Perception'),chip:L3('第一部分 · 感知','第1部 · 知覚','Part 1 · Perception'),
+title:L3('皮肤更在意温度的*变化*','皮膚は温度の*変化*に敏感','Skin cares about *changes* in temperature'),
+lead:L3('皮肤里分别有感“冷”和感“暖”的神经末梢。它们对温度的变化最敏感：变得太慢，就感觉不到；泡得太久，就习惯了。','皮膚には「冷たい」と「温かい」を感じる神経の先端が別々にあります。温度の変化にいちばん敏感で、変化がゆっくりだと気づかず、長く続くと慣れてしまいます。','Skin has separate nerve endings for cool and warm. They react most to change: too slow and you miss it, too long and you get used to it.'),
+body:{zh:`<div class="grid">
+<div class="card"><div class="big">15–42 °C</div><h3>大致不会疼的范围</h3><p>超过约 43 °C，热痛受体开始工作。{{filingeri2016neurophysiology}} {{caterina1997trpv1}}</p></div>
+<div class="card cold"><div class="big">1.3–1.6×</div><h3>冷比热更容易察觉</h3><p>全身 300 多个点的测量显示，皮肤对凉的敏感度是暖的 1.3–1.6 倍。{{luo2020maps}}</p></div>
+<div class="card"><div class="big">≈100×</div><h3>不同部位差很多</h3><p>脸最灵敏，脚最迟钝，相差约 100 倍；年龄越大越迟钝。{{stevens1998sensitivity}}</p></div>
+<div class="card heat"><div class="big">0.1 °C/s</div><h3>太慢就感觉不到</h3><p>温度每秒变化小于约 0.1 °C 时，就很难发现。{{filingeri2016neurophysiology}} {{kenshalo1968warmandcoolthres05d9}}</p></div>
+<div class="card"><div class="big">≈25 min</div><h3>泡久了会习惯</h3><p>在 28–37.5 °C 之间，皮肤大约 25 分钟就会完全适应，不再觉得冷或热。{{kenshalo1966adaptation}}</p></div>
+<div class="card"><div class="big">大面积</div><h3>面积越大越明显，但说不准位置</h3><p>同样的温度，接触面积越大感觉越强；可人很难说清冷热到底在哪一点。{{hardy1937spatial}} {{stevens1971spatialsummation1cad}}</p></div>
+</div>
+<div class="grid two" style="margin-top:14px">
+<div class="card"><h3>没有“湿”的感受器</h3><p>“湿”是大脑把“凉”和“轻轻的压”合在一起猜出来的。{{filingeri2014wet}}</p></div>
+<div class="card"><h3>金属凉、木头暖</h3><p>摸东西时，手上的热量流走得越快，就觉得越凉；这是我们分辨材质的线索。{{ho2008model}} {{bergmanntiest2009diffusivity}}</p></div>
+</div>`,
+ja:`<div class="grid">
+<div class="card"><div class="big">15–42 °C</div><h3>だいたい痛くない範囲</h3><p>約43 °Cを超えると熱の痛みの受容体が働き始めます。{{filingeri2016neurophysiology}} {{caterina1997trpv1}}</p></div>
+<div class="card cold"><div class="big">1.3–1.6×</div><h3>冷たさの方が気づきやすい</h3><p>全身300点以上の測定で、冷たさへの感度は温かさの1.3〜1.6倍でした。{{luo2020maps}}</p></div>
+<div class="card"><div class="big">≈100×</div><h3>体の場所で大きく違う</h3><p>顔がいちばん敏感で足がいちばん鈍く、約100倍の差。年齢とともに鈍くなります。{{stevens1998sensitivity}}</p></div>
+<div class="card heat"><div class="big">0.1 °C/s</div><h3>ゆっくりだと気づかない</h3><p>1秒あたり約0.1 °Cより遅い変化は気づきにくくなります。{{filingeri2016neurophysiology}} {{kenshalo1968warmandcoolthres05d9}}</p></div>
+<div class="card"><div class="big">≈25分</div><h3>長く続くと慣れる</h3><p>28〜37.5 °Cの間なら、約25分で完全に慣れて冷温を感じなくなります。{{kenshalo1966adaptation}}</p></div>
+<div class="card"><div class="big">広い面</div><h3>広いほど強いが、場所はあいまい</h3><p>触れる面積が大きいほど強く感じますが、どこが冷たいのかは正確にわかりにくいのです。{{hardy1937spatial}} {{stevens1971spatialsummation1cad}}</p></div>
+</div>
+<div class="grid two" style="margin-top:14px">
+<div class="card"><h3>「濡れ」の受容体はない</h3><p>「濡れている」は、脳が「冷たい」と「軽い圧」を組み合わせて推測した感覚です。{{filingeri2014wet}}</p></div>
+<div class="card"><h3>金属は冷たく、木は温かい</h3><p>手の熱が速く逃げるほど冷たく感じ、それが材質を見分ける手がかりになります。{{ho2008model}} {{bergmanntiest2009diffusivity}}</p></div>
+</div>`,
+en:`<div class="grid">
+<div class="card"><div class="big">15–42 °C</div><h3>Roughly the pain-free range</h3><p>Above about 43 °C, heat-pain receptors start to fire. {{filingeri2016neurophysiology}} {{caterina1997trpv1}}</p></div>
+<div class="card cold"><div class="big">1.3–1.6×</div><h3>Cold is easier to notice</h3><p>Measured at 300+ points on the body, skin was 1.3–1.6 times more sensitive to cooling than to warming. {{luo2020maps}}</p></div>
+<div class="card"><div class="big">≈100×</div><h3>Body sites differ a lot</h3><p>The face is most sensitive, the feet least—about 100-fold—and sensitivity drops with age. {{stevens1998sensitivity}}</p></div>
+<div class="card heat"><div class="big">0.1 °C/s</div><h3>Too slow goes unnoticed</h3><p>Changes slower than about 0.1 °C per second are hard to detect. {{filingeri2016neurophysiology}} {{kenshalo1968warmandcoolthres05d9}}</p></div>
+<div class="card"><div class="big">≈25 min</div><h3>You get used to it</h3><p>Between 28 and 37.5 °C, skin fully adapts in about 25 minutes and stops feeling warm or cool. {{kenshalo1966adaptation}}</p></div>
+<div class="card"><div class="big">Area</div><h3>Bigger feels stronger, but blurry</h3><p>A larger touch area feels stronger, yet we are poor at telling exactly where the warmth is. {{hardy1937spatial}} {{stevens1971spatialsummation1cad}}</p></div>
+</div>
+<div class="grid two" style="margin-top:14px">
+<div class="card"><h3>There is no “wet” sensor</h3><p>Wetness is the brain’s guess from cooling plus light pressure. {{filingeri2014wet}}</p></div>
+<div class="card"><h3>Metal feels cold, wood feels warm</h3><p>The faster heat leaves your hand, the colder it feels—a clue we use to tell materials apart. {{ho2008model}} {{bergmanntiest2009diffusivity}}</p></div>
+</div>`}});
+
+S.push({id:'illusions',cat:'illusion',nav:L3('错觉','錯覚','Illusions'),chip:L3('第二部分 · 错觉','第2部 · 錯覚','Part 2 · Illusions'),
+title:L3('大脑也会被*温度*骗','脳も*温度*にだまされる','Your brain can be fooled by *temperature*'),
+lead:L3('温度错觉不只是好玩：设计者用它们让设备更省电、更快，甚至“无中生有”。','温度の錯覚は面白いだけではありません。デバイスを省エネに、速く、そして「ないもの」を感じさせるために使われています。','Thermal illusions are not just fun: designers use them to make devices faster, cheaper and even to create feelings out of nothing.'),
+cards:[
+ {h:L3('热栅错觉','サーマルグリル錯覚','Thermal grill illusion'),p:L3('温和凉的细条交错排在一起，会感到“烫”甚至刺痛，虽然每一条都不烫。','温かい棒と冷たい棒を交互に並べると、どれも熱くないのに「熱い・痛い」と感じます。','Interlaced warm and cool bars can feel burning hot, though no single bar is hot.'),c:['craig1994grill','saga2022grill','mizuno2024dynapain'],k:'h'},
+ {h:L3('热转移','サーマルリファーラル','Thermal referral'),p:L3('只加热中间一根手指，三根手指都觉得暖；设备可以用更少的发热点。','真ん中の指だけを温めても、3本とも温かく感じます。少ない発熱部で済みます。','Warm only the middle finger and all three touching fingers feel warm—fewer heaters needed.'),c:['green1977referral','ho2011referral','wang2024masking'],k:'h'},
+ {h:L3('冷的更“重”','冷たいと「重い」','Cold feels heavier'),p:L3('两个一样重的东西，凉的那个感觉更重（韦伯在 19 世纪就注意到了）。','同じ重さでも、冷たいほうが重く感じます（19世紀にウェーバーが気づきました）。','Of two equal weights, the colder one feels heavier—first noticed by Weber in the 1800s.'),c:['kuhtzbuschbeck2020coldandheavy9ae3'],k:'c',t:L3('自己试试：把一枚硬币放冰箱几分钟，和另一枚一样的硬币放在手心比较。','やってみよう：硬貨1枚を冷蔵庫で数分冷やし、同じ硬貨と手のひらで比べてみよう。','Try it: chill one coin in the fridge for a few minutes and compare it with an identical coin on your palm.')},
+ {h:L3('三碗水','3つのお椀','Three bowls of water'),p:L3('先适应的温度，决定了你对下一碗水的感觉：温度是“相对”的。','直前に慣れた温度で、次の水の感じ方が変わります。温度感覚は「相対的」です。','What you adapted to decides how the next bowl feels: temperature sense is relative.'),c:['kenshalo1966adaptation'],k:'c',t:L3('自己试试：左手放温水、右手放凉水一分钟，再一起放进常温水。','やってみよう：左手をぬるま湯、右手を冷水に1分入れ、両手を常温の水へ。','Try it: left hand in warm water, right hand in cool water for a minute, then both into room-temperature water.')},
+ {h:L3('看见颜色、听见声音','色と音','Colours and sounds'),p:L3('红色让人以为更暖，蓝色更凉；倒热水和倒冷水的声音，人也能听出来。','赤は温かく、青は冷たく見えます。お湯と冷水を注ぐ音も聞き分けられます。','Red looks warm and blue cool; people can even hear whether hot or cold water is being poured.'),c:['ho2014colourtemperatur7828','ho2014combiningcoloura99b0','velasco2013thesoundoftempercdb1'],k:''},
+ {h:L3('橡胶手让真手变凉','ラバーハンドで本物の手が冷える','A rubber hand cools your real hand'),p:L3('当人觉得假手是“自己的手”时，真手的皮肤温度竟然下降了。','偽物の手を「自分の手」と感じると、本物の手の皮膚温度が下がりました。','When people felt a rubber hand was theirs, the skin of their real hand actually cooled.'),c:['moseley2008psychologicallyi2647'],k:'c'},
+ {h:L3('不湿也觉得湿','濡れていないのに濡れている','Wet without water'),p:L3('凉 + 轻压就能让手指觉得“湿”，VR 里可以模拟水。','冷たさ＋軽い圧で、指が「濡れた」と感じます。VRで水を表現できます。','Cool plus light pressure makes fingers feel wet—handy for water in VR.'),c:['filingeri2014wet','han2020mouill263b'],k:'c'},
+ {h:L3('辣椒和薄荷','唐辛子とミント','Chili and mint'),p:L3('涂一点辣椒素或薄荷醇，不用加热制冷也能感到暖或凉。','カプサイシンやメントールを塗るだけで、加熱・冷却なしに温冷を感じます。','A dab of capsaicin or menthol feels warm or cool without any heater or cooler.'),c:['lu2021chemical','hensel1951menthol'],k:'h'},
+ {h:L3('会移动的热','動く熱','Moving warmth'),p:L3('按顺序加热几个点，人会感觉热在皮肤上“流动”。','いくつかの点を順に温めると、熱が皮膚の上を「流れる」ように感じます。','Heating a few spots in sequence makes warmth seem to flow across the skin.'),c:['singhal2024flow'],k:'h'}
+]});
+
+S.push({id:'sensing',cat:'sensing',nav:L3('传感','センシング','Sensing'),chip:L3('第三部分 · 传感','第3部 · センシング','Part 3 · Sensing'),
+title:L3('从玻璃管到贴在皮肤上的*电子皮肤*','ガラス管から肌に貼る*電子皮膚*へ','From glass tubes to *electronic skin*'),
+lead:L3('400 年前，人们用一根玻璃管看空气热胀冷缩；今天，比纸还薄的传感器可以贴在皮肤上，机器人也能靠“摸”出的热量分辨材料。','400年前はガラス管で空気の膨張を見ていました。今では紙より薄いセンサを肌に貼り、ロボットは触れたときの熱で材質を見分けます。','Four centuries ago people watched air expand in a glass tube. Today sensors thinner than paper sit on skin, and robots tell materials apart by the heat they feel.'),
+timeline:[
+ ['1610s',L3('桑托里奥用早期温度计测体温，测温从“感觉”走向“数字”。','サントリオが初期の温度計で体温を測り、温度が「数値」に。','Santorio measures body heat with early thermometers: temperature becomes a number.'),'bigotti2018theweightoftheai1cf8','c'],
+ ['1724',L3('华伦海特报告用温度计做的结冰实验。','ファーレンハイトが温度計による凍結実験を報告。','Fahrenheit reports freezing experiments with his thermometers.'),'fahrenheit1724viiiexperimentao32c1','c'],
+ ['1821',L3('塞贝克发现两种金属接点受热会产生电：热电偶的原理。','ゼーベックが異種金属の接点を温めると電気が生じることを発見（熱電対の原理）。','Seebeck finds that heating a junction of two metals makes electricity—the thermocouple principle.'),'velmre2007thomasjohannseebeb64','h'],
+ ['1880',L3('兰利发明测热辐射的“测辐射热计”。','ラングレーが熱放射を測るボロメータを発明。','Langley invents the bolometer for measuring heat radiation.'),'langley1880thebolometerandr4026','h'],
+ ['1887',L3('卡伦德提出精确的铂电阻温度计。','カレンダーが精密な白金抵抗温度計を提案。','Callendar develops the precise platinum resistance thermometer.'),'callendar1887vionthepractical6722','c'],
+ ['1946',L3('热敏电阻：温度一变，电阻就大变，便宜又灵敏。','サーミスタ：温度で抵抗が大きく変わる、安くて敏感なセンサ。','Thermistors: cheap parts whose resistance changes strongly with temperature.'),'becker1946propertiesandusebc9f','c'],
+ ['2011',L3('“表皮电子”：像临时纹身一样贴在皮肤上的电路。','「表皮エレクトロニクス」：タトゥーシールのように肌に貼る回路。','Epidermal electronics: circuits that stick to skin like a temporary tattoo.'),'kim2011epidermalelectro1f2a','h'],
+ ['2013',L3('超薄传感器连续、精确地测量皮肤温度。','超薄型センサで皮膚温度を連続・高精度に計測。','Ultrathin sensors measure skin temperature precisely and continuously.'),'webb2013ultrathinconform1136','h']],
+cards:[
+ {h:L3('热像仪变成触控板','サーモカメラがタッチパネルに','Thermal cameras as touch input'),p:L3('手指碰过的地方会留下“热手印”，热像仪看得见，于是任何表面都能变成触控面。','指が触れた所には「熱の跡」が残り、サーモカメラで見えるので、どんな面もタッチ面になります。','Fingers leave warm marks that a thermal camera can see, turning any surface into a touch pad.'),c:['larson2011heatwave0710','kurz2014thermaltouchf646']},
+ {h:L3('机器人“摸”出材料','ロボットが触って材質を知る','Robots feel materials'),p:L3('像人一样，机器人根据接触时热量流走的快慢，分辨金属、木头和塑料。','人と同じように、触れたときの熱の逃げ方で金属・木・プラスチックを見分けます。','Like us, robots tell metal, wood and plastic apart by how fast heat flows on contact.'),c:['bhattacharjee2015materialrecognit671a','monkman1993thermaltactilese3f73']},
+ {h:L3('看不见的心跳与情绪','見えない心拍と感情','Hidden signals in the face'),p:L3('非常灵敏的热成像能看到脸上极小的温度变化，用来读取生理状态。','とても高感度な熱画像で、顔のごく小さな温度変化から生理状態を読み取ります。','Highly sensitive thermal imaging sees tiny facial temperature changes linked to the body’s state.'),c:['kotani2025synchrothermograb7db','ring2012infraredthermali1457']}
+]});
+
+S.push({id:'feedback',cat:'feedback',nav:L3('反馈','フィードバック','Feedback'),chip:L3('第四部分 · 反馈','第4部 · フィードバック','Part 4 · Feedback'),
+title:L3('把冷热送给人：*贴着*，或者_隔空_','冷温を届ける：*触れて*、または_離れて_','Sending warm and cool: *by touch* or _through the air_'),
+lead:L3('最常见的是贴在皮肤上的“珀尔帖”小板（一通电就一面热一面冷）；也有用水、风、光、雾、超声，甚至辣椒素和错觉的方法。各有快慢、远近和安全上的取舍。','いちばん多いのは肌に当てる「ペルチェ素子」（電気を流すと片面が熱く、片面が冷たくなる板）。ほかに水・風・光・ミスト・超音波、さらには唐辛子成分や錯覚を使う方法も。速さ・距離・安全性にそれぞれ一長一短があります。','The most common tool is a Peltier element on the skin—a small plate that gets hot on one side and cold on the other when powered. Others use water, air, light, mist, ultrasound, even chili and illusions. Each trades off speed, distance and safety.'),
+mechs:[
+ ['peltier',L3('通电后一面热一面冷的小板，贴在皮肤上。','電気で片面が熱く、片面が冷たくなる板を肌に当てる。','A plate that heats one side and cools the other, placed on skin.'),L3('能热也能冷，最普及','加熱も冷却もでき、最も普及','Heats and cools; most widely used'),L3('背面会积热，越用越慢','裏面に熱がたまり遅くなる','Heat builds up on the back and slows it down'),['ino1993display','jones2008warm','kim2020glove'],'h'],
+ ['resistive_heating',L3('电流通过电阻丝发热，像电热毯。','電熱線に電流を流して発熱（電気毛布のように）。','Current through a wire makes heat, like an electric blanket.'),L3('简单、轻、便宜','シンプル・軽い・安い','Simple, light, cheap'),L3('只能加热，降温靠自然冷却','加熱のみ、冷却は自然まかせ','Heat only; cooling is slow'),['kuroda2024representationof0b7d'],'h'],
+ ['fluid',L3('让热水或冷水在管子里流过皮肤。','温水や冷水を管に流して肌に届ける。','Hot or cold water flows through tubes against the skin.'),L3('温度稳、面积大','温度が安定、広い面に','Stable temperature over large areas'),L3('需要泵和水箱','ポンプやタンクが必要','Needs pumps and tanks'),['hayakawa2015waterflow'],'c'],
+ ['air_convection',L3('吹出热风或冷风，不用碰到皮肤。','温風・冷風を吹き付け、肌に触れない。','Warm or cold air blown at the skin, no contact.'),L3('不接触、可大面积','非接触で広範囲','Contact-free, large areas'),L3('风的感觉会混进来','風の感覚が混ざる','You also feel the wind'),['ranasinghe2017ambiotherm','xu2022vortex','akimoto2025coanda'],'c'],
+ ['radiation',L3('用红外灯、LED 或激光的光来加热皮肤。','赤外線ランプ・LED・レーザーの光で肌を温める。','Infrared lamps, LEDs or lasers warm the skin with light.'),L3('隔空、很快','離れていても速い','Fast, from a distance'),L3('只能加热，要注意安全','加熱のみ、安全に注意','Heat only; needs safety care'),['xu2023integration','xu2024moheat'],'h'],
+ ['ultrasound',L3('超声波把细雾送到皮肤某一点，雾蒸发带走热量。','超音波でミストを一点に運び、蒸発で冷やす。','Ultrasound pushes mist to one spot where it evaporates and cools.'),L3('隔空的点状冷感','離れた点状の冷感','Pin-point cooling in mid-air'),L3('系统复杂','装置が複雑','Complex hardware'),['nakajima2021mist'],'c'],
+ ['evaporative',L3('雾或酒精蒸发时带走热量，就像出汗后吹风。','ミストやアルコールが蒸発して熱を奪う（汗が乾くように）。','Mist or alcohol evaporating takes heat away, like sweat drying.'),L3('凉感强、反应快','強い冷感、速い','Strong, fast cooling'),L3('需要补充液体','液体の補充が必要','Needs refilling'),['xu2026chillfactor'],'c'],
+ ['chemical',L3('涂辣椒素或薄荷醇，直接骗过温度受体。','カプサイシンやメントールで受容体を直接だます。','Capsaicin or menthol tricks the temperature receptors directly.'),L3('不耗电','電力がいらない','No power needed'),L3('不能快速开关','すぐにオン・オフできない','Hard to switch on and off'),['lu2021chemical'],'h'],
+ ['illusion_based',L3('利用热转移、热栅等错觉，用更少的发热点做出更多感觉。','リファーラルやグリル錯覚で、少ない素子でより多くの感覚を。','Use referral or grill illusions to get more feeling from fewer heaters.'),L3('省电、省零件','省電力・部品削減','Saves power and parts'),L3('因人而异','個人差がある','Varies between people'),['wang2024masking','saga2022grill'],'']
+],
+table:{head:L3(['方式','碰皮肤？','加热','降温','典型用途'],['方式','触れる？','加熱','冷却','主な用途'],['Method','Touch?','Heat','Cool','Typical use']),
+rows:[['peltier','✓','✓','✓',L3('手套、手柄、VR 头显','グローブ・コントローラ・HMD','Gloves, controllers, headsets')],['resistive_heating','✓','✓','—',L3('服装、座椅','衣服・座席','Clothing, seats')],['fluid','✓','✓','✓',L3('大面积、医疗','広い面・医療','Large areas, medicine')],['air_convection','—','✓','✓',L3('VR 环境、脸部','VR環境・顔','VR rooms, the face')],['radiation','—','✓','—',L3('隔空加热','離れて加熱','Contact-free warming')],['evaporative','—','—','✓',L3('隔空降温','離れて冷却','Contact-free cooling')],['chemical','✓','✓','✓',L3('可穿戴、低功耗','ウェアラブル・省電力','Wearables, low power')]]},
+extra:{zh:`<p class="note">热显示的经典难题：要够快、不残留余热、要安全、要省电、还要能做得细。{{jones2008warm}} 最早用温度表现“材质手感”的显示器之一出现在 1993 年。{{ino1993display}}</p>`,ja:`<p class="note">温度ディスプレイの古典的な課題は、速さ・残熱のなさ・安全・省電力・細かさの両立です。{{jones2008warm}} 温度で「材質感」を表す最初期のディスプレイは1993年に登場しました。{{ino1993display}}</p>`,en:`<p class="note">The classic challenges of thermal displays: be fast, leave no leftover heat, stay safe, save power and still be detailed. {{jones2008warm}} One of the first displays to render the “feel” of materials by temperature appeared in 1993. {{ino1993display}}</p>`}});
+
+S.push({id:'applications',cat:'application',nav:L3('应用','応用','Applications'),chip:L3('第五部分 · 应用','第5部 · 応用','Part 5 · Applications'),
+title:L3('温度能用在*哪里*？','温度は*どこで*使える？','Where can temperature be *used*?'),
+lead:L3('从游戏、音乐到医院和机器人。大多数还在实验室阶段，少数已经有临床或长期研究；我们把证据强弱也标了出来。','ゲームや音楽から病院、ロボットまで。多くはまだ研究段階で、臨床研究や長期研究があるものは一部です。証拠の強さも示しています。','From games and music to hospitals and robots. Most is still in the lab; a few areas have clinical or long-term evidence—we mark how strong the evidence is.'),
+apps:[
+ ['entertainment_vr','🎮',L3('娱乐与 VR','エンタメ・VR','Entertainment & VR'),L3('让游戏、电影、音乐和 VR 更身临其境。','ゲーム・映画・音楽・VRの没入感を高める。','More immersive games, films, music and VR.'),['peiris2017thermovr','ranasinghe2017ambiotherm','watanabe2026thermotune'],L3('大量用户实验','多数のユーザ実験','Many user studies')],
+ ['emotion_affective','💗',L3('情感','感情','Emotion'),L3('用冷热表达情绪、带来平静或惊叹。','冷温で感情を表し、落ち着きや感動を生む。','Express emotions, calm people, create awe.'),['wilson2016collar','he2022frissonwavese902','marquardt2025temperaturemattefaa4'],L3('用户实验；部分经典结论未能重复','ユーザ実験。一部の古典的結果は再現されず','User studies; some classic claims did not replicate')],
+ ['communication_notification','💬',L3('沟通与通知','コミュニケーション・通知','Communication & alerts'),L3('用温度传递消息、牵手和打招呼。','温度でメッセージや手のぬくもりを伝える。','Messages, hand-holding and greetings by warmth.'),['lee2010thermomessage','gooch2012itsneattofeeltheace7','hecquard2024warm'],L3('原型与小规模实验','試作と小規模実験','Prototypes, small studies')],
+ ['accessibility_navigation','🧭',L3('导航与无障碍','ナビ・アクセシビリティ','Navigation & accessibility'),L3('不看屏幕也能被引导方向，帮助视障者。','画面を見ずに方向を知る。視覚障害者の支援にも。','Guidance without a screen, including for blind users.'),['tewell2017heatnav','eska2023thermofeet','maimon2026thermalwave06bd'],L3('原型与用户实验','試作とユーザ実験','Prototypes, user studies')],
+ ['medical_health','🏥',L3('医疗与健康','医療・健康','Medicine & health'),L3('冷热治疗、检查神经、放松与睡眠。','温冷療法、神経の検査、リラックスや睡眠。','Heat/cold therapy, nerve tests, relaxation, sleep.'),['nadler2002heatwrap','bleakley2004ice','dublin2026breathinginwardcc2d'],L3('部分有临床试验','一部に臨床試験','Some clinical trials')],
+ ['prosthetics_neural','🦾',L3('假肢与感觉恢复','義手・感覚の回復','Prosthetics & restoring touch'),L3('让截肢者重新感到冷热。','切断した人がもう一度冷温を感じられるように。','Letting amputees feel temperature again.'),['iberite2023restoration','osborn2023thinfilm','muheim2024prosthesis'],L3('顶级期刊人体研究','トップ誌のヒト研究','Human studies in top journals')],
+ ['robotics_teleoperation','🤖',L3('机器人与遥操作','ロボット・遠隔操作','Robots & teleoperation'),L3('温暖的机器人触碰，远程“摸”到物体的温度。','温かいロボットの接触、遠隔で物の温度を感じる。','Warm robot touch; feeling remote objects’ temperature.'),['block2018robothugs','nie2012holdhand','morimitsu2012thermalbilateralb800'],L3('仍很少，值得探索','まだ少なく有望','Still rare—open opportunity')],
+ ['food_drink_product','🍵',L3('饮食','飲食','Food & drink'),L3('温度改变味道和喝东西的感受。','温度で味や飲み心地を変える。','Temperature changes taste and how a drink feels.'),['karunanayaka2018newthermaltastea5e4b','kamihori2024thermotumblerd8aa','he2025drinking'],L3('原型','試作','Prototypes')],
+ ['comfort_personal_thermal','🧥',L3('个人舒适','パーソナル快適性','Personal comfort'),L3('只让身体局部舒服，比开整间空调更省能。','体の一部だけ快適にし、部屋全体の冷暖房より省エネ。','Keep just your body comfortable—cheaper than heating a whole room.'),['hsu2016nanope','knierim2024warmthondemand905c'],L3('材料与实地研究','材料研究と実地研究','Materials and field studies')],
+ ['education_training_safety','🚒',L3('训练与安全','訓練・安全','Training & safety'),L3('在 VR 里安全地练习面对火和热。','VRで火や熱への対応を安全に練習。','Practise facing fire and heat safely in VR.'),['shaw2019heatison','wheeler2021firefighter'],L3('早期研究','初期研究','Early research')]
+]});
+
+S.push({id:'venues',nav:L3('期刊会议','会議・論文誌','Venues'),chip:L3('在哪里发表','どこで発表されているか','Where it is published'),
+title:L3('重点会议与期刊','主要な会議と論文誌','Key venues'),
+lead:L3('HCI 和触觉领域的温度研究主要发表在 IEEE ToH、IEEE VR、ISMAR、Augmented Humans、CHI、UIST，以及 Nature / Science 系列等期刊。点击任何一行，就能在资料库中查看全部论文。','HCIと触覚分野の温度研究は、IEEE ToH、IEEE VR、ISMAR、Augmented Humans、CHI、UIST、Nature・Science系の論文誌などで発表されています。行をクリックすると資料集で一覧できます。','Thermal research in HCI and haptics appears mostly in IEEE ToH, IEEE VR, ISMAR, Augmented Humans, CHI, UIST and the Nature and Science journals. Click a row to list its papers.'),venues:true});
+
+S.push({id:'history',nav:L3('历史','歴史','History'),chip:L3('时间线','年表','Timeline'),
+title:L3('从温度计到会“送冷热”的电脑','温度計から冷温を「届ける」コンピュータへ','From thermometers to computers that send warmth'),
+lead:L3('感知、传感和反馈三条线，在过去 300 年里一步步走到一起。','知覚・センシング・フィードバックの3つの流れが、300年かけて一つになってきました。','Three threads—perception, sensing and feedback—came together over 300 years.'),
+timeline:[
+ ['1724',L3('华伦海特的温度计实验','ファーレンハイトの温度計実験','Fahrenheit’s thermometer experiments'),'fahrenheit1724viiiexperimentao32c1','c'],
+ ['1821',L3('塞贝克发现热电效应','ゼーベックが熱電効果を発見','Seebeck discovers the thermoelectric effect'),'velmre2007thomasjohannseebeb64','h'],
+ ['1880s',L3('发现皮肤上有分开的“冷点”和“热点”','皮膚に別々の「冷点」と「温点」を発見','Separate cold and warm spots found on the skin'),'norrsell1999spots','c'],
+ ['1937',L3('测出皮肤对极微小升温也能察觉','皮膚がごくわずかな温度上昇に気づくことを測定','Skin shown to detect tiny warming'),'hardy1937spatial','h'],
+ ['1977',L3('发现热转移错觉','サーマルリファーラル錯覚の発見','Thermal referral illusion described'),'green1977referral','h'],
+ ['1993',L3('最早的“材质温度”显示器之一','最初期の「材質温度」ディスプレイ','An early display rendering material temperature'),'ino1993display','h'],
+ ['1994',L3('解释热栅错觉为何会“烫”','グリル錯覚が「熱い」理由を解明','Why the thermal grill burns'),'craig1994grill','h'],
+ ['1997',L3('发现热和辣椒的受体 TRPV1','熱と唐辛子の受容体 TRPV1 を発見','Heat and chili receptor TRPV1 found'),'caterina1997trpv1','h'],
+ ['2002',L3('发现冷和薄荷的受体 TRPM8','冷たさとミントの受容体 TRPM8 を発見','Cold and menthol receptor TRPM8 found'),'mckemy2002trpm8','c'],
+ ['2008',L3('热显示的经典综述','温度ディスプレイの古典的レビュー','Classic review of thermal displays'),'jones2008warm',''],
+ ['2011',L3('手机上的温度反馈；可贴在皮肤上的电子电路','スマホの温度フィードバック／肌に貼る電子回路','Thermal feedback on phones; electronics on skin'),'wilson2011hot','h'],
+ ['2017',L3('VR 头显上的冷热与风','VRヘッドセットに温冷と風','Heat, cold and wind on VR headsets'),'peiris2017thermovr','c'],
+ ['2021',L3('诺贝尔奖：温度与触觉受体；化学触觉','ノーベル賞：温度と触覚の受容体／化学ハプティクス','Nobel Prize for temperature receptors; chemical haptics'),'nobel2021press','h'],
+ ['2023',L3('截肢者重新感到冷热','切断者が再び冷温を感じる','Amputees feel temperature again'),'iberite2023restoration','c'],
+ ['2026',L3('隔空、快速、可穿戴的冷热反馈继续涌现','非接触・高速・ウェアラブルな温冷提示が続々','Fast, wearable, contact-free thermal feedback keeps growing'),'xu2026chillfactor','c']]});
+
+S.push({id:'open',nav:L3('开放问题','未解決の課題','Open problems'),chip:L3('还没解决的问题','まだ解けていない問題','Still unsolved'),
+title:L3('下一步，*你*来解决','次は*あなた*の番','Next, it’s *your* turn'),
+lead:L3('这些是领域里反复出现的难题，也是新研究的机会。','分野で繰り返し出てくる難題であり、新しい研究のチャンスです。','Problems that keep coming up—and chances for new research.'),
+cards:[
+ {h:L3('更快地切换冷热','もっと速く冷温を切り替える','Switch hot and cold faster'),p:L3('皮肤和设备都会“记住”热量，冷热来回切换总是慢一拍。','皮膚も装置も熱を「覚えて」いて、切り替えが遅れがちです。','Skin and devices hold onto heat, so switching lags.'),c:['xu2023integration','zhang2026thermosaica3db']},
+ {h:L3('更省电、更安全','もっと省電力・安全に','Less power, more safety'),p:L3('冷热都很耗电，而且离烫伤和冻伤的边界不远。','冷温の提示は電力を食い、やけど・凍傷の境界にも近いのです。','Heating and cooling use lots of power and sit close to injury limits.'),c:['jones2008warm','mesnage2026stimulheatcfb3']},
+ {h:L3('做得更细','もっと細かく','Finer detail'),p:L3('人对冷热的定位本来就模糊，怎样用错觉让少数发热点“画”出更多图案？','冷温の位置はもともとあいまい。錯覚で少ない素子から多くのパターンを描けるか？','We localise warmth poorly—can illusions let few heaters draw more patterns?'),c:['wang2024masking','singhal2024flow']},
+ {h:L3('每个人都不一样','人それぞれ違う','Everyone is different'),p:L3('年龄、身体部位、当下的体温和环境都会改变感受。','年齢・体の部位・その時の体温や環境で感じ方が変わります。','Age, body site, current body temperature and surroundings all change what we feel.'),c:['stevens1998sensitivity','halvey2012baby']},
+ {h:L3('谁来设计“温度内容”','「温度コンテンツ」を誰が作る？','Who designs thermal content?'),p:L3('电影有配乐师，温度由谁来编排？自动生成还是创作者设计？','映画には作曲家がいる。温度は誰がデザインする？自動生成か、作り手か？','Films have composers—who designs the temperature? Algorithms or creators?'),c:['watanabe2026thermotune','wilson2016collar']},
+ {h:L3('更可靠的证据','より確かな証拠','Stronger evidence'),p:L3('很多研究只有十几位参与者、只测一次；需要更大、更长期、可重复的研究。','多くの研究は参加者十数人・一回きり。より大規模で長期的、再現可能な研究が必要です。','Many studies test a dozen people once; we need larger, longer, repeatable studies.'),c:['chabris2019noevidence']}
+]});
+
+S.push({id:'books',nav:L3('书籍','書籍','Books'),chip:L3('延伸阅读','さらに読む','Further reading'),
+title:L3('想读得更深？','もっと深く読みたい人へ','Want to go deeper?'),
+lead:L3('从适合所有人的科普书，到研究者用的教科书。这里共收录 50 本，均经图书目录核对。','誰でも読める一般書から研究者向けの教科書まで、図書目録で確認した50冊を収録。','From popular books anyone can enjoy to research textbooks—50 titles, each checked in a library catalogue.'),books:true});
+
+/* recommended books with trilingual one-liners */
+const REC=[['linden2015touch',L3('入门首选：用有趣的故事讲触觉，包括冷和热。','最初の一冊：触覚（冷温も）を楽しい話で。','Best first read: touch (including hot and cold) through lively stories.')],
+['linden2018chugan',L3('上一本的中文版《触感引擎》。','上の本の中国語版。','Chinese edition of the book above.')],
+['techtile2016shokuraku',L3('日本的触觉入门书，图多、好动手。','図が多く、手を動かして学べる日本の触覚入門書。','A hands-on Japanese introduction to touch.')],
+['jones2018haptics',L3('一本小书讲清触觉技术，有温度显示。','触覚技術を一冊で。温度ディスプレイも。','A short book on haptic technology, including thermal displays.')],
+['gallace2014intouch',L3('触觉科学与未来技术的全面介绍。','触覚の科学と未来技術の総合的な紹介。','A broad look at touch science and future technology.')],
+['hensel1981thermoreception',L3('温度感觉研究的经典专著。','温度感覚研究の古典的な専門書。','The classic monograph on temperature sensing.')],
+['tominaga2024thermalbiology',L3('温度感受分子的最新综述合集。','温度センサー分子の最新レビュー集。','Recent reviews on the molecules that sense temperature.')],
+['kern2023engineering',L3('触觉设备工程手册，开放获取（CC BY）。','触覚デバイスの工学ハンドブック（オープンアクセス）。','Engineering handbook for haptic devices—open access (CC BY).')],
+['vrsj2026haptics',L3('日本 VR 学会编写的触觉教科书。','日本バーチャルリアリティ学会編のハプティクス教科書。','A haptics textbook from the Virtual Reality Society of Japan.')]];
+
+/* ---------------- rendering ---------------- */
+const LIB=window.LIB, BOOKS=window.BOOKS, BY={}; LIB.forEach(p=>BY[p.i]=p);
+let lang=(()=>{try{const s=localStorage.getItem('thci-lang');if(s)return s}catch(e){} const n=(navigator.language||'').toLowerCase();return n.startsWith('ja')?'ja':n.startsWith('zh')?'zh':'en'})();
+const tx=o=>o?(o[lang]??o.en??o):'';
+const acc=s=>s.replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/_(.+?)_/g,'<i>$1</i>');
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function chip(id){const p=BY[id]; if(!p){console.warn('missing cite',id);return ''}
+  const au=(p.a||'').split(/ et al\.| & /)[0].split(' ').pop();
+  return `<button class="cite${p.o?' own':''}" data-id="${id}" title="${esc(p.t)}">${esc(au)} ${p.y||''}</button>`}
+const cites=arr=>arr&&arr.length?`<div class="cites">${arr.map(chip).join('')}</div>`:'';
+const fill=h=>h.replace(/\{\{([\w\-]+)\}\}/g,(_,id)=>chip(id));
+function seeAll(field,val){const n=LIB.filter(p=>p[field]===val).length;return `<p class="note"><a href="#library" class="seeall" data-f="${field}" data-v="${val}">${tx(T.seeAll).replace('{n}',n)}</a></p>`}
+
+function render(){
+  document.documentElement.lang=lang;
+  try{localStorage.setItem('thci-lang',lang)}catch(e){}
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
+  document.querySelectorAll('[data-t]').forEach(e=>e.textContent=tx(T[e.dataset.t]));
+  document.querySelectorAll('[data-h]').forEach(e=>e.innerHTML=acc(tx(T[e.dataset.h])));
+  document.getElementById('q').placeholder=tx(T.qph);
+  const ys=LIB.map(p=>p.y).filter(Boolean);
+  document.getElementById('stats').innerHTML=[[LIB.length,T.sPapers],[BOOKS.length,T.sBooks],[LIB.filter(p=>p.p).length,T.sOA],[Math.max(...ys)-Math.min(...ys),T.sYears]].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${tx(l)}</span></div>`).join('');
+  document.getElementById('toc').innerHTML=S.map(s=>`<a href="#${s.id}">${tx(s.nav)}</a>`).join('')+`<a href="#library">${tx(T.libChip)}</a>`;
+  document.getElementById('sections').innerHTML=S.map(sec).join('');
+  setVideo(document.getElementById('v-overview'),'overview');
+  document.querySelectorAll('.sec-video').forEach(v=>setVideo(v,v.dataset.v));
+  document.querySelectorAll('.vhtml').forEach(p=>p.innerHTML=`<a href="video-html/${p.dataset.v}-${lang}.html" target="_blank" rel="noopener">${tx(L3('打开可交互的 HTML 版视频 ↗','インタラクティブなHTML版を開く ↗','Open the interactive HTML version ↗'))}</a> · <a href="videos/${p.dataset.v}-${lang}.mp4" download>MP4</a>`);
+  buildFilters(); search();
+  document.getElementById('foot').innerHTML=foot();
+}
+function setVideo(box,name){const v=box.querySelector('video');const src=`videos/${name}-${lang}.mp4`;if(v.getAttribute('src')===src)return;
+  box.classList.remove('missing');v.onerror=()=>box.classList.add('missing');v.setAttribute('src',src);v.setAttribute('poster',`videos/${name}-${lang}.jpg`);v.load()}
+function sec(s){
+  let h=`<section class="sec" id="${s.id}"><div class="wrap"><span class="chip">${tx(s.chip)}</span><h2>${acc(tx(s.title))}</h2><p class="lead">${tx(s.lead)}</p>`;
+  if(['perception','illusions','sensing','feedback','applications'].includes(s.id)) h+=`<div class="video sec-video" data-v="${s.id}"><video controls preload="none" playsinline></video></div><p class="note vhtml" data-v="${s.id}"></p><div style="height:10px"></div>`;
+  if(s.body) h+=fill(tx(s.body));
+  if(s.timeline) h+=`<div class="tl">${s.timeline.map(([y,t,id,k])=>`<div class="ev ${k||''}"><div class="yr">${y}</div><div class="tx">${tx(t)} ${chip(id)}</div></div>`).join('')}</div>`;
+  if(s.cards) h+=`<div class="grid" style="margin-top:18px">${s.cards.map(c=>`<div class="card ${c.k==='h'?'heat':c.k==='c'?'cold':''}"><h3>${tx(c.h)}</h3><p>${tx(c.p)}</p>${c.t?`<div class="try">${tx(c.t)}</div>`:''}${cites(c.c)}</div>`).join('')}</div>`;
+  if(s.mechs) h+=`<div class="grid two">${s.mechs.map(([m,how,pro,con,c,k])=>{const n=LIB.filter(p=>p.m===m&&(p.c==='feedback'||p.c==='application'||p.c==='illusion')).length;return `<div class="card ${k==='h'?'heat':k==='c'?'cold':''}"><h3>${tx(MECH[m])} <span style="font-weight:500;font-size:14px;color:var(--muted)">· ${n}</span></h3><p>${tx(how)}</p><p style="margin-top:8px"><b style="color:var(--ink)">＋</b> ${tx(pro)}<br><b style="color:var(--ink)">－</b> ${tx(con)}</p>${cites(c)}</div>`}).join('')}</div>`;
+  if(s.table){const hd=tx(s.table.head);h+=`<div class="tblwrap"><table class="tbl"><tr>${hd.map(x=>`<th>${x}</th>`).join('')}</tr>${s.table.rows.map(r=>`<tr><td>${tx(MECH[r[0]])}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${tx(r[4])}</td></tr>`).join('')}</table></div>`}
+  if(s.extra) h+=fill(tx(s.extra));
+  if(s.apps) h+=`<div class="grid">${s.apps.map(([sub,ic,name,d,c,ev])=>{const n=LIB.filter(p=>p.s===sub).length;return `<div class="card"><h3>${ic} ${tx(name)} <span style="font-weight:500;font-size:14px;color:var(--muted)">· ${n}</span></h3><p>${tx(d)}</p><div class="meta">${tx(L3('证据：','エビデンス：','Evidence: '))}${tx(ev)}</div>${cites(c)}<p class="note" style="margin-top:8px"><a href="#library" class="seeall" data-f="s" data-v="${sub}">${tx(T.seeAll).replace('{n}',n)}</a></p></div>`}).join('')}</div>`;
+  if(s.venues) h+=venues();
+  if(s.books) h+=books();
+  if(s.cat) h+=seeAll('c',s.cat);
+  return h+'</div></section>';
+}
+const KEYV=['IEEE ToH','IEEE VR','ISMAR','Augmented Humans','CHI','UIST','Nature family','Science family','PNAS'];
+function venues(){const c={};LIB.forEach(p=>{if(p.g)c[p.g]=(c[p.g]||0)+1});const rows=Object.entries(c).sort((a,b)=>b[1]-a[1]);const mx=rows[0][1];
+  return `<div class="bars">${rows.map(([g,n])=>`<button class="barrow${KEYV.includes(g)?' key':''}" data-g="${esc(g)}"><span>${esc(g)}</span><span class="b" style="width:${n/mx*100}%"></span><span>${n}</span></button>`).join('')}</div><p class="note">${tx(L3('橙色为重点来源。CHI EA = CHI 扩展摘要。数量为本资料库收录数，不代表该会议的全部温度论文。','オレンジは重点ソース。CHI EA は CHI 拡張アブストラクト。件数は本資料集の収録数で、その会議の温度論文すべてではありません。','Orange = key venues. CHI EA = CHI Extended Abstracts. Counts are what this library holds, not every thermal paper ever published there.'))}</p>`}
+function books(){const B={};BOOKS.forEach(b=>B[b.i]=b);
+  const rec=REC.filter(([i])=>B[i]).map(([i,d])=>{const b=B[i];return `<div class="card"><h3><a href="${esc(b.u)}" target="_blank" rel="noopener" style="text-decoration:none">${esc(b.t)}</a></h3><p>${esc(b.a)} · ${esc(b.p)} · ${b.y}</p><p style="margin-top:8px;color:var(--ink)">${tx(d)}</p></div>`}).join('');
+  const all=BOOKS.map(b=>`<tr><td><a href="${esc(b.u)}" target="_blank" rel="noopener">${esc(b.t)}</a></td><td>${esc(b.a)}</td><td>${b.y}</td><td>${esc(b.l).toUpperCase()}</td></tr>`).join('');
+  return `<div class="grid">${rec}</div><details class="more"><summary>${tx(L3('全部 50 本书','50冊すべて','All 50 books'))}</summary><div class="tblwrap"><table class="tbl"><tr><th>${tx(L3('书名','書名','Title'))}</th><th>${tx(L3('作者','著者','Author'))}</th><th>${tx(L3('年','年','Year'))}</th><th>${tx(L3('语言','言語','Lang'))}</th></tr>${all}</table></div></details>`}
+
+/* ---------------- library search ---------------- */
+let shown=30;
+const SUBN={};
+function opt(sel,vals,label,fmt){const cur=sel.value;sel.innerHTML=`<option value="">${tx(label)}: ${tx(T.all)}</option>`+vals.map(v=>`<option value="${esc(v)}">${esc(fmt?fmt(v):v)}</option>`).join('');sel.value=vals.includes(cur)?cur:''}
+function buildFilters(){
+  const C=Object.keys(CAT);opt(fc,C,T.fCat,v=>tx(CAT[v]));
+  const subs=[...new Set(LIB.filter(p=>!fc.value||p.c===fc.value).map(p=>p.s).filter(Boolean))].sort();opt(fs,subs,T.fSub,v=>v.replace(/_/g,' '));
+  const ms=[...new Set(LIB.map(p=>p.m).filter(m=>m&&!['none','unknown'].includes(m)))].sort();opt(fm,ms,T.fMech,v=>MECH[v]?tx(MECH[v]):v);
+  const gs=[...new Set(LIB.map(p=>p.g).filter(Boolean))].sort();opt(fg,gs,T.fVen);
+  const ds=[...new Set(LIB.map(p=>p.y?Math.floor(p.y/10)*10:0).filter(Boolean))].sort((a,b)=>b-a).map(String);opt(fy,ds,T.fYear,v=>v+'s');
+}
+const norm=s=>(s||'').toLowerCase().normalize('NFKC');
+LIB.forEach(p=>p._s=norm([p.t,p.a,p.v,p.g,p.zh,p.ja,p.en,p.k,p.c,p.s,p.m,p.y,p.i,CAT[p.c]?Object.values(CAT[p.c]).join(' '):'',MECH[p.m]?Object.values(MECH[p.m]).join(' '):''].join(' ')));
+function search(reset){
+  if(reset)shown=30;
+  const q=norm(document.getElementById('q').value).trim(), terms=q.split(/\s+/).filter(Boolean);
+  let r=LIB.filter(p=>(!fc.value||p.c===fc.value)&&(!fs.value||p.s===fs.value)&&(!fm.value||p.m===fm.value)&&(!fg.value||p.g===fg.value)&&(!fy.value||Math.floor(p.y/10)*10==fy.value)&&(!foa.checked||p.p)&&(!fown.checked||p.o)&&terms.every(t=>p._s.includes(t)));
+  if(document.getElementById('q').dataset.id){const id=document.getElementById('q').dataset.id;r=LIB.filter(p=>p.i===id)}
+  document.getElementById('count').textContent=tx(T.found).replace('{n}',r.length);
+  const hl=s=>{s=esc(s);terms.forEach(t=>{if(t.length>1)s=s.replace(new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),m=>`<mark>${m}</mark>`)});return s};
+  document.getElementById('res').innerHTML=r.slice(0,shown).map(p=>`<div class="item" id="p-${p.i}"><a class="tt" href="${esc(p.u)}" target="_blank" rel="noopener">${hl(p.t)}</a><div class="mt">${hl(p.a)} · ${p.y||''} · ${hl(p.v)}</div><div class="sm">${hl(p[lang]||p.en||p.zh)}</div><div class="badges"><span class="bd">${tx(CAT[p.c])}</span>${p.m&&MECH[p.m]?`<span class="bd">${tx(MECH[p.m])}</span>`:''}${p.g?`<span class="bd">${esc(p.g)}</span>`:''}${p.p?`<span class="bd oa">${tx(T.oa)}</span>`:`<span class="bd no">${tx(T.nopdf)}</span>`}${p.o?`<span class="bd own">${tx(T.own)}</span>`:''}${p.n?`<span class="bd num">${esc(p.n)}</span>`:''}</div></div>`).join('');
+  document.getElementById('more').style.display=r.length>shown?'block':'none';
+}
+function foot(){return tx({zh:`<b>Thermal HCI Handbook</b><span class="ver">v0.1 · 2026-11</span><br>这是持续更新的工作版本，不是最终版。文献检索自 Crossref、Semantic Scholar、OpenAlex、DBLP、PubMed 等，每条都打开过题录页面核验；一句话摘要由编者用通俗语言概括，以原文为准。“无公开全文”表示我们没有找到合法的公开 PDF，不代表论文不可读。<br>编者：许佳禕（Jiayi Xu），东京大学先端科学技术研究中心。`,
+ja:`<b>Thermal HCI Handbook</b><span class="ver">v0.1 · 2026-11</span><br>随時更新する作業版で、完成版ではありません。文献は Crossref・Semantic Scholar・OpenAlex・DBLP・PubMed などから収集し、各文献の書誌ページを開いて確認しました。一文要約は編者による平易な要約で、原文を優先してください。「全文非公開」は合法的な公開PDFが見つからなかったことを示します。<br>編者：許佳禕（Jiayi Xu）、東京大学先端科学技術研究センター。`,
+en:`<b>Thermal HCI Handbook</b><span class="ver">v0.1 · 2026-11</span><br>A living working version, not a final edition. Sources were collected from Crossref, Semantic Scholar, OpenAlex, DBLP, PubMed and others, and each record was checked on its bibliographic page. One-line summaries are plain-language paraphrases by the editor—always defer to the original. “No open full text” means we found no legal open PDF, not that the paper cannot be read.<br>Editor: Jiayi Xu, RCAST, The University of Tokyo.`})}
+
+/* events */
+const fc=document.getElementById('fc'),fs=document.getElementById('fs'),fm=document.getElementById('fm'),fg=document.getElementById('fg'),fy=document.getElementById('fy'),foa=document.getElementById('foa'),fown=document.getElementById('fown'),qi=document.getElementById('q');
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{lang=b.dataset.l;render()});
+[fc,fs,fm,fg,fy,foa,fown].forEach(e=>e.onchange=()=>{qi.dataset.id='';if(e===fc)buildFilters();search(true)});
+qi.oninput=()=>{qi.dataset.id='';search(true)};
+document.getElementById('reset').onclick=()=>{qi.value='';qi.dataset.id='';[fc,fs,fm,fg,fy].forEach(s=>s.value='');foa.checked=fown.checked=false;buildFilters();search(true)};
+document.getElementById('more').onclick=()=>{shown+=30;search()};
+document.addEventListener('click',e=>{
+  const c=e.target.closest('.cite');if(c){qi.value='';qi.dataset.id=c.dataset.id;[fc,fs,fm,fg,fy].forEach(s=>s.value='');search(true);document.getElementById('library').scrollIntoView();return}
+  const s=e.target.closest('.seeall');if(s){qi.value='';qi.dataset.id='';[fc,fs,fm,fg,fy].forEach(x=>x.value='');if(s.dataset.f==='c'){fc.value=s.dataset.v;buildFilters()}else{fc.value=LIB.find(p=>p.s===s.dataset.v)?.c||'';buildFilters();fs.value=s.dataset.v}search(true);return}
+  const v=e.target.closest('.barrow');if(v){qi.value='';qi.dataset.id='';[fc,fs,fm,fy].forEach(x=>x.value='');buildFilters();fg.value=v.dataset.g;search(true);document.getElementById('library').scrollIntoView()}
+});
+render();
+</script>
+</body>
+</html>
