@@ -125,6 +125,22 @@ details.more summary{cursor:pointer;font-size:14px;font-weight:600}
 .tag.g-s::before{background:var(--muted)}.tag.g-f::before{background:var(--warm)}.tag.g-x::before{background:var(--cool)}
 .tag:hover{border-color:var(--ink);color:var(--ink)}.tag.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}.tag.on span{color:var(--bg)}
 .meth{font-size:14px;color:var(--ink)!important;margin-top:8px}.meth b{font-weight:700}
+/* keyword chips, tag rules */
+.kws{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;font-size:14px;color:var(--muted);margin-top:6px}
+.kw{font:inherit;font-size:14px;background:none;border:0;padding:0;color:var(--ink);cursor:pointer;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.kw:hover{color:var(--warm);text-decoration-color:var(--warm)}
+.rules{margin:0 0 12px;font-size:14px}.rules summary{cursor:pointer;color:var(--muted);font-size:14px}.rules summary:hover{color:var(--ink)}.rules p{margin:8px 0 0}
+/* the chemical shortcut sits apart from the four heat routes */
+.card.modes.alt{margin-top:16px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px;align-items:center;border-style:dashed}
+.card.modes.alt svg.mode{margin:0}
+@media (max-width:720px){.card.modes.alt{grid-template-columns:1fr;gap:8px}}
+/* appendix C: tools */
+.disc{border-left:3px solid var(--line);padding-left:12px}
+.tbar{margin-top:4px}.tbar .tag::before{display:none}.tgh{font-size:16px;margin:28px 0 12px;color:var(--muted)}
+.tool .tm{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--muted);margin-bottom:4px}
+.tool h3 a{text-decoration:none}.tool h3 a:hover{text-decoration:underline}
+.tst{white-space:nowrap}.tst.sale{color:var(--ink)}.tst.hist{color:var(--warm)}
+.meth.warn{color:var(--muted)!important}
 /* eras with milestones */
 .eras{display:grid;gap:0;margin:8px 0 8px;border-top:1px solid var(--line)}
 .era{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;padding:24px 0;border-bottom:1px solid var(--line)}
@@ -132,7 +148,7 @@ details.more summary{cursor:pointer;font-size:14px;font-weight:600}
 .era.heat .eh h3{color:var(--warm)}.era.cold .eh h3{color:var(--cool)}
 .era .tl{margin-top:0}
 .side .part{font-size:14px;color:var(--muted);font-weight:600;margin:16px 0 4px;letter-spacing:.02em}
-@media (max-width:720px){.era{grid-template-columns:1fr;gap:12px}.filters select{flex:1 1 calc(50% - 8px);max-width:none;min-width:0}}
+@media (max-width:720px){.era{grid-template-columns:1fr;gap:12px}.filters select{flex:1 1 calc(50% - 8px);max-width:none;min-width:0}.tblwrap{overflow-x:auto}.tblwrap .tbl{min-width:600px}}
 /* keyword network */
 .net{margin-top:8px}.netbtns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}.netbtns .btn{padding:6px 14px;font-size:14px}.netbtns .btn.on{border-color:var(--ink);color:var(--ink);font-weight:700}
 #netsvg{width:100%;height:auto;display:block}.netwrap{overflow-x:auto}@media (max-width:720px){#netsvg{width:680px;max-width:none}}
@@ -266,6 +282,7 @@ body.side-open .side{transform:none;box-shadow:0 0 0 100vmax rgba(0,0,0,.25)}}
   <section class="sec chap open fixed" id="library"><div class="chap-head"><span class="cnum" data-t="appendix"></span><h2 data-h="libTitle"></h2><p class="lead" data-t="libLead"></p></div><div class="chap-body"><div class="inner"><div class="pad">
     <div class="search"><input type="search" id="q" autocomplete="off"><button class="btn" id="reset" data-t="reset"></button></div>
     <div class="cats" id="cats" role="group"></div>
+    <details class="rules"><summary data-t="rulesH"></summary><p class="note" data-t="rulesP"></p></details>
     <div class="filters">
       <select id="fc" hidden></select><select id="fs"></select><select id="fm"></select><select id="fg"></select><select id="fy"></select>
       <label><input type="checkbox" id="foa"><span data-t="oaOnly"></span></label>
@@ -279,6 +296,7 @@ body.side-open .side{transform:none;box-shadow:0 0 0 100vmax rgba(0,0,0,.25)}}
     <button class="btn morebtn" id="more" data-t="showMore"></button>
     <p class="note" id="suggest" style="text-align:center;margin-top:32px"></p>
   </div></div></div></section>
+  <div id="appx"></div>
   <footer id="foot"></footer>
 </main>
 </div>
@@ -286,10 +304,11 @@ body.side-open .side{transform:none;box-shadow:0 0 0 100vmax rgba(0,0,0,.25)}}
 <script src="data.js"></script>
 <script src="books.js"></script>
 <script src="trends.js"></script>
+<script src="tools.js"></script>
 <script>
 /* ---------------- text (zh / ja / en). {{id}} = citation chip, *x* = warm accent, _x_ = cool accent ---------------- */
 const T = {
-part_feel:{zh:'人怎样感觉',ja:'人はどう感じるか',en:'How we feel it'},part_make:{zh:'机器怎样测、怎样给',ja:'機械はどう測り、どう届けるか',en:'How machines sense and send it'},part_use:{zh:'用在哪里',ja:'どこで使うか',en:'Where it is used'},part_more:{zh:'全景与延伸',ja:'全体像と発展',en:'The bigger picture'},
+part_feel:{zh:'人怎样感觉',ja:'人はどう感じるか',en:'How we feel it'},part_make:{zh:'机器怎样测、怎样给',ja:'機械はどう測り、どう届けるか',en:'How machines sense and send it'},part_use:{zh:'用在哪里',ja:'どこで使うか',en:'Where it is used'},part_more:{zh:'全景',ja:'全体像',en:'The bigger picture'},part_appx:{zh:'附录',ja:'付録',en:'Appendix'},
 vensH:{zh:'按期刊与会议浏览',ja:'会議・論文誌で見る',en:'Browse by venue'},
 netH:{zh:'关键词网络：哪些主题常常一起出现',ja:'キーワードのつながり：よく一緒に登場するテーマ',en:'Keyword network: which topics appear together'},
 netP:{zh:'我们从每篇论文的标题、关键词和摘要里找出 26 个主题。圆越大，出现的论文越多；两个主题出现在同一篇论文里，就连一条线，线越粗表示越常一起出现。点一个圆，看它和谁最常一起出现。',ja:'各論文のタイトル・キーワード・要旨から26のテーマを抽出しました。円が大きいほど論文が多く、同じ論文に出たテーマ同士を線で結び、太いほどよく一緒に登場します。円をクリックすると、よく一緒に出るテーマが分かります。',en:'We found 26 topics in each paper’s title, keywords and abstract. Bigger circles mean more papers; a line joins two topics that appear in the same paper, and thicker lines mean they appear together more often. Click a circle to see its closest partners.'},
@@ -298,7 +317,11 @@ netPick:{zh:'点一个圆，查看它最常和哪些主题一起出现。',ja:'�
 netWith:{zh:'最常一起出现：',ja:'よく一緒に出るテーマ：',en:'Most often with: '},
 netSee:{zh:'在资料库中查看这 {n} 篇',ja:'この {n} 本を資料集で見る',en:'See these {n} in the library'},
 topicF:{zh:'主题：{t}',ja:'テーマ：{t}',en:'Topic: {t}'},clear:{zh:'清除',ja:'解除',en:'clear'},
-evid:{zh:'证据：',ja:'証拠：',en:'Evidence: '},methods:{zh:'常见做法：',ja:'主な方法：',en:'Common ways: '},cmpH:{zh:'一张表看懂各种方法',ja:'方法をひと目で比較',en:'Methods at a glance'},
+toSens:{zh:'研究里常用的测温工具，见附录 C',ja:'研究でよく使う測温ツールは付録Cへ',en:'Common measuring tools: see Appendix C'},toFeed:{zh:'已经能买到的冷热产品，见附录 C',ja:'市販の冷温製品は付録Cへ',en:'Warm and cool products on the market: see Appendix C'},
+tkDisc:{zh:'这不是推荐或广告，也没有任何赞助。规格来自厂商官网，未经我们独立验证；产品和供货会变，信息核对于 2026-11-04。不列价格，也不放产品图片。',ja:'推薦や広告ではなく、スポンサーもありません。仕様はメーカー公式情報で、独自検証はしていません。製品と供給は変わるため、2026-11-04時点の確認です。価格と製品画像は載せていません。',en:'Not a recommendation or an advert, and nothing is sponsored. Specs are the makers’ own and not independently verified; products change, so everything was checked on 2026-11-04. No prices or product photos.'},
+tkH:{zh:'怎么选测量工具',ja:'計測ツールの選び方',en:'Choosing a measuring tool'},tkType:{zh:'类型',ja:'種類',en:'Type'},tkTouch:{zh:'要接触吗',ja:'接触',en:'Contact?'},tkSee:{zh:'看到什么',ja:'わかること',en:'What you get'},tkFor:{zh:'适合',ja:'向いている用途',en:'Good for'},tkMind:{zh:'注意',ja:'注意',en:'Watch out'},
+tkList:{zh:'工具与产品一览',ja:'ツールと製品の一覧',en:'All tools and products'},tkSpec:{zh:'厂商标称：',ja:'メーカー公称：',en:'Maker’s specs: '},tkWarn:{zh:'注意：',ja:'注意：',en:'Note: '},tkRoute:{zh:'传热方式：',ja:'熱の伝わり方：',en:'Heat route: '},
+kwL:{zh:'关键词：',ja:'キーワード：',en:'Keywords: '},rulesH:{zh:'标签是怎么打的？',ja:'タグの付け方',en:'How the tags work'},rulesP:{zh:'每篇文献有一个主分类（排在第一个）和若干副分类。生理与感知：研究人怎样感觉温度（受体、阈值、适应、材质感等）；错觉：感觉和实际温度不一致的现象；传感：机器怎样测量温度；反馈：把冷热送给人的装置与方法——用加热或制冷装置的应用研究，也会加上“反馈”；应用：面向具体用途的研究；历史：1950 年以前的文献和历史回顾。下面的“关键词”是从标题、关键词和摘要中自动识别的 26 个主题，点一下就能筛选。',ja:'各文献には主分類（先頭）と副分類があります。生理・知覚：人が温度をどう感じるか（受容体・閾値・順応・材質感など）。錯覚：感じ方と実際の温度が食い違う現象。センシング：機械が温度を測る方法。フィードバック：人に冷温を届ける装置と方法（加熱・冷却装置を使う応用研究にも付けます）。応用：具体的な用途の研究。歴史：1950年以前の文献と歴史的レビュー。「キーワード」はタイトル・キーワード・要旨から自動で見つけた26のテーマで、クリックで絞り込めます。',en:'Each paper has one main category (listed first) and possibly others. Physiology & perception: how people sense temperature (receptors, thresholds, adaptation, material feel). Illusions: when what we feel differs from the real temperature. Sensing: how machines measure temperature. Feedback: devices and methods that deliver warmth or cool—also added to application studies that use a heating or cooling device. Applications: work aimed at a specific use. History: papers before 1950 and historical reviews. “Keywords” are 26 topics found automatically in titles, keywords and abstracts; click one to filter.'},evid:{zh:'证据：',ja:'証拠：',en:'Evidence: '},methods:{zh:'常见做法：',ja:'主な方法：',en:'Common ways: '},cmpH:{zh:'一张表看懂各种方法',ja:'方法をひと目で比較',en:'Methods at a glance'},
 kicker:{zh:'人机交互中的温度 · 资料库与手册',ja:'インタラクションと温度 · 資料集とハンドブック',en:'Temperature in HCI · Library & Handbook'},
 title:{zh:'*温度*，下一种交互语言',ja:'*温度*は、次のインタラクション言語',en:'*Temperature*,<br>the next language of interaction'},
 sub:{zh:'我们怎样感觉冷和热？机器怎样测量温度，又怎样把冷热“送”给人？一份人人都能读懂、也能深入检索的资料库。',ja:'人はどうやって冷たさや温かさを感じるのか。機械はどう温度を測り、どう人に届けるのか。誰でも読めて、深く検索もできる資料集です。',en:'How do we feel hot and cold? How do machines measure temperature, and how can they send warmth and coolness to people? A library anyone can read, and researchers can search.'},
@@ -309,7 +332,7 @@ sBooks:{zh:'本相关书籍',ja:'冊の関連書籍',en:'related books'},
 sYears:{zh:'年跨度（1724–2026）',ja:'年の幅（1724–2026）',en:'years covered (1724–2026)'},
 sOA:{zh:'篇有公开全文',ja:'本は全文公開',en:'with open full text'},
 libChip:{zh:'资料库',ja:'資料集',en:'Library'},
-contents:{zh:'目录',ja:'目次',en:'Contents'},appendix:{zh:'附录 · 资料库',ja:'付録 · 資料集',en:'Appendix · Library'},expand:{zh:'展开',ja:'開く',en:'Open'},collapse:{zh:'收起',ja:'閉じる',en:'Close'},expandAll:{zh:'全部展开',ja:'すべて開く',en:'Open all'},collapseAll:{zh:'全部收起',ja:'すべて閉じる',en:'Close all'},
+contents:{zh:'目录',ja:'目次',en:'Contents'},appendix:{zh:'附录 A · 资料库',ja:'付録 A · 資料集',en:'Appendix A · Library'},expand:{zh:'展开',ja:'開く',en:'Open'},collapse:{zh:'收起',ja:'閉じる',en:'Close'},expandAll:{zh:'全部展开',ja:'すべて開く',en:'Open all'},collapseAll:{zh:'全部收起',ja:'すべて閉じる',en:'Close all'},
 libTitle:{zh:'按*关键词*搜索全部文献',ja:'*キーワード*で全文献を検索',en:'Search every paper by *keyword*'},
 libLead:{zh:'中文、日文、英文关键词都可以，比如：珀尔帖、冷感、VR、thermal grill、ロボット。没有公开全文的文献也收录了，并做了标注。',ja:'日本語・中国語・英語のどれでも検索できます（例：ペルチェ、冷感、VR、thermal grill、机器人）。全文が公開されていない文献も収録し、印をつけています。',en:'Search in English, Japanese or Chinese, e.g. Peltier, cooling, VR, thermal grill, ロボット. Papers without open full text are included and marked.'},
 reset:{zh:'清除',ja:'クリア',en:'Clear'},
@@ -447,14 +470,14 @@ cards:[
 S.push({id:'feedback',cat:'feedback',part:'make',nav:L3('反馈','フィードバック','Feedback'),chip:L3('反馈','フィードバック','Feedback'),
 title:L3('把冷热送给人：*贴着*，或者_隔空_','冷温を届ける：*触れて*、または_離れて_','Sending warm and cool: *by touch* or _through the air_'),
 lead:L3('最常见的是贴在皮肤上的“珀尔帖”小板（一通电就一面热一面冷）；也有用水、风、光、雾、超声，甚至辣椒素和错觉的方法。各有快慢、远近和安全上的取舍。','いちばん多いのは肌に当てる「ペルチェ素子」（電気を流すと片面が熱く、片面が冷たくなる板）。ほかに水・風・光・ミスト・超音波、さらには唐辛子成分や錯覚を使う方法も。速さ・距離・安全性にそれぞれ一長一短があります。','The most common tool is a Peltier element on the skin—a small plate that gets hot on one side and cold on the other when powered. Others use water, air, light, mist, ultrasound, even chili and illusions. Each trades off speed, distance and safety.'),
-modes:{h:L3('先懂原理：热量有四种走法','まず原理：熱の伝わり方は4つ','First, the physics: four ways heat travels'),
- p:L3('不管是什么设备，热量进出皮肤只有几条路。知道是哪一条，就能猜到它快不快、要不要贴着皮肤、能不能降温。','どんな装置でも、熱が皮膚に出入りする道は限られています。どの道かが分かれば、速さ・接触の要否・冷やせるかが見えてきます。','Whatever the device, heat can only reach or leave the skin in a few ways. Knowing which one tells you how fast it is, whether it must touch, and whether it can cool.'),
+modes:{h:L3('先懂原理：热量有四种走法，外加一条捷径','まず原理：熱の伝わり方は4つ、そして近道が1つ','First, the physics: four ways heat travels, plus one shortcut'),
+ p:L3('不管是什么设备，热量进出皮肤只有四条路：传导、对流、辐射和蒸发。知道是哪一条，就能猜到它快不快、要不要贴着皮肤、能不能降温。另外还有一条捷径：化学物质不传热，直接让皮肤“觉得”冷或热。','どんな装置でも、熱が皮膚に出入りする道は伝導・対流・放射・蒸発の4つだけです。どの道かが分かれば、速さ・接触の要否・冷やせるかが見えてきます。さらに近道が1つ。化学物質は熱を運ばず、皮膚に冷温を「感じさせ」ます。','Whatever the device, heat reaches or leaves the skin in only four ways: conduction, convection, radiation and evaporation. Knowing which one tells you how fast it is, whether it must touch, and whether it can cool. There is also one shortcut: chemicals move no heat at all, yet make skin feel warm or cool.'),
  list:[
  {k:'cond',h:L3('传导：贴着传','伝導：触れて伝える','Conduction: by touch'),p:L3('两个东西贴在一起，热量从热的一方流向冷的一方。金属摸起来凉，就是因为它把手上的热量很快导走。珀尔帖片、水管、热电手套都靠它。','触れ合うと、熱は温かい方から冷たい方へ流れます。金属が冷たく感じるのは、手の熱を速く奪うから。ペルチェ素子・水流・熱電グローブはこれを使います。','When two things touch, heat flows from the warmer to the cooler one. Metal feels cold because it pulls heat from your hand quickly. Peltier plates, water tubes and thermal gloves all work this way.'),m:L3('珀尔帖 · 电阻加热 · 水流','ペルチェ・電熱線・水流','Peltier plates · heating wires · water tubes'),c:['ino1993display','hayakawa2015waterflow','kim2020glove','ho2018material','jones2008warm','kuroda2024representationof0b7d']},
  {k:'conv',h:L3('对流：让风带着走','対流：風が運ぶ','Convection: carried by air'),p:L3('流动的空气（或水）把热量带过来或带走。吹风扇觉得凉就是对流。不用接触皮肤，但风也会被同时感觉到。','流れる空気（や水）が熱を運びます。扇風機で涼しいのが対流。肌に触れずに済みますが、風そのものも感じます。','Moving air (or water) carries heat to or away from the skin—that is why a fan feels cool. No contact is needed, but you feel the breeze too.'),m:L3('热风 / 冷风 · 涡流 · 环绕手臂的气流','温風・冷風・渦輪・腕を包む気流','Warm or cold air · vortex rings · airflow around the arm'),c:['ranasinghe2017ambiotherm','xu2022vortex','akimoto2025coanda']},
  {k:'rad',h:L3('辐射：用光隔空送','放射：光で離れて届ける','Radiation: sent by light'),p:L3('光和红外线不需要任何介质，就能把能量送到皮肤上，就像晒太阳会觉得暖。适合隔空加热，但很难用它降温。','光や赤外線は何も介さずに皮膚へエネルギーを届けます。日なたが暖かいのと同じ。離れて温めるのは得意ですが、冷やすのは苦手です。','Light and infrared deliver energy across empty space—like feeling warm in the sun. Great for heating from afar, but hard to use for cooling.'),m:L3('红外灯 · LED · 激光','赤外線ランプ・LED・レーザー','Infrared lamps · LEDs · lasers'),c:['saga2015heathapt','iwai2019noncontactthermod1f3','xu2023integration','xu2024moheat']},
  {k:'evap',h:L3('蒸发：变成气体时带走热','蒸発：気体になるとき熱を奪う','Evaporation: vapour takes heat away'),p:L3('液体在皮肤上变成气体时，会带走很多热量，所以出汗后吹风特别凉。把细雾或酒精送到皮肤上，就能隔空快速降温。','液体が皮膚の上で気体になると多くの熱を奪います。汗をかいて風に当たると涼しいのはこのため。ミストやアルコールを届ければ、離れたまま素早く冷やせます。','A liquid turning into vapour on the skin takes a lot of heat with it—why sweat in a breeze feels so cool. Delivering fine mist or alcohol cools quickly without contact.'),m:L3('细雾 · 用超声波送雾 · 酒精','ミスト・超音波で運ぶミスト・アルコール','Fine mist · ultrasound-guided mist · alcohol'),c:['nakajima2021mist','xu2026chillfactor']},
- {k:'chem',h:L3('另类：化学物质“骗”开关','番外：化学物質でスイッチをだます','A shortcut: chemicals trick the sensors'),p:L3('辣椒素和薄荷醇不改变皮肤温度，而是直接打开皮肤里的“热”和“冷”开关，所以严格说不是传热，但同样能带来冷热感。','カプサイシンやメントールは皮膚温度を変えず、皮膚の「熱」「冷」スイッチを直接オンにします。厳密には伝熱ではありませんが、冷温感を生みます。','Capsaicin and menthol leave skin temperature unchanged; they switch the heat and cold sensors on directly. Strictly not heat transfer—but you still feel warm or cool.'),m:L3('辣椒素（暖） · 薄荷醇（凉）','カプサイシン（温）・メントール（冷）','Capsaicin (warm) · menthol (cool)'),c:['lu2021chemical','hamazaki2022chemicalinducedtd402','hensel1951menthol']}
+ {k:'chem',h:L3('捷径：化学物质“骗”开关','近道：化学物質でスイッチをだます','The shortcut: chemicals trick the sensors'),p:L3('辣椒素和薄荷醇不改变皮肤温度，而是直接打开皮肤里的“热”和“冷”开关，所以严格说不是传热，但同样能带来冷热感。','カプサイシンやメントールは皮膚温度を変えず、皮膚の「熱」「冷」スイッチを直接オンにします。厳密には伝熱ではありませんが、冷温感を生みます。','Capsaicin and menthol leave skin temperature unchanged; they switch the heat and cold sensors on directly. Strictly not heat transfer—but you still feel warm or cool.'),m:L3('辣椒素（暖） · 薄荷醇（凉）','カプサイシン（温）・メントール（冷）','Capsaicin (warm) · menthol (cool)'),c:['lu2021chemical','hamazaki2022chemicalinducedtd402','hensel1951menthol']}
  ]},
 
 table:{head:L3(['方式','碰皮肤？','加热','降温','典型用途'],['方式','触れる？','加熱','冷却','主な用途'],['Method','Touch?','Heat','Cool','Typical use']),
@@ -499,9 +522,14 @@ eras:[
  {h:L3('2020– ：隔空与错觉','2020– ：非接触と錯覚','2020–: mid-air and illusions'),p:L3('用风、光、雾隔空送冷热；用错觉让少量发热点感觉像一大片；VR 成为最常见的应用场景。','風・光・ミストで離れて冷温を届け、錯覚で少ない発熱部を広く感じさせる。VRが最も多い応用の場に。','Air, light and mist deliver warmth and cool from afar; illusions make a few heaters feel like many; VR becomes the most common use.'),k:'c',ms:[['2021',L3('诺贝尔奖：温度与触觉受体；化学触觉','ノーベル賞：温度と触覚の受容体／化学ハプティクス','Nobel Prize for temperature receptors; chemical haptics'),'nobel2021press','h'],['2023',L3('截肢者重新感到冷热','切断者が再び冷温を感じる','Amputees feel temperature again'),'iberite2023restoration','c'],['2026',L3('隔空、快速、可穿戴的冷热反馈继续涌现','非接触・高速・ウェアラブルな温冷提示が続々','Fast, wearable, contact-free thermal feedback keeps growing'),'xu2026chillfactor','c']]}],
 trends:true});
 
-S.push({id:'books',part:'more',nav:L3('书籍','書籍','Books'),chip:L3('延伸阅读','さらに読む','Further reading'),
+S.push({id:'books',part:'appx',nav:L3('书籍','書籍','Books'),chip:L3('延伸阅读','さらに読む','Further reading'),
 title:L3('想读得更深？','もっと深く読みたい人へ','Want to go deeper?'),
 lead:L3('从适合所有人的科普书，到研究者用的教科书。这里共收录 50 本，均经图书目录核对。','誰でも読める一般書から研究者向けの教科書まで、図書目録で確認した50冊を収録。','From popular books anyone can enjoy to research textbooks—50 titles, each checked in a library catalogue.'),books:true});
+
+S.push({id:'tools',part:'appx',nav:L3('工具与产品','ツールと製品','Tools & products'),chip:L3('工具与产品','ツールと製品','Tools & products'),
+title:L3('测温度、给冷热，*现实中*用什么？','温度を測る・届ける、*実際に*何を使う？','What do people *actually* use to measure and deliver temperature?'),
+lead:L3('研究里常用的测温工具、温度刺激器，以及已经能买到的冷热产品，共 32 种，按用途分组。','研究でよく使う測温ツールと温度刺激装置、そして市販の冷温製品、計32種を用途別にまとめました。','Thirty-two measuring tools, lab stimulators and products you can already buy, grouped by use.'),
+tools:true});
 
 /* recommended books with trilingual one-liners */
 const REC=[['linden2015touch',L3('入门首选：用有趣的故事讲触觉，包括冷和热。','最初の一冊：触覚（冷温も）を楽しい話で。','Best first read: touch (including hot and cold) through lively stories.')],
@@ -518,6 +546,26 @@ const REC=[['linden2015touch',L3('入门首选：用有趣的故事讲触觉，�
 const LIB=window.LIB, BOOKS=window.BOOKS, BY={}; LIB.forEach(p=>BY[p.i]=p);
 const QS=new URLSearchParams(location.search);
 let lang=(()=>{if(['zh','ja','en'].includes(QS.get('lang')))return QS.get('lang');try{const s=localStorage.getItem('thci-lang');if(s)return s}catch(e){} const n=(navigator.language||'').toLowerCase();return n.startsWith('ja')?'ja':n.startsWith('zh')?'zh':'en'})();
+const SUBL={wearable:{zh:'可穿戴设备',ja:'ウェアラブル装置',en:'Wearable devices'},receptors:{zh:'受体与神经',ja:'受容体と神経',en:'Receptors & nerves'},ir_thermography:{zh:'热成像',ja:'熱画像',en:'Thermal imaging'},flexible_eskin:{zh:'柔性电子皮肤',ja:'柔らかい電子皮膚',en:'Flexible e-skin'},contact:{zh:'接触式显示',ja:'接触型ディスプレイ',en:'Contact displays'},non_contact:{zh:'非接触显示',ja:'非接触ディスプレイ',en:'Contact-free displays'},entertainment_vr:{zh:'娱乐与 VR',ja:'エンタメとVR',en:'Entertainment & VR'},thermal_referral:{zh:'热转移',ja:'サーマルリファーラル',en:'Thermal referral'},wearable_monitoring:{zh:'可穿戴体温监测',ja:'ウェアラブル体温計測',en:'Wearable monitoring'},emotion_affective:{zh:'情感与社交应用',ja:'感情・社会的な応用',en:'Emotion & social uses'},comfort_personal_thermal:{zh:'个人热舒适设备',ja:'個人の温熱快適装置',en:'Personal comfort devices'},medical_health:{zh:'医疗与健康',ja:'医療・健康',en:'Medicine & health'},thermal_grill:{zh:'热栅错觉',ja:'グリル錯覚',en:'Thermal grill'},thresholds:{zh:'感觉阈值',ja:'閾値',en:'Thresholds'},robot_thermal:{zh:'机器人热感知',ja:'ロボットの熱センシング',en:'Robot thermal sensing'},wetness:{zh:'湿感',ja:'濡れ感',en:'Wetness'},visual_vr:{zh:'视觉与 VR 错觉',ja:'視覚・VRの錯覚',en:'Visual & VR illusions'},handheld:{zh:'手持设备',ja:'手持ち装置',en:'Handheld devices'},history:{zh:'历史',ja:'歴史',en:'History'},material:{zh:'材质感',ja:'材質感',en:'Material feel'},review:{zh:'综述',ja:'レビュー',en:'Reviews'},temporal:{zh:'时间与适应',ja:'時間と順応',en:'Timing & adaptation'},crossmodal:{zh:'跨感官',ja:'クロスモーダル',en:'Cross-modal'},affective:{zh:'温度与心理',ja:'温度と心理',en:'Temperature & mind'},pain:{zh:'疼痛',ja:'痛み',en:'Pain'},comfort:{zh:'热舒适感受',ja:'温熱快適感',en:'Thermal comfort (perception)'},chemical:{zh:'化学物质',ja:'化学物質',en:'Chemicals'},classic_sensor:{zh:'经典温度计',ja:'古典的な温度計',en:'Classic thermometers'},spatial_summation:{zh:'面积与定位',ja:'面積と定位',en:'Area & localisation'},environmental:{zh:'房间与环境',ja:'部屋・環境',en:'Rooms & environment'},colour_temperature:{zh:'颜色与温度',ja:'色と温度',en:'Colour & temperature'},accessibility_navigation:{zh:'导航与无障碍',ja:'ナビとアクセシビリティ',en:'Navigation & accessibility'},prosthetics_neural:{zh:'假肢与感觉恢复',ja:'義手と感覚の回復',en:'Prosthetics & restoration'},communication_notification:{zh:'沟通与通知',ja:'コミュニケーション・通知',en:'Communication & alerts'},body_maps:{zh:'身体地图',ja:'体の地図',en:'Body maps'},food_drink_product:{zh:'饮食',ja:'飲食',en:'Food & drink'},thermo_tactile:{zh:'温度与触觉',ja:'温度と触覚',en:'Temperature & touch'},body_ownership:{zh:'身体拥有感',ja:'身体所有感',en:'Body ownership'},robotics_teleoperation:{zh:'机器人与遥操作',ja:'ロボット・遠隔操作',en:'Robots & teleoperation'},education_training_safety:{zh:'训练与安全',ja:'訓練と安全',en:'Training & safety'}};
+const KW={};Object.entries(TRENDS.tags).forEach(([k,ids])=>ids.forEach(i=>(KW[i]=KW[i]||[]).push(k)));const NODE=Object.fromEntries(TRENDS.net.nodes.map(n=>[n.k,n]));
+const vshort=p=>p.g||((p.v||'').length>52?(p.v||'').replace(/^Proceedings of (the )?/,'').slice(0,50)+'…':(p.v||''));
+let TOOLG='';
+const TG={measure:{zh:'研究用测量工具',ja:'研究用の計測ツール',en:'Measuring tools'},stim:{zh:'研究用温度刺激器',ja:'研究用の温度刺激装置',en:'Lab stimulators'},xr:{zh:'VR 与体验',ja:'VRと体験',en:'VR & experiences'},wear:{zh:'随身冷暖',ja:'身に着ける冷温',en:'Wearable warm & cool'},sleep:{zh:'睡眠',ja:'睡眠',en:'Sleep'},care:{zh:'护理与日常',ja:'ケアと日常',en:'Care & everyday'}};
+const TST={sale:{zh:'在售',ja:'販売中',en:'On sale'},b2b:{zh:'机构 / 企业询价',ja:'法人・機関向け',en:'Ask the maker'},part:{zh:'元器件 / 开发板',ja:'部品・開発ボード',en:'Component / dev board'},hist:{zh:'供货未确认',ja:'供給未確認',en:'Availability unconfirmed'}};
+const TRT={cond:{zh:'传导',ja:'伝導',en:'Conduction'},conv:{zh:'对流',ja:'対流',en:'Convection'},chemh:{zh:'化学放热',ja:'化学発熱',en:'Chemical heat'}};
+const PICK=[['contact',{zh:'接触式探头 + 记录仪',ja:'接触式プローブ＋ロガー',en:'Contact probe + logger'},{zh:'要',ja:'必要',en:'Yes'},{zh:'几个点的温度随时间变化',ja:'数点の温度の時間変化',en:'A few spots over time'},{zh:'设备表面、皮肤接触点、升降温曲线',ja:'装置表面・皮膚接触点・昇降温カーブ',en:'Device surface, skin contact, heating curves'},{zh:'探头本身会吸热，贴法影响读数',ja:'探触子自体が熱を奪い、固定法で値が変わる',en:'The probe itself absorbs heat; mounting matters'}],
+['spot',{zh:'红外测温枪',ja:'放射温度計',en:'Infrared spot thermometer'},{zh:'不要',ja:'不要',en:'No'},{zh:'一小块面积的平均温度',ja:'小さな面の平均温度',en:'The average of a small area'},{zh:'快速检查',ja:'素早い確認',en:'Quick checks'},{zh:'要设发射率；测的不是激光点',ja:'放射率の設定が必要、レーザー点ではない',en:'Set emissivity; it is not the laser dot'}],
+['cam',{zh:'热像仪',ja:'サーモカメラ',en:'Thermal camera'},{zh:'不要',ja:'不要',en:'No'},{zh:'整片表面的温度分布',ja:'面全体の温度分布',en:'Temperature across a whole surface'},{zh:'看热怎样扩散、刺激落在哪里',ja:'熱の広がり、刺激の位置',en:'How heat spreads and where stimuli land'},{zh:'灵敏度不等于精度，常见约 ±2 °C',ja:'感度≠精度、一般に約±2 °C',en:'Sensitivity is not accuracy—often about ±2 °C'}],
+['wear',{zh:'可穿戴体温',ja:'ウェアラブル体温計',en:'Wearable thermometer'},{zh:'贴身',ja:'身に着ける',en:'Worn'},{zh:'长时间的皮肤温度',ja:'長時間の皮膚温',en:'Skin temperature over hours'},{zh:'日常、运动、情绪研究',ja:'日常・運動・感情の研究',en:'Daily life, sport, emotion studies'},{zh:'皮温不等于核心体温',ja:'皮膚温≠深部体温',en:'Skin is not core temperature'}],
+['stim',{zh:'温度刺激器',ja:'温度刺激装置',en:'Thermal stimulator'},{zh:'要',ja:'必要',en:'Yes'},{zh:'给出精确冷热，记录人的反应',ja:'正確な冷温を与え、反応を記録',en:'Delivers exact warm/cool and records responses'},{zh:'感觉阈值实验',ja:'閾値実験',en:'Threshold experiments'},{zh:'参数随探头而变',ja:'仕様はプローブ次第',en:'Specs depend on the probe'}]];
+function toolsHTML(){
+  const head=[T.tkType,T.tkTouch,T.tkSee,T.tkFor,T.tkMind].map(x=>`<th>${tx(x)}</th>`).join('');
+  const pick=`<h3 class="sub">${tx(T.tkH)}</h3><div class="tblwrap"><table class="tbl"><tr>${head}</tr>${PICK.map(r=>`<tr>${r.slice(1).map(c=>`<td>${tx(c)}</td>`).join('')}</tr>`).join('')}</table></div>`;
+  const gs=Object.keys(TG),cnt=g=>TOOLS.filter(t=>t.g===g).length;
+  const bar=`<div class="cats tbar"><button class="tag all${TOOLG?'':' on'}" data-tg="">${tx(T.all)} ${TOOLS.length}</button>${gs.map(g=>`<button class="tag${TOOLG===g?' on':''}" data-tg="${g}">${tx(TG[g])} <span>${cnt(g)}</span></button>`).join('')}</div>`;
+  const list=gs.filter(g=>!TOOLG||TOOLG===g).map(g=>`<h3 class="tgh">${tx(TG[g])}</h3><div class="grid two">${TOOLS.filter(t=>t.g===g).map(t=>`<div class="card tool"><div class="tm"><span>${esc(t.b)}</span><span class="tst ${t.st}">${tx(TST[t.st])}</span></div><h3><a href="${esc(t.u)}" target="_blank" rel="noopener">${esc(t.n)}</a></h3><p>${esc(tx(t.d))}</p><p class="meth"><b>${tx(T.tkSpec)}</b>${esc(tx(t.s))}</p><p class="meth warn"><b>${tx(T.tkWarn)}</b>${esc(tx(t.w))}</p>${t.r?`<p class="meth"><b>${tx(T.tkRoute)}</b><a href="#feedback" data-go="feedback">${tx(TRT[t.r])}</a></p>`:''}${t.ps.length?cites(t.ps):''}</div>`).join('')}</div>`).join('');
+  return `<p class="note disc">${tx(T.tkDisc)}</p>${pick}<h3 class="sub">${tx(T.tkList)}</h3>${bar}<div id="toollist">${list}</div>`;
+}
 const CORD=['perception','illusion','sensing','feedback','application','history'],CG={perception:'p',history:'p',sensing:'s',feedback:'f',illusion:'x',application:'x'};
 function catBar(){const n={};LIB.forEach(p=>p.cs.forEach(c=>n[c]=(n[c]||0)+1));document.getElementById('cats').innerHTML=`<button class="tag all${fc.value?'':' on'}" data-cat="">${tx(T.all)} ${LIB.length}</button>`+CORD.map(c=>`<button class="tag g-${CG[c]}${fc.value===c?' on':''}" data-cat="${c}">${tx(CAT[c])} <span>${n[c]}</span></button>`).join('')}
 const MODESVG={
@@ -546,8 +594,9 @@ function render(){
   document.getElementById('tq').placeholder=tx(T.tph);document.getElementById('tq').value=document.getElementById('q').value;
   const ys=LIB.map(p=>p.y).filter(Boolean);
   document.getElementById('stats').innerHTML=`<p class="note" style="margin:0">${tx(L3(`收录 ${LIB.length} 篇论文与资料、${BOOKS.length} 本书。`,`論文・資料 ${LIB.length} 本と書籍 ${BOOKS.length} 冊を収録。`,`${LIB.length} papers and ${BOOKS.length} books.`))}</p>`;
-  document.getElementById('side').innerHTML=`<p class="side-t">${tx(T.contents)}</p><ol>${S.map((s,i)=>`${s.part&&s.part!==(S[i-1]||{}).part?`<li class="part">${tx(T['part_'+s.part])}</li>`:''}<li><a href="#${s.id}" data-go="${s.id}"><span>${i||'0'}</span>${tx(s.nav)}</a></li>`).join('')}<li><a href="#library" data-go="library"><span>A</span>${tx(T.libChip)}</a></li></ol><p class="side-act"><button data-all="1">${tx(T.expandAll)}</button><button data-all="0">${tx(T.collapseAll)}</button></p>`;
-  document.getElementById('sections').innerHTML=S.map(sec).join('');
+  document.getElementById('side').innerHTML=`<p class="side-t">${tx(T.contents)}</p><ol>${S.filter(s=>s.part!=='appx').map((s,i)=>`${s.part&&s.part!==(S[i-1]||{}).part?`<li class="part">${tx(T['part_'+s.part])}</li>`:''}<li><a href="#${s.id}" data-go="${s.id}"><span>${i||'0'}</span>${tx(s.nav)}</a></li>`).join('')}<li class="part">${tx(T.part_appx)}</li><li><a href="#library" data-go="library"><span>A</span>${tx(T.libChip)}</a></li>${S.filter(s=>s.part==='appx').map((s,j)=>`<li><a href="#${s.id}" data-go="${s.id}"><span>${'BCD'[j]}</span>${tx(s.nav)}</a></li>`).join('')}</ol><p class="side-act"><button data-all="1">${tx(T.expandAll)}</button><button data-all="0">${tx(T.collapseAll)}</button></p>`;
+  document.getElementById('sections').innerHTML=S.filter(s=>s.part!=='appx').map(sec).join('');
+  document.getElementById('appx').innerHTML=S.filter(s=>s.part==='appx').map(sec).join('');
   setVideo(document.getElementById('v-overview'),'overview');
   document.querySelectorAll('.sec-video').forEach(v=>setVideo(v,v.dataset.v));
   document.querySelectorAll('.vhtml').forEach(p=>p.innerHTML=`<a href="video-html/${p.dataset.v}-${lang}.html" target="_blank" rel="noopener">${tx(L3('打开可交互的 HTML 版视频','インタラクティブなHTML版を開く','Open the interactive HTML version'))}</a> · <a href="videos/${p.dataset.v}-${lang}.mp4" download>MP4</a>`);
@@ -565,18 +614,20 @@ function reveal(){if(!('IntersectionObserver' in window))return;rio=rio||new Int
 function setVideo(box,name){const v=box.querySelector('video');const src=`videos/${name}-${lang}.mp4`;if(v.getAttribute('src')===src)return;
   box.classList.remove('missing');v.onerror=()=>box.classList.add('missing');v.setAttribute('src',src);v.setAttribute('poster',`videos/${name}-${lang}.jpg`);v.load()}
 function sec(s){
-  const i=S.indexOf(s), on=OPEN.has(s.id), lab=i===0?L3('序章','序章','Prologue'):L3(`第 ${i} 章 · ${tx(s.nav)}`,`第${i}章 · ${tx(s.nav)}`,`Chapter ${i} · ${tx(s.nav)}`);
+  const i=S.indexOf(s), on=OPEN.has(s.id), ax='BCD'[S.filter(x=>x.part==='appx').indexOf(s)],lab=s.part==='appx'?L3(`附录 ${ax} · ${tx(s.nav)}`,`付録 ${ax} · ${tx(s.nav)}`,`Appendix ${ax} · ${tx(s.nav)}`):i===0?L3('序章','序章','Prologue'):L3(`第 ${i} 章 · ${tx(s.nav)}`,`第${i}章 · ${tx(s.nav)}`,`Chapter ${i} · ${tx(s.nav)}`);
   let h=`<section class="sec chap${on?' open':''}" id="${s.id}"><div class="chap-head" role="button" tabindex="0" aria-expanded="${on}" data-id="${s.id}"><span class="cnum">${tx(lab)}</span><h2>${acc(tx(s.title))}</h2><p class="lead">${tx(s.lead)}</p><span class="tog">${tx(on?T.collapse:T.expand)}</span></div><div class="chap-body"><div class="inner"><div class="pad">`;
   if(['perception','illusions','sensing','feedback','applications','trends'].includes(s.id)) h+=`<div class="video sec-video" data-v="${s.id}"><video controls preload="none" playsinline></video></div><p class="note vhtml" data-v="${s.id}"></p><div style="height:10px"></div>`;
   if(s.body) h+=fill(tx(s.body));
   if(s.timeline) h+=`<div class="tl">${s.timeline.map(([y,t,id,k])=>`<div class="ev ${k||''}"><div class="yr">${y}</div><div class="tx">${tx(t)} ${chip(id)}</div></div>`).join('')}</div>`;
   if(s.cards) h+=`<div class="grid" style="margin-top:18px">${s.cards.map(c=>`<div class="card ${c.k==='h'?'heat':c.k==='c'?'cold':''}"><h3>${tx(c.h)}</h3><p>${tx(c.p)}</p>${c.t?`<div class="try">${tx(c.t)}</div>`:''}${cites(c.c)}</div>`).join('')}</div>`;
-  if(s.modes) h+=`<h3 class="sub">${tx(s.modes.h)}</h3><p>${fill(tx(s.modes.p))}</p><div class="grid two modes">${s.modes.list.map(m=>`<div class="card"><svg class="mode m-${m.k}" viewBox="0 0 240 96" aria-hidden="true">${MODESVG[m.k]}</svg><h3>${tx(m.h)}</h3><p>${tx(m.p)}</p>${m.m?`<p class="meth"><b>${tx(T.methods)}</b>${tx(m.m)}</p>`:''}${cites(m.c)}</div>`).join('')}</div><h3 class="sub">${tx(T.cmpH)}</h3>`;
+  if(s.modes) h+=`<h3 class="sub">${tx(s.modes.h)}</h3><p>${fill(tx(s.modes.p))}</p><div class="grid two modes">${s.modes.list.filter(m=>m.k!=='chem').map(m=>`<div class="card"><svg class="mode m-${m.k}" viewBox="0 0 240 96" aria-hidden="true">${MODESVG[m.k]}</svg><h3>${tx(m.h)}</h3><p>${tx(m.p)}</p>${m.m?`<p class="meth"><b>${tx(T.methods)}</b>${tx(m.m)}</p>`:''}${cites(m.c)}</div>`).join('')}</div>${s.modes.list.filter(m=>m.k==='chem').map(m=>`<div class="card modes alt"><svg class="mode m-${m.k}" viewBox="0 0 240 96" aria-hidden="true">${MODESVG[m.k]}</svg><div><h3>${tx(m.h)}</h3><p>${tx(m.p)}</p>${m.m?`<p class="meth"><b>${tx(T.methods)}</b>${tx(m.m)}</p>`:''}${cites(m.c)}</div></div>`).join('')}<h3 class="sub">${tx(T.cmpH)}</h3>`;
+  if(s.tools) h+=`<div id="toolsbox">${toolsHTML()}</div>`;
   if(s.eras) h+=`<div class="eras">${s.eras.map(e=>`<div class="era ${e.k==='h'?'heat':e.k==='c'?'cold':''}"><div class="eh"><h3>${tx(e.h)}</h3><p>${tx(e.p)}</p></div><div class="tl">${e.ms.map(([y,t,id,k])=>`<div class="ev ${k||''}"><div class="yr">${y}</div><div class="tx">${tx(t)} ${chip(id)}</div></div>`).join('')}</div></div>`).join('')}</div>`;
   if(s.trends) h+=`<h3 class="sub">${tx(T.netH)}</h3><p>${tx(T.netP)}</p><div class="net"><div class="netbtns">${TRENDS.net.stages.map((x,i)=>`<button class="btn${i===NETS?' on':''}" data-ns="${i}">${tx(T.upTo).replace('{y}',x.slice(-4))}</button>`).join('')}</div><div class="netwrap"><svg id="netsvg" viewBox="0 0 1000 640" role="img" aria-label="${esc(tx(T.netH))}"></svg></div><p class="note" id="netinfo"></p></div>`;
   if(s.mechs) h+=`<div class="grid two">${s.mechs.map(([m,how,pro,con,c,k])=>{const n=LIB.filter(p=>p.m===m&&(p.c==='feedback'||p.c==='application'||p.c==='illusion')).length;return `<div class="card ${k==='h'?'heat':k==='c'?'cold':''}"><h3>${tx(MECH[m])}</h3><p>${tx(how)}</p>${cites(c)}</div>`}).join('')}</div>`;
   if(s.table){const hd=tx(s.table.head);h+=`<div class="tblwrap"><table class="tbl"><tr>${hd.map(x=>`<th>${x}</th>`).join('')}</tr>${s.table.rows.map(r=>`<tr><td>${tx(MECH[r[0]])}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${tx(r[4])}</td></tr>`).join('')}</table></div>`}
   if(s.extra) h+=fill(tx(s.extra));
+  if(s.id==='sensing'||s.id==='feedback') h+=`<p class="note"><a href="#tools" data-go="tools">${tx(s.id==='sensing'?T.toSens:T.toFeed)}</a></p>`;
   if(s.apps) h+=`<div class="grid">${s.apps.map(([sub,ic,name,d,c,ev])=>{const n=LIB.filter(p=>p.s===sub).length;return `<div class="card"><h3>${tx(name)}</h3><p>${tx(d)}</p>${ev?`<p class="meth"><b>${tx(T.evid)}</b>${tx(ev)}</p>`:''}${cites(c)}</div>`}).join('')}</div>`;
   if(s.venues) h+=venues();
   if(s.books) h+=books();
@@ -638,7 +689,11 @@ const SUBN={};
 function opt(sel,vals,label,fmt){const cur=sel.value;sel.innerHTML=`<option value="">${tx(label)}: ${tx(T.all)}</option>`+vals.map(v=>`<option value="${esc(v)}">${esc(fmt?fmt(v):v)}</option>`).join('');sel.value=vals.includes(cur)?cur:''}
 function buildFilters(){
   const C=Object.keys(CAT);opt(fc,C,T.fCat,v=>tx(CAT[v]));
-  const subs=[...new Set(LIB.filter(p=>!fc.value||p.cs.includes(fc.value)).map(p=>p.s).filter(Boolean))].sort();opt(fs,subs,T.fSub,v=>v.replace(/_/g,' '));
+  const subs=[...new Set(LIB.filter(p=>!fc.value||p.cs.includes(fc.value)).map(p=>p.s).filter(Boolean))];
+  const SG={};LIB.forEach(p=>{if(p.s){SG[p.s]=SG[p.s]||{};SG[p.s][p.c]=(SG[p.s][p.c]||0)+1}});const gof=k=>Object.entries(SG[k]).sort((a,b)=>b[1]-a[1])[0][0];
+  const sl=k=>SUBL[k]?tx(SUBL[k]):k.replace(/_/g,' '),cur=fs.value;
+  fs.innerHTML=`<option value="">${tx(T.fSub)}: ${tx(T.all)}</option>`+CORD.map(c=>{const ks=subs.filter(k=>gof(k)===c).sort((a,b)=>sl(a).localeCompare(sl(b),lang));return ks.length?`<optgroup label="${esc(tx(CAT[c]))}">${ks.map(k=>`<option value="${k}">${esc(sl(k))}</option>`).join('')}</optgroup>`:''}).join('');
+  fs.value=subs.includes(cur)?cur:'';
   const ms=[...new Set(LIB.map(p=>p.m).filter(m=>m&&!['none','unknown'].includes(m)))].sort();opt(fm,ms,T.fMech,v=>MECH[v]?tx(MECH[v]):v);
   const gs=[...new Set(LIB.map(p=>p.g).filter(Boolean))].sort();opt(fg,gs,T.fVen);
   const ds=[...new Set(LIB.map(p=>p.y).filter(y=>y>=Y0))].sort((a,b)=>b-a).map(String).concat(['pre']);opt(fy,ds,T.fYear,v=>v==='pre'?tx(T.pre):v);
@@ -659,7 +714,7 @@ function search(reset){
   document.getElementById('count').innerHTML=esc(tx(T.found).replace('{n}',r.length))+(tn?` · ${esc(tx(T.topicF).replace('{t}',tn[lang]||tn.en))} <a href="#library" data-topic="">${tx(T.clear)}</a>`:'');
   const hl=s=>{s=esc(s);terms.forEach(t=>{if(t.length>1)s=s.replace(new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),m=>`<mark>${m}</mark>`)});return s};
   let lastY=null;
-  document.getElementById('res').innerHTML=r.slice(0,shown).map(p=>{const k=yKey(p.y),head=k!==lastY?`<div class="yh" id="y-${k}"><b>${k==='pre'?tx(T.pre):k||'—'}</b><span>${tx(T.yrN).replace('{n}',yc[k]||0)}</span></div>`:'';lastY=k;return head+`<div class="item" id="p-${p.i}"><div class="tags">${p.cs.map(c=>`<button class="tag g-${CG[c]}${fc.value===c?' on':''}" data-cat="${c}">${tx(CAT[c])}</button>`).join('')}</div><a class="tt" href="${esc(p.u)}" target="_blank" rel="noopener">${hl(p.t)}</a><div class="mt">${hl(p.a)} · ${p.y||''} · ${hl(p.v)}</div><div class="sm">${hl(p[lang]||p.en||p.zh)}</div><div class="badges">${p.m&&MECH[p.m]?`<span class="bd">${tx(MECH[p.m])}</span>`:''}${p.g?`<span class="bd">${esc(p.g)}</span>`:''}${p.p?`<span class="bd">${tx(T.oa)}</span>`:`<span class="bd">${tx(T.nopdf)}</span>`}${p.o?`<span class="bd own">${tx(T.own)}</span>`:''}</div></div>`}).join('');
+  document.getElementById('res').innerHTML=r.slice(0,shown).map(p=>{const k=yKey(p.y),head=k!==lastY?`<div class="yh" id="y-${k}"><b>${k==='pre'?tx(T.pre):k||'—'}</b><span>${tx(T.yrN).replace('{n}',yc[k]||0)}</span></div>`:'';lastY=k;return head+`<div class="item" id="p-${p.i}"><div class="tags">${p.cs.map(c=>`<button class="tag g-${CG[c]}${fc.value===c?' on':''}" data-cat="${c}">${tx(CAT[c])}</button>`).join('')}</div><a class="tt" href="${esc(p.u)}" target="_blank" rel="noopener">${hl(p.t)}</a><div class="mt">${hl(p.a)} · ${p.y||''} · <span title="${esc(p.v)}">${hl(vshort(p))}</span></div><div class="sm">${hl(p[lang]||p.en||p.zh)}</div>${(KW[p.i]||[]).length?`<div class="kws">${tx(T.kwL)}${KW[p.i].slice(0,5).map(k=>`<button class="kw" data-topic="${k}">${esc(NODE[k][lang]||NODE[k].en)}</button>`).join('')}</div>`:''}<div class="badges">${p.m&&MECH[p.m]?`<span class="bd">${tx(MECH[p.m])}</span>`:''}${p.p?`<span class="bd">${tx(T.oa)}</span>`:`<span class="bd">${tx(T.nopdf)}</span>`}${p.o?`<span class="bd own">${tx(T.own)}</span>`:''}</div></div>`}).join('');
   document.getElementById('more').style.display=r.length>shown?'block':'none';
 }
 function foot(){return tx({zh:`<b>温度，下一种交互语言</b><span class="ver">v0.1 · 2026-11</span><br>这是持续更新的工作版本，不是最终版。文献检索自 Crossref、Semantic Scholar、OpenAlex、DBLP、PubMed 等，每条都打开过题录页面核验；一句话摘要由编者用通俗语言概括，以原文为准。“无公开全文”表示我们没有找到合法的公开 PDF，不代表论文不可读。<br>编者：许佳禕（Jiayi Xu），东京大学先端科学技术研究中心。<br><br><b>引用本手册</b>：Jiayi Xu. <i>Thermal HCI Handbook</i>, v0.1, 2026. https://jiayi-xu-hci.github.io/thermal-hci/<br><b>版本记录</b>：v0.1（2026-11-04）首次公开：576 篇论文、50 本书、18 段视频。`,
@@ -688,6 +743,7 @@ document.addEventListener('click',e=>{
   if(e.target.closest('#vtog')){VOPEN=!VOPEN;venBox();return}
   if(e.target.closest('#ytog')){YOPEN=!YOPEN;try{localStorage.setItem('thci-yrs',YOPEN?'1':'0')}catch(x){}YJUST=YOPEN;search();return}
   const tg=e.target.closest('[data-cat]');if(tg){qi.dataset.id='';fc.value=fc.value===tg.dataset.cat?'':tg.dataset.cat;buildFilters();search(true);if(!tg.closest('#cats'))document.getElementById('cats').scrollIntoView({behavior:'smooth',block:'center'});return}
+  const tgb=e.target.closest('[data-tg]');if(tgb){TOOLG=TOOLG===tgb.dataset.tg?'':tgb.dataset.tg;document.getElementById('toolsbox').innerHTML=toolsHTML();return}
   const tp=e.target.closest('[data-topic]');if(tp){e.preventDefault();TOPIC=tp.dataset.topic;qi.dataset.id='';search(true);if(TOPIC)document.getElementById('library').scrollIntoView({behavior:'smooth'});return}
   const nn=e.target.closest('.nn');if(nn){NETSEL=NETSEL===nn.dataset.k?null:nn.dataset.k;drawNet();return}
   const ns=e.target.closest('[data-ns]');if(ns){NETS=+ns.dataset.ns;drawNet();return}
