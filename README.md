@@ -36,10 +36,11 @@ _private/               Git-ignored, never published (see _private/README.md)
   images/               Original portraits; unused project figures
   unreleased-2027/      2027 media and manifest-2027.json (hashes check-public-release.py uses
                         to catch renamed copies of unpublished files)
+  ongoing-research/     In-progress research projects, notes, and experimental data
 ```
 
 ## Updating
-Run `python3 tools/check-public-release.py` before publishing. Only the unpublished 2027 studies are locked: their project names remain visible, while descriptions, links and media stay private. All other years, including accepted 2026 work, retain their full presentation. Locked entries do not load a hidden image or abstract.
+Run `python3 tools/check-public-release.py` before publishing. Only the unpublished 2027 studies are locked: their project names remain visible, while descriptions, links and media stay private. On the homepage they appear as "Under review" cards with the target venue and a stand-in image (`assets/projects/review-*.jpg`) made by shrinking the private poster to 16×9 px and blurring it, so the original never leaves `_private/`. All other years, including accepted 2026 work, retain their full presentation. Locked entries do not load a hidden image or abstract.
 
 ```bash
 git add -A && git commit -m "Describe the change" && git push

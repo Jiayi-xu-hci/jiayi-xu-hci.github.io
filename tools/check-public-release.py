@@ -71,6 +71,25 @@ for directory in [ROOT / 'assets/projects']:
         if any(name in path.name.lower() for name in ['2027', 'thermalbreath', 'panosomafly', 'predictivefly']):
             errors.append('Unpublished 2027 media found in public assets')
 
+# Under-review cards on the homepage may show only pre-blurred stand-ins (review-*.jpg); a sharp image would be far larger.
+for path in (ROOT / 'assets/projects').glob('review-*'):
+    if path.suffix != '.jpg' or path.stat().st_size > 12_000:
+        errors.append(f'Under-review image is not a small pre-blurred JPEG: {path.name}')
+
+# Password-protected ongoing work is published only as ciphertext written by tools/encrypt-ongoing.mjs.
+for path in (ROOT / 'assets/ongoing').glob('*'):
+    data = path.read_bytes()
+    if path.suffix != '.enc' or len(data) < 29 or data[4:8] == b'ftyp' or data.lstrip()[:1] == b'<':
+        errors.append(f'Ongoing file is not encrypted: {path.name}')
+RESEARCH = Path.home() / 'Desktop/进行中的研究/wang-spectralspace'   # ongoing research now lives outside the website folder
+ongoing_plain = {hashlib.sha256(p.read_bytes()).hexdigest() for p in [
+    RESEARCH / 'web/content.html',
+    RESEARCH / 'teaser/ai-town-spectral_teaser.mp4'] if p.exists()}
+for directory in [ROOT / 'assets', ROOT / 'projects']:
+    for path in directory.rglob('*'):
+        if path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() in ongoing_plain:
+            errors.append(f'Unencrypted ongoing file found at {path.relative_to(ROOT)}')
+
 # If the private migration manifest is available, detect renamed copies by content hash.
 manifest = ROOT / '_private/unreleased-2027/manifest-2027.json'
 if manifest.exists():
@@ -82,4 +101,4 @@ if manifest.exists():
 
 if errors:
     raise SystemExit('\n'.join(errors))
-print(f'PASS: {len(records)} project cards; 2027 studies expose names only; public assets are clean.')
+print(f'PASS: {len(records)} project cards; 2027 studies expose names, venues and blurred stand-ins only; public assets are clean.')
