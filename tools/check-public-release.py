@@ -101,4 +101,4 @@ if manifest.exists():
 
 if errors:
     raise SystemExit('\n'.join(errors))
-print(f'PASS: {len(records)} project cards; 2027 studies expose names, venues and blurred stand-ins only; public assets are clean.')
+print(f'PASS: {len(records)} project cards; no unpublished (under review) study is listed; public assets are clean.')

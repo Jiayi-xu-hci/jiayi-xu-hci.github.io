@@ -1,4 +1,4 @@
-// 2027 unpublished studies expose their names only; all other projects retain their full presentation.
+// Unpublished (under review) studies are not listed.
 // In "versions", an entry with the project's own id inherits every project field and lists only what its tab shows differently.
 const PROJECTS = [
   {
@@ -24,18 +24,7 @@ const PROJECTS = [
     "status": "Accepted",
     "source": "Original project video",
     "alt": "MoHeat Evo research demonstration",
-    "rank": 0,
-    "versions": [
-      {
-        "id": "moheat-evo"
-      },
-      {
-        "id": "thermalbreath",
-        "year": 2027,
-        "title": "ThermalBreath",
-        "locked": true
-      }
-    ]
+    "rank": 0
   },
   {
     "links": [
@@ -160,24 +149,7 @@ const PROJECTS = [
     "shortVenue": "Augmented Humans · SIGGRAPH Asia",
     "source": "Original project video",
     "alt": "AdaptiveFly research demonstration",
-    "rank": 2,
-    "versions": [
-      {
-        "id": "adaptivefly"
-      },
-      {
-        "id": "panosomafly",
-        "year": 2027,
-        "title": "PanoSomaFly",
-        "locked": true
-      },
-      {
-        "id": "predictivefly",
-        "year": 2027,
-        "title": "PredictiveFly",
-        "locked": true
-      }
-    ]
+    "rank": 2
   },
   {
     "links": [

@@ -40,7 +40,7 @@ _private/               Git-ignored, never published (see _private/README.md)
 ```
 
 ## Updating
-Run `python3 tools/check-public-release.py` before publishing. Only the unpublished 2027 studies are locked: their project names remain visible, while descriptions, links and media stay private. On the homepage they appear as "Under review" cards with the target venue and a stand-in image (`assets/projects/review-*.jpg`) made by shrinking the private poster to 16×9 px and blurring it, so the original never leaves `_private/`. All other years, including accepted 2026 work, retain their full presentation. Locked entries do not load a hidden image or abstract.
+Run `python3 tools/check-public-release.py` before publishing. Unpublished 2027 studies are not shown: their names, descriptions, links and media all stay private. Under-review work is not listed anywhere on the site, neither on the homepage nor in the project catalogue. All other years, including accepted 2026 work, retain their full presentation. Locked entries do not load a hidden image or abstract.
 
 ```bash
 git add -A && git commit -m "Describe the change" && git push
