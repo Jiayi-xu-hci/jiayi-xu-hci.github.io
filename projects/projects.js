@@ -18,6 +18,7 @@ const PROJECTS = [
       "Joint research with Suntory; exhibited at CES 2026 and featured on NHK WORLD."
     ],
     "id": "moheat-evo",
+    "patent": {"short": "Patent filed", "full": "Patent filed: JP application 2025-181183"},
     "year": 2026,
     "selected": true,
     "shortVenue": "SIGGRAPH Asia · CES",
@@ -293,6 +294,7 @@ const PROJECTS = [
       "The platform behind later video-driven interfaces and thermal headphones."
     ],
     "id": "moheat",
+    "awards": [{"short": "Honorable Mention", "full": "Honorable Mention Award, AsiaHaptics 2024"}],
     "year": 2024,
     "selected": true,
     "shortVenue": "AsiaHaptics",
@@ -379,6 +381,7 @@ const PROJECTS = [
       "This interactive demonstration translates adjustable non-contact thermal stimulation into a working immersive experience."
     ],
     "id": "heatmagic",
+    "awards": [{"short": "Best Demo Award (Bronze)", "full": "Best Demonstration Award, Bronze, AsiaHaptics 2022 Tokyo Satellite"}, {"short": "EDGE-NEXT Grand Prize", "full": "Grand Prize, University of Tsukuba EDGE-NEXT 2021 (entrepreneurship program)"}],
     "year": 2022,
     "selected": false,
     "shortVenue": "IEEE ToH · AsiaHaptics",
@@ -449,6 +452,7 @@ const PROJECTS = [
   },
   {
     "id": "nailshear",
+    "awards": [{"short": "Outstanding Demo Award", "full": "Outstanding Demo in Technology & Application, AsiaHaptics 2026"}],
     "title": "NailShear",
     "year": 2026,
     "venue": "AsiaHaptics 2026 · Accepted",
@@ -564,6 +568,7 @@ const PROJECTS = [
   },
   {
     "id": "spectral-space",
+    "awards": [{"short": "Best Student Paper Honorable Mention", "full": "Best Student Paper Honorable Mention, Augmented Humans 2026"}],
     "title": "Spectral Space",
     "year": 2026,
     "venue": "Augmented Humans 2026",
@@ -686,6 +691,7 @@ const PROJECTS = [
   },
   {
     "id": "humidity",
+    "awards": [{"short": "Best Paper Finalist", "full": "Best Paper Award Finalist, ICAT-EGVE 2024"}],
     "title": "Localized Humidity Feedback",
     "year": 2024,
     "venue": "ICAT-EGVE 2024",
@@ -711,6 +717,7 @@ const PROJECTS = [
   },
   {
     "id": "thermal-control",
+    "awards": [{"short": "Paper Award", "full": "26th Paper Award, Human Interface Society (2026)"}],
     "title": "Timing Thermal Perception",
     "year": 2025,
     "venue": "Human Interface Society Transactions 2025",

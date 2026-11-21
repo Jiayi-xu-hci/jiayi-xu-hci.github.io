@@ -16,6 +16,11 @@ function element(tag, className, text) {
   if (text !== undefined) node.textContent = text;
   return node;
 }
+// Awards and patents of a project: short labels on the card, full wording in the detail.
+function honors(project, key) {
+  const items = [...(project.awards || []), ...(project.patent ? [project.patent] : [])];
+  return items.map(item => element('span', 'honor', item[key]));
+}
 function stopVideo(video) {
   video.pause();
   video.removeAttribute('src');
@@ -26,6 +31,9 @@ function showVersion(project) {
   detailMedia.querySelectorAll('video').forEach(stopVideo);
   document.getElementById('detail-meta').textContent = `${project.year} · ${project.venue}`;
   document.getElementById('detail-summary').textContent = project.summary;
+  const detailHonors = document.getElementById('detail-honors');
+  detailHonors.replaceChildren(...honors(project, 'full'));
+  detailHonors.hidden = !detailHonors.children.length;
   document.getElementById('detail-text').replaceChildren(...project.detail.filter(Boolean).map(text => element('p', '', text)));
   document.getElementById('detail-source').textContent = project.source || 'Original research materials';
   const links = project.links.map(link => {
@@ -139,7 +147,10 @@ function makeCard(project) {
   body.append(element('span', 'card-venue', project.shortVenue));
   const title = element('h3', '', project.title);
   title.id = titleId;
-  body.append(title, element('span', 'card-summary', project.summary));
+  body.append(title);
+  const marks = honors(project, 'short');
+  if (marks.length) { const row = element('span', 'card-honors'); row.append(...marks); body.append(row); }
+  body.append(element('span', 'card-summary', project.summary));
   const arrow = element('span', 'card-arrow', '↗');
   arrow.setAttribute('aria-hidden', 'true');
   button.append(frame, body, arrow);

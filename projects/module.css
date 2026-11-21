@@ -78,6 +78,11 @@ h1 em{font-style:normal;color:var(--accent)}
 .card-body{display:block;padding:12px 10px 14px}
 .card-venue{display:block;min-height:20px;font-size:12.5px;font-weight:600;letter-spacing:.03em;color:var(--accent)}
 .project h3{margin:4px 0 4px;font-size:17px;line-height:1.25;font-weight:700}
+.card-honors{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 8px}
+.honor{padding:2px 9px;border:1px solid var(--line);border-radius:999px;font-size:12px;font-weight:600;line-height:1.5;color:var(--ink);background:var(--surface)}
+.detail-honors{margin:12px 0 0}
+.detail-honors[hidden]{display:none}
+.detail-honors .honor{font-size:13px}
 .card-summary{display:block;margin:0;font-size:14px;line-height:1.6;color:var(--muted)}
 .card-arrow{position:absolute;right:18px;bottom:14px;color:var(--accent);font-size:16px;opacity:0;transition:opacity .2s}
 .project-button:hover .card-arrow,.project-button:focus-visible .card-arrow{opacity:1}
