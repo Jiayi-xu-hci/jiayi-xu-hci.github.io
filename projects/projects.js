@@ -321,6 +321,7 @@ const PROJECTS = [
       "Addresses residual heat, a key obstacle to repeated and sustained thermal feedback."
     ],
     "id": "low-residual-cold",
+    "awards": [{"short": "VRSJ Academic Encouragement Award", "full": "Academic Encouragement Award, 27th VRSJ Annual Conference (2023)"}, {"short": "Excellent Presentation Award", "full": "Excellent Presentation Award, Human Interface Cyber Colloquium 2020"}],
     "year": 2023,
     "selected": false,
     "shortVenue": "IEEE ToH",
