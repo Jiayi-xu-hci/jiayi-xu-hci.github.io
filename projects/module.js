@@ -5,8 +5,11 @@ const dialog = document.getElementById('project-dialog');
 const detailMedia = document.getElementById('detail-media');
 const hoverPreview = matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches;
 const years = [...new Set(PROJECTS.map(p => p.year))].sort((a, b) => b - a);
-const requestedView = new URLSearchParams(location.search).get('view');
-let activeFilter = requestedView === 'all' ? 'all' : 'selected';
+const params = new URLSearchParams(location.search);
+const requestedView = params.get('view');
+// ?project=<id> opens that project's detail (video, description, paper links); the id may also be one version of a project.
+const requestedProject = params.get('project');
+let activeFilter = requestedView === 'all' || requestedProject ? 'all' : 'selected';
 function element(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -185,3 +188,11 @@ dialog.addEventListener('close', () => {
   document.body.classList.remove('modal-open');
 });
 render();
+if (requestedProject) {
+  const project = PROJECTS.find(p => !p.locked && (p.id === requestedProject || (p.versions || []).some(v => v.id === requestedProject && !v.locked)));
+  if (project) {
+    openProject(project);
+    const index = (project.versions || []).findIndex(v => v.id === requestedProject);
+    if (index > 0) document.getElementById('version-tabs').children[index]?.click();
+  }
+}
