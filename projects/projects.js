@@ -18,7 +18,7 @@ const PROJECTS = [
       "Joint research with Suntory; exhibited at CES 2026 and featured on NHK WORLD."
     ],
     "id": "moheat-evo",
-    "patent": {"short": "Patent filed", "full": "Patent filed: JP application 2025-181183"},
+    "patent": {"short": "2 patents filed", "full": "2 patents filed: JP applications 2025-181183 and 2025-062761"},
     "year": 2026,
     "selected": true,
     "shortVenue": "SIGGRAPH Asia · CES",
