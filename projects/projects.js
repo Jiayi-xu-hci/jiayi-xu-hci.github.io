@@ -162,7 +162,12 @@ const PROJECTS = [
     "video": "../assets/projects/synchro-thermography.mp4",
     "image": "../assets/projects/synchro-thermography.jpg",
     "alt": "Thermal imaging and heartbeat signals combined to reveal small changes in facial temperature",
-    "source": "Explainer animation based on the original publication · Music: “Electrodoodle” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures from the paper (SICE Annual Conference 2025, arXiv preprint) · Explainer animation based on the original publication · Music: “Electrodoodle” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/synchro-thermography-paper-1.jpg", "w": 1939, "h": 766, "alt": "Fig. 1 of the paper: thermal frames resampled at heartbeats and averaged synchronously to reveal temperature changes"},
+      {"src": "../assets/projects/synchro-thermography-paper-2.jpg", "w": 1400, "h": 598, "alt": "Fig. 2 of the paper: experimental environment with thermography camera, chin rest and biosignal amplifier"}
+    ],
+    "paperCaption": "From the paper: Fig. 1, method · Fig. 2, experimental setup. SICE Annual Conference 2025 (arXiv preprint).",
     "venue": "SICE Annual Conference 2025",
     "title": "Synchro-Thermography",
     "summary": "Heartbeat-referenced facial thermography reveals subtle physiological changes, including responses to alcohol.",
@@ -262,7 +267,12 @@ const PROJECTS = [
     "video": "../assets/projects/facial-thermal-remapping.mp4",
     "image": "../assets/projects/facial-thermal-remapping.jpg",
     "alt": "Explainer animation: a headset-mounted LED array maps local facial heat cues to virtual hands and feet",
-    "source": "Explainer animation from the EuroHaptics paper and talk · Music: “Digital Lemonade” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures from the paper (EuroHaptics 2026, © Springer) · Explainer animation from the EuroHaptics paper and talk · Music: “Digital Lemonade” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/facial-thermal-remapping-paper-1.jpg", "w": 1400, "h": 703, "alt": "Fig. 1 of the paper: virtual hand and foot contact mapped to facial heat points, and the 5 × 6 LED array"},
+      {"src": "../assets/projects/facial-thermal-remapping-paper-2.jpg", "w": 1400, "h": 1022, "alt": "Fig. 5 of the paper: remapping pipeline and the VR campfire scene, regional versus full mode"}
+    ],
+    "paperCaption": "From the paper: Fig. 1, mapping and hardware · Fig. 5, pipeline and scenario. EuroHaptics 2026, © Springer.",
     "venue": "EuroHaptics 2026",
     "title": "Facial Thermal Remapping",
     "summary": "Localized facial heat cues evoke richer thermal experiences across the virtual body.",
@@ -312,7 +322,12 @@ const PROJECTS = [
     "video": "../assets/projects/low-residual-cold.mp4",
     "image": "../assets/projects/low-residual-cold.jpg",
     "alt": "Alternating cold airflow and light-based heating produces persistent cold while keeping skin temperature near its starting point",
-    "source": "Explainer animation based on the original publication · Music: “Overcast” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover photo from the VRSJ 2022 report; figures from the paper (IEEE Transactions on Haptics 2023, © IEEE) · Explainer animation based on the original publication · Music: “Overcast” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/low-residual-cold-paper-1.jpg", "w": 1400, "h": 1154, "alt": "Fig. 3 of the paper: system configuration and the prototype with vortex tube, solenoid valve and LED display part"},
+      {"src": "../assets/projects/low-residual-cold-paper-2.jpg", "w": 1134, "h": 1200, "alt": "Fig. 1 of the paper: cold air and LED light on the same skin area keep skin temperature near its start while cold is felt continuously"}
+    ],
+    "paperCaption": "From the paper: Fig. 3, system and prototype · Fig. 1, principle. IEEE Transactions on Haptics 2023, © IEEE.",
     "venue": "IEEE Transactions on Haptics 2023",
     "title": "Low-Residual Cold Feedback",
     "summary": "Alternating cold air and radiant heat sustains cold sensations with little net change in skin temperature.",
@@ -437,7 +452,12 @@ const PROJECTS = [
     "video": "../assets/projects/phasemix.mp4",
     "image": "../assets/projects/phasemix.jpg",
     "alt": "Video-based gait analysis pipeline from person detection and segmentation to movement classification",
-    "source": "Explainer animation based on the original publication · Music: “EDM Detection Mode” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures: whole original figures from the paper, unmodified (IEEE Access 2024, CC BY-NC-ND 4.0) · Explainer animation based on the original publication · Music: “EDM Detection Mode” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/phasemix-paper-1.jpg", "w": 1400, "h": 762, "alt": "Fig. 1 of the paper: flowchart from person detection and segmentation to gait-cycle extraction and disease prediction"},
+      {"src": "../assets/projects/phasemix-paper-2.jpg", "w": 1400, "h": 790, "alt": "Fig. 3 of the paper: the PhaseMix idea, fusing the two halves of a gait cycle into one frame"}
+    ],
+    "paperCaption": "From the paper: Fig. 1, flowchart · Fig. 3, PhaseMix. IEEE Access 2024, CC BY-NC-ND 4.0 (whole figures, unmodified).",
     "venue": "IEEE Access 2024",
     "title": "PhaseMix",
     "summary": "Gait timing and left–right symmetry help video models classify spinal and related disorders.",
@@ -487,7 +507,12 @@ const PROJECTS = [
     ],
     "image": "../assets/projects/dynapain.jpg",
     "alt": "Explainer animation: a non-contact thermal grill illusion switched between two areas of the forearm so the burn seems to move",
-    "source": "Explainer animation based on the AsiaHaptics paper and the VRSJ 2023/2024 reports, with the original VR demo footage · Music: “Rhinoceros” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures from the AsiaHaptics 2024 paper (arXiv preprint) · Explainer animation based on the AsiaHaptics paper and the VRSJ 2023/2024 reports, with the original VR demo footage · Music: “Rhinoceros” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/dynapain-paper-1.jpg", "w": 1400, "h": 716, "alt": "Fig. 1 of the paper: a participant with the arm in the device, the VR beetle and the moving pain sensation"},
+      {"src": "../assets/projects/dynapain-paper-2.jpg", "w": 1400, "h": 645, "alt": "Fig. 2 of the paper: LED and airflow units over two forearm areas with warm and cool stimuli"}
+    ],
+    "paperCaption": "From the paper: Fig. 1, demonstration · Fig. 2, system configuration. AsiaHaptics 2024 (arXiv preprint).",
     "selected": false,
     "links": [
       {
@@ -513,7 +538,7 @@ const PROJECTS = [
         ],
         "image": "../assets/projects/dynapain.jpg",
         "alt": "DynaPain — original research illustration",
-        "source": "English description translated from the original Japanese paper; illustration from the same project’s Embedded presentation video · virtual stimulus",
+        "source": "English description translated from the original Japanese paper; illustration from the same project’s AsiaHaptics 2024 paper · Fig. 2",
         "links": [
           {
             "label": "Paper (Japanese)",
@@ -533,7 +558,7 @@ const PROJECTS = [
         ],
         "image": "../assets/projects/dynapain.jpg",
         "alt": "DynaPain — original research illustration",
-        "source": "English description translated from the original Japanese paper; illustration from the same project’s Embedded presentation video · virtual stimulus",
+        "source": "English description translated from the original Japanese paper; illustration from the same project’s AsiaHaptics 2024 paper · Fig. 2",
         "links": [
           {
             "label": "Paper (Japanese)",
@@ -557,7 +582,12 @@ const PROJECTS = [
     "video": "../assets/projects/haptic-guidance.mp4",
     "image": "../assets/projects/haptic-guidance.jpg",
     "alt": "Spatial Haptic Guidance — original research illustration",
-    "source": "Explainer animation based on the original publication · Music: “Rhinoceros” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures from the paper (Augmented Humans 2026, CC BY 4.0) · Explainer animation based on the original publication · Music: “Rhinoceros” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/haptic-guidance-paper-1.jpg", "w": 2000, "h": 558, "alt": "Fig. 1 of the paper: motion error mapped to a haptic magnitude indicator on the forearm, as Slider or Bar"},
+      {"src": "../assets/projects/haptic-guidance-paper-2.jpg", "w": 1400, "h": 584, "alt": "Fig. 2 of the paper: armband with eight vibration motors around the forearm"}
+    ],
+    "paperCaption": "From the paper: Fig. 1, concept · Fig. 2, motor placement. Augmented Humans 2026, CC BY 4.0.",
     "selected": false,
     "links": [
       {
@@ -583,7 +613,11 @@ const PROJECTS = [
     "video": "../assets/projects/spectral-space.mp4",
     "image": "../assets/projects/spectral-space.jpg",
     "alt": "Spectral Space — original research illustration",
-    "source": "Explainer animation based on the original publication · Music: “Wholesome” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figure from the paper (Augmented Humans 2026, CC BY 4.0) · Explainer animation based on the original publication · Music: “Wholesome” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/spectral-space-paper-1.jpg", "w": 1400, "h": 652, "alt": "Fig. 1 of the paper: overview of the Spectral Space design, worlds layered along a frequency axis"}
+    ],
+    "paperCaption": "From the paper: Fig. 1, overview of the design. Augmented Humans 2026, CC BY 4.0.",
     "selected": false,
     "links": [
       {
@@ -608,7 +642,12 @@ const PROJECTS = [
     "video": "../assets/projects/coanda-cold.mp4",
     "image": "../assets/projects/coanda-cold.jpg",
     "alt": "360° Cold with Encircling Airflow — original research illustration",
-    "source": "Explainer animation based on the original publication · Music: “Digital Lemonade” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures from the paper (IEEE World Haptics Conference 2025, © IEEE) · Explainer animation based on the original publication · Music: “Digital Lemonade” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/coanda-cold-paper-1.jpg", "w": 1400, "h": 1132, "alt": "Fig. 7 of the paper: experiment environment with head positioning unit, vortex tube and branched air tubes"},
+      {"src": "../assets/projects/coanda-cold-paper-2.jpg", "w": 1278, "h": 1200, "alt": "Fig. 2 of the paper: cold airflow adhering around the neck reaches target points at the front and back"}
+    ],
+    "paperCaption": "From the paper: Fig. 7, experiment environment · Fig. 2, airflow around the neck. IEEE WHC 2025, © IEEE.",
     "selected": false,
     "links": [
       {
@@ -680,7 +719,12 @@ const PROJECTS = [
     "video": "../assets/projects/soft-object.mp4",
     "image": "../assets/projects/soft-object.jpg",
     "alt": "Learning to Grasp Soft Objects — original research illustration",
-    "source": "Explainer animation based on the original publication · Music: “Werq” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures from the paper (IEEE AMC 2024, © IEEE) · Explainer animation based on the original publication · Music: “Werq” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/soft-object-paper-1.jpg", "w": 1400, "h": 927, "alt": "Fig. 1 of the paper: measured and predicted positions on a bottle and the force–deformation response"},
+      {"src": "../assets/projects/soft-object-paper-2.jpg", "w": 1295, "h": 1200, "alt": "Fig. 6 of the paper: predicted versus actual deformation across positions and forces"}
+    ],
+    "paperCaption": "From the paper: Fig. 1, overview · Fig. 6, predicted vs. measured deformation. IEEE AMC 2024, © IEEE.",
     "selected": false,
     "links": [
       {
@@ -706,7 +750,12 @@ const PROJECTS = [
     "video": "../assets/projects/humidity.mp4",
     "image": "../assets/projects/humidity.jpg",
     "alt": "Localized Humidity Feedback — original research illustration",
-    "source": "Explainer animation based on the original publication · Music: “Pixelland” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures from the paper (ICAT-EGVE 2024, CC BY 4.0) · Explainer animation based on the original publication · Music: “Pixelland” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/humidity-paper-1.jpg", "w": 1400, "h": 625, "alt": "Fig. 8 of the paper: a participant places a hand in the humidity display during the user study"},
+      {"src": "../assets/projects/humidity-paper-2.jpg", "w": 1290, "h": 1200, "alt": "Fig. 9 of the paper: humid-sensation ratings with the LED light off and on"}
+    ],
+    "paperCaption": "From the paper: Fig. 8, user-study setup · Fig. 9, LED light raised the humid sensation. Kuroda et al., ICAT-EGVE 2024, CC BY 4.0.",
     "selected": false,
     "links": [
       {
@@ -732,7 +781,12 @@ const PROJECTS = [
     "video": "../assets/projects/thermal-control.mp4",
     "image": "../assets/projects/thermal-control.jpg",
     "alt": "Timing Thermal Perception — original research illustration",
-    "source": "Explainer animation based on the original publication · Music: “Inspired” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures from the paper (Human Interface Society Transactions 2025, © Human Interface Society) · Explainer animation based on the original publication · Music: “Inspired” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/thermal-control-paper-1.jpg", "w": 1397, "h": 1200, "alt": "Fig. 5 of the paper: experiment device with hotplate, temperature sensor and LED arrangement"},
+      {"src": "../assets/projects/thermal-control-paper-2.jpg", "w": 1400, "h": 770, "alt": "Fig. 1 of the paper: a model of skin temperature change sets the stimulus so warmth is felt without delay"}
+    ],
+    "paperCaption": "From the paper: Fig. 5, experiment device · Fig. 1, proposal. HIS Transactions 2025, © Human Interface Society.",
     "selected": false,
     "links": [],
     "rank": 100,
@@ -774,7 +828,12 @@ const PROJECTS = [
     "video": "../assets/projects/spatial-cold.mp4",
     "image": "../assets/projects/spatial-cold.jpg",
     "alt": "Spatially Continuous Cold — original research illustration",
-    "source": "Explainer animation based on the original publication · Music: “Blue Sizzle” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures from the paper (IEEE World Haptics Conference 2023, © IEEE) · Explainer animation based on the original publication · Music: “Blue Sizzle” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/spatial-cold-paper-1.jpg", "w": 1400, "h": 996, "alt": "Fig. 7 of the paper: system with vortex tube, solenoid valve, nozzles and adjustable distance between them"},
+      {"src": "../assets/projects/spatial-cold-paper-2.jpg", "w": 1400, "h": 1021, "alt": "Fig. 2 of the paper: hypothesis of the distance at which two cold airflows are felt as one"}
+    ],
+    "paperCaption": "From the paper: Fig. 7, system · Fig. 2, hypothesis. IEEE WHC 2023, © IEEE.",
     "selected": false,
     "links": [],
     "rank": 100,
@@ -818,7 +877,12 @@ const PROJECTS = [
     "image": "../assets/projects/drinking-thermal.jpg",
     "detailImage": "../assets/projects/drinking-thermal-detail.jpg",
     "alt": "Original system diagram showing drinking-triggered thermal feedback",
-    "source": "Explainer animation based on the original Japanese publication; English description translated from the Japanese source · Music: “Life of Riley” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures from the original Japanese paper (VRSJ Annual Conference 2025) · Explainer animation based on the original Japanese publication; English description translated from the Japanese source · Music: “Life of Riley” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "paperFigures": [
+      {"src": "../assets/projects/drinking-thermal-paper-1.jpg", "w": 1400, "h": 720, "alt": "Fig. 1 of the paper: drinking detection, thermal stimulus and change of drink impression"},
+      {"src": "../assets/projects/drinking-thermal-paper-2.jpg", "w": 928, "h": 1104, "alt": "Fig. 2 of the paper: a participant drinking with the heating unit at the neck, camera and headphones"}
+    ],
+    "paperCaption": "From the paper: Fig. 1, proposed system · Fig. 2, setup (labels in Japanese). VRSJ Annual Conference 2025.",
     "links": [
       {
         "label": "Paper (Japanese)",

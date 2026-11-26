@@ -3,6 +3,7 @@ const list = document.getElementById('project-list');
 const filters = document.getElementById('filters');
 const dialog = document.getElementById('project-dialog');
 const detailMedia = document.getElementById('detail-media');
+const detailFigures = document.getElementById('detail-figures');
 const hoverPreview = matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches;
 const years = [...new Set(PROJECTS.map(p => p.year))].sort((a, b) => b - a);
 const params = new URLSearchParams(location.search);
@@ -56,6 +57,20 @@ function showVersion(project) {
     media.alt = project.alt || project.title;
   }
   detailMedia.replaceChildren(media);
+  // Original figures from the paper, shown under the video (equal heights side by side; stacked on phones).
+  const figures = project.paperFigures || [];
+  detailFigures.hidden = !figures.length;
+  detailFigures.querySelector('.figure-row').replaceChildren(...figures.map(figure => {
+    const img = element('img');
+    img.src = figure.src;
+    img.alt = figure.alt || '';
+    img.width = figure.w;
+    img.height = figure.h;
+    img.loading = 'lazy';
+    img.style.flexGrow = String(figure.w / figure.h);
+    return img;
+  }));
+  detailFigures.querySelector('figcaption').textContent = project.paperCaption || '';
   if (project.video) media.play().catch(() => {});
 }
 function openProject(project) {
