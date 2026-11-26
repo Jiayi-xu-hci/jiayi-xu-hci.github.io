@@ -93,6 +93,20 @@ const toggle = (label, onClick) => {
   b.addEventListener('click', () => { onClick(); b.remove(); });
   return b;
 };
+// All screen sizes: lists with data-limit show their first items and a button that opens and closes the rest.
+document.querySelectorAll('[data-limit]').forEach((list) => {
+  const items = [...list.children];
+  const n = Number(list.dataset.limit);
+  if (items.length <= n) return;
+  items.slice(n).forEach((li) => li.classList.add('more'));
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'list-toggle';
+  const label = () => { const open = list.classList.contains('open'); b.textContent = open ? 'Show less' : `Show all ${items.length}`; b.setAttribute('aria-expanded', String(open)); };
+  b.addEventListener('click', () => { list.classList.toggle('open'); label(); if (!list.classList.contains('open')) list.scrollIntoView({block: 'nearest'}); });
+  label();
+  list.after(b);
+});
 document.querySelectorAll('[data-mobile-limit]').forEach((list) => {
   const items = [...list.children];
   const n = Number(list.dataset.mobileLimit);

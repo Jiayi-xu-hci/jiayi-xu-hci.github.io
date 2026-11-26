@@ -262,6 +262,9 @@ button:focus-visible,a:focus-visible{outline:3px solid #5085d2;outline-offset:4p
 /* Phones: shorter page. Projects and research threads scroll sideways; long lists, the second bio
    paragraph and CV sections fold behind buttons added by script.js. */
 .m-toggle{display:none}
+[data-limit]:not(.open)>.more{display:none}
+.list-toggle{display:inline-block;margin-top:10px;padding:7px 16px;border:1px solid var(--glass-line);border-radius:999px;background:var(--surface);color:var(--ink);font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.list-toggle:hover{border-color:var(--ink)}
 @media (max-width:760px){
   .gallery,.threads{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:-16px;margin-right:-16px;padding:2px 16px 14px;scrollbar-width:none;overscroll-behavior-x:contain}
   .gallery::-webkit-scrollbar,.threads::-webkit-scrollbar{display:none}
