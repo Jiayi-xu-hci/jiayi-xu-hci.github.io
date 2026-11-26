@@ -454,7 +454,7 @@ const PROJECTS = [
       }
     ],
     "video": "../assets/projects/phasemix.mp4",
-    "image": "../assets/projects/phasemix.jpg?v=20261126e",
+    "image": "../assets/projects/phasemix.jpg?v=20261126g",
     "alt": "Concept illustration (AI-generated): a person walking down a hospital corridor with a pose skeleton overlaid and fading copies showing the gait cycle",
     "source": "Cover: an AI-generated concept illustration · Figures: whole original figures from the paper, unmodified (IEEE Access 2024, CC BY-NC-ND 4.0) · Explainer animation based on the original publication · Music: “EDM Detection Mode” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
@@ -725,7 +725,7 @@ const PROJECTS = [
       "Deformation estimation errors stayed within ±0.67 mm for tested deformations up to 10 mm, supporting more informed gripping-force selection."
     ],
     "video": "../assets/projects/soft-object.mp4",
-    "image": "../assets/projects/soft-object.jpg",
+    "image": "../assets/projects/soft-object.jpg?v=20261126g",
     "alt": "Illustration (AI-generated): a two-finger gripper squeezes a dotted plastic bottle from the sides",
     "source": "Cover: an AI-generated illustration; figures below from the paper (IEEE AMC 2024, © IEEE) · Explainer animation based on the original publication · Music: “Werq” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
