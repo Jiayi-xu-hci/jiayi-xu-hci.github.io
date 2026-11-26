@@ -41,6 +41,12 @@ for project in records:
                 public_file(record[key], ROOT / 'projects')
         if record.get('video'):
             public_file(record['video'].replace('.mp4', '-preview.mp4'), ROOT / 'projects')
+        for clip in record.get('videos', []):
+            for key in ['src', 'poster']:
+                if clip.get(key):
+                    public_file(clip[key], ROOT / 'projects')
+        if record.get('videos') and record['videos'][0]['src'] != record.get('video'):
+            errors.append(f"First of `videos` must be the card video: {record['id']}")
         for link in record.get('links', []):
             if '_private' in link['href']:
                 errors.append('Private link in public catalogue')

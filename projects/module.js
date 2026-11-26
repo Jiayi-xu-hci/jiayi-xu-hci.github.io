@@ -4,6 +4,7 @@ const filters = document.getElementById('filters');
 const dialog = document.getElementById('project-dialog');
 const detailMedia = document.getElementById('detail-media');
 const detailFigures = document.getElementById('detail-figures');
+const videoSwitch = document.getElementById('video-switch');
 const hoverPreview = matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches;
 const years = [...new Set(PROJECTS.map(p => p.year))].sort((a, b) => b - a);
 const params = new URLSearchParams(location.search);
@@ -45,13 +46,33 @@ function showVersion(project) {
     return a;
   });
   document.getElementById('detail-links').replaceChildren(...links);
-  const media = element(project.video ? 'video' : 'img');
-  if (project.video) {
+  // `videos` lists several clips of one project (e.g. a demo recording and an explainer), switched by buttons under the player;
+  // without it the single `video` is shown. The first clip should be the card's `video` (its hover preview is found by name).
+  const videos = project.videos || (project.video ? [{ src: project.video }] : []);
+  const media = element(videos.length ? 'video' : 'img');
+  const playClip = clip => {
+    media.poster = clip.poster || project.image;
+    media.loop = Boolean(clip.loop);
+    media.src = clip.src;
+  };
+  videoSwitch.replaceChildren();
+  videoSwitch.hidden = videos.length < 2;
+  if (videos.length) {
     media.controls = true;
     media.playsInline = true;
-    media.poster = project.image;
     media.preload = 'metadata';
-    media.src = project.video;
+    playClip(videos[0]);
+    if (videos.length > 1) videos.forEach((clip, index) => {
+      const button = element('button', '', clip.label);
+      button.type = 'button';
+      button.setAttribute('aria-pressed', String(index === 0));
+      button.addEventListener('click', () => {
+        videoSwitch.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+        playClip(clip);
+        media.play().catch(() => {});
+      });
+      videoSwitch.append(button);
+    });
   } else {
     media.src = project.detailImage || project.image;
     media.alt = project.alt || project.title;
@@ -71,7 +92,7 @@ function showVersion(project) {
     return img;
   }));
   detailFigures.querySelector('figcaption').textContent = project.paperCaption || '';
-  if (project.video) media.play().catch(() => {});
+  if (videos.length) media.play().catch(() => {});
 }
 function openProject(project) {
   if (project.locked) return;

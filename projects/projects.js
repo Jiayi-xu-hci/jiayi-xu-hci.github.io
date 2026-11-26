@@ -320,9 +320,13 @@ const PROJECTS = [
       }
     ],
     "video": "../assets/projects/low-residual-cold.mp4",
+    "videos": [
+      {"src": "../assets/projects/low-residual-cold.mp4", "label": "Explainer"},
+      {"src": "../assets/projects/low-residual-cold-principle.mp4", "poster": "../assets/projects/low-residual-cold-principle.jpg", "loop": true, "label": "Principle"}
+    ],
     "image": "../assets/projects/low-residual-cold.jpg",
     "alt": "Alternating cold airflow and light-based heating produces persistent cold while keeping skin temperature near its starting point",
-    "source": "Cover photo from the VRSJ 2022 report; figures from the paper (IEEE Transactions on Haptics 2023, © IEEE) · Explainer animation based on the original publication · Music: “Overcast” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover photo from the VRSJ 2022 report; figures from the paper (IEEE Transactions on Haptics 2023, © IEEE) · Explainer animation based on the original publication · Music: “Overcast” by Kevin MacLeod (incompetech.com), CC BY 4.0 · Principle animation from the author’s lecture (character illustration: irasutoya)",
     "paperFigures": [
       {"src": "../assets/projects/low-residual-cold-paper-1.jpg", "w": 1400, "h": 1154, "alt": "Fig. 3 of the paper: system configuration and the prototype with vortex tube, solenoid valve and LED display part"},
       {"src": "../assets/projects/low-residual-cold-paper-2.jpg", "w": 1134, "h": 1200, "alt": "Fig. 1 of the paper: cold air and LED light on the same skin area keep skin temperature near its start while cold is felt continuously"}
@@ -506,8 +510,8 @@ const PROJECTS = [
       "The demonstration explores moving heat and pain-like sensations as a dynamic medium for virtual interactions."
     ],
     "image": "../assets/projects/dynapain.jpg",
-    "alt": "Explainer animation: a non-contact thermal grill illusion switched between two areas of the forearm so the burn seems to move",
-    "source": "Cover and figures from the AsiaHaptics 2024 paper (arXiv preprint) · Explainer animation based on the AsiaHaptics paper and the VRSJ 2023/2024 reports, with the original VR demo footage · Music: “Rhinoceros” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "alt": "VR demo: a burning flame beetle crawls along a virtual forearm in a forest",
+    "source": "Cover and VR demo video from the AsiaHaptics 2024 demonstration (VR scene uses 3D data produced by ©JMC); figures from the AsiaHaptics 2024 paper (arXiv preprint) · Explainer animation based on the AsiaHaptics paper and the VRSJ 2023/2024 reports, with the original VR demo footage · Music: “Rhinoceros” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
       {"src": "../assets/projects/dynapain-paper-1.jpg", "w": 1400, "h": 716, "alt": "Fig. 1 of the paper: a participant with the arm in the device, the VR beetle and the moving pain sensation"},
       {"src": "../assets/projects/dynapain-paper-2.jpg", "w": 1400, "h": 645, "alt": "Fig. 2 of the paper: LED and airflow units over two forearm areas with warm and cool stimuli"}
@@ -521,6 +525,10 @@ const PROJECTS = [
       }
     ],
     "video": "../assets/projects/dynapain.mp4",
+    "videos": [
+      {"src": "../assets/projects/dynapain.mp4", "label": "VR demo"},
+      {"src": "../assets/projects/dynapain-explainer.mp4", "poster": "../assets/projects/dynapain-explainer.jpg", "label": "Explainer"}
+    ],
     "rank": 100,
     "versions": [
       {
@@ -718,8 +726,8 @@ const PROJECTS = [
     ],
     "video": "../assets/projects/soft-object.mp4",
     "image": "../assets/projects/soft-object.jpg",
-    "alt": "Learning to Grasp Soft Objects — original research illustration",
-    "source": "Cover and figures from the paper (IEEE AMC 2024, © IEEE) · Explainer animation based on the original publication · Music: “Werq” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "alt": "Illustration (AI-generated): a two-finger gripper squeezes a dotted plastic bottle from the sides",
+    "source": "Cover: an AI-generated illustration; figures below from the paper (IEEE AMC 2024, © IEEE) · Explainer animation based on the original publication · Music: “Werq” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
       {"src": "../assets/projects/soft-object-paper-1.jpg", "w": 1400, "h": 927, "alt": "Fig. 1 of the paper: measured and predicted positions on a bottle and the force–deformation response"},
       {"src": "../assets/projects/soft-object-paper-2.jpg", "w": 1295, "h": 1200, "alt": "Fig. 6 of the paper: predicted versus actual deformation across positions and forces"}
@@ -826,9 +834,13 @@ const PROJECTS = [
       "It provides a perceptual basis for covering larger skin regions with an economical number of cold-air outlets."
     ],
     "video": "../assets/projects/spatial-cold.mp4",
+    "videos": [
+      {"src": "../assets/projects/spatial-cold.mp4", "label": "Explainer"},
+      {"src": "../assets/projects/spatial-cold-demo.mp4", "poster": "../assets/projects/spatial-cold-demo.jpg", "label": "VR demo"}
+    ],
     "image": "../assets/projects/spatial-cold.jpg",
     "alt": "Spatially Continuous Cold — original research illustration",
-    "source": "Cover and figures from the paper (IEEE World Haptics Conference 2023, © IEEE) · Explainer animation based on the original publication · Music: “Blue Sizzle” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "source": "Cover and figures from the paper (IEEE World Haptics Conference 2023, © IEEE) · Explainer animation based on the original publication · Music: “Blue Sizzle” by Kevin MacLeod (incompetech.com), CC BY 4.0 · VR demo video: the VR view (left) and the cold-air nozzle rail in use (right)",
     "paperFigures": [
       {"src": "../assets/projects/spatial-cold-paper-1.jpg", "w": 1400, "h": 996, "alt": "Fig. 7 of the paper: system with vortex tube, solenoid valve, nozzles and adjustable distance between them"},
       {"src": "../assets/projects/spatial-cold-paper-2.jpg", "w": 1400, "h": 1021, "alt": "Fig. 2 of the paper: hypothesis of the distance at which two cold airflows are felt as one"}
