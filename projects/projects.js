@@ -321,7 +321,7 @@ const PROJECTS = [
       "Addresses residual heat, a key obstacle to repeated and sustained thermal feedback."
     ],
     "id": "low-residual-cold",
-    "patent": {"short": "Patent granted", "full": "Patent granted: JP Patent No. 7709781 (PCT/JP2022/021922; US application 18/564,538 filed)"},
+    "patent": {"short": "Patent granted", "full": "Patent granted: JP Patent No. 7709781 (PCT/JP2022/021922; US application 18/564,538 pending)"},
     "awards": [{"short": "VRSJ Academic Encouragement Award", "full": "Academic Encouragement Award, 27th VRSJ Annual Conference (2023)"}, {"short": "Excellent Presentation Award", "full": "Excellent Presentation Award, Human Interface Cyber Colloquium 2020"}],
     "year": 2023,
     "selected": false,
@@ -761,7 +761,7 @@ const PROJECTS = [
   },
   {
     "id": "spatial-cold",
-    "patent": {"short": "Patent filed", "full": "Patent filed: JP application 2022-142263"},
+    "patent": {"short": "Patent granted", "full": "Patent granted: JP Patent No. 7840052 (application 2022-142263)"},
     "title": "Spatially Continuous Cold",
     "year": 2023,
     "venue": "IEEE World Haptics Conference 2023",
