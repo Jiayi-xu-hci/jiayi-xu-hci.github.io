@@ -611,7 +611,7 @@ const PROJECTS = [
       "The framework offers an alternative to discrete portals and scene switches for designing layered, subjective virtual spaces."
     ],
     "video": "../assets/projects/spectral-space.mp4",
-    "image": "../assets/projects/spectral-space.jpg",
+    "image": "../assets/projects/spectral-space.jpg?v=20261126c",
     "alt": "Spectral Space — original research illustration",
     "source": "Cover and figure from the paper (Augmented Humans 2026, CC BY 4.0) · Explainer animation based on the original publication · Music: “Wholesome” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
@@ -874,15 +874,15 @@ const PROJECTS = [
       "The Japanese report presents the prototype and stimulus design for studying impressions such as warmth, flavor and relaxation; evaluation of perceptual effects is ongoing."
     ],
     "video": "../assets/projects/drinking-thermal.mp4",
-    "image": "../assets/projects/drinking-thermal.jpg",
+    "image": "../assets/projects/drinking-thermal.jpg?v=20261126c",
     "detailImage": "../assets/projects/drinking-thermal-detail.jpg",
     "alt": "Original system diagram showing drinking-triggered thermal feedback",
     "source": "Cover and figures from the original Japanese paper (VRSJ Annual Conference 2025) · Explainer animation based on the original Japanese publication; English description translated from the Japanese source · Music: “Life of Riley” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
       {"src": "../assets/projects/drinking-thermal-paper-1.jpg", "w": 1400, "h": 720, "alt": "Fig. 1 of the paper: drinking detection, thermal stimulus and change of drink impression"},
-      {"src": "../assets/projects/drinking-thermal-paper-2.jpg", "w": 928, "h": 1104, "alt": "Fig. 2 of the paper: a participant drinking with the heating unit at the neck, camera and headphones"}
+      {"src": "../assets/projects/drinking-thermal-paper-2.jpg?v=20261126c", "w": 1013, "h": 1200, "alt": "Fig. 2 of the paper (labels translated): a participant drinking with the thermal stimulator at the neck, light-shield glasses, sound-isolating headphones and a recording and display laptop"}
     ],
-    "paperCaption": "From the paper: Fig. 1, proposed system · Fig. 2, setup (labels in Japanese). VRSJ Annual Conference 2025.",
+    "paperCaption": "From the paper: Fig. 1, proposed system · Fig. 2, setup (labels translated into English). VRSJ Annual Conference 2025.",
     "links": [
       {
         "label": "Paper (Japanese)",
