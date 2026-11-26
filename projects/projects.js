@@ -160,7 +160,7 @@ const PROJECTS = [
       }
     ],
     "video": "../assets/projects/synchro-thermography.mp4",
-    "image": "../assets/projects/synchro-thermography.jpg",
+    "image": "../assets/projects/synchro-thermography.jpg?v=20261126f",
     "alt": "Thermal imaging and heartbeat signals combined to reveal small changes in facial temperature",
     "source": "Cover and figures from the paper (SICE Annual Conference 2025, arXiv preprint) · Explainer animation based on the original publication · Music: “Electrodoodle” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
@@ -265,7 +265,7 @@ const PROJECTS = [
       }
     ],
     "video": "../assets/projects/facial-thermal-remapping.mp4",
-    "image": "../assets/projects/facial-thermal-remapping.jpg",
+    "image": "../assets/projects/facial-thermal-remapping.jpg?v=20261126f",
     "alt": "Explainer animation: a headset-mounted LED array maps local facial heat cues to virtual hands and feet",
     "source": "Cover and figures from the paper (EuroHaptics 2026, © Springer) · Explainer animation from the EuroHaptics paper and talk · Music: “Digital Lemonade” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
@@ -324,7 +324,7 @@ const PROJECTS = [
       {"src": "../assets/projects/low-residual-cold.mp4", "label": "Explainer"},
       {"src": "../assets/projects/low-residual-cold-principle.mp4", "poster": "../assets/projects/low-residual-cold-principle.jpg", "loop": true, "label": "Principle"}
     ],
-    "image": "../assets/projects/low-residual-cold.jpg",
+    "image": "../assets/projects/low-residual-cold.jpg?v=20261126f",
     "alt": "Alternating cold airflow and light-based heating produces persistent cold while keeping skin temperature near its starting point",
     "source": "Cover photo from the VRSJ 2022 report; figures from the paper (IEEE Transactions on Haptics 2023, © IEEE) · Explainer animation based on the original publication · Music: “Overcast” by Kevin MacLeod (incompetech.com), CC BY 4.0 · Principle animation from the author’s lecture (character illustration: irasutoya)",
     "paperFigures": [
@@ -361,7 +361,7 @@ const PROJECTS = [
           "Rapid cooling alternates with slower warming on the same skin region to investigate a continuous cold sensation with little net temperature change.",
           "The Japanese report describes the non-contact airflow-and-light prototype and evaluates the continuity of cold perception."
         ],
-        "image": "../assets/projects/low-residual-cold.jpg",
+        "image": "../assets/projects/low-residual-cold.jpg?v=20261126f",
         "alt": "Alternating cold airflow and light-based heating produces persistent cold while keeping skin temperature near its starting point",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s IEEE ToH paper · Fig. 1",
         "links": [],
@@ -377,7 +377,7 @@ const PROJECTS = [
           "Perceptible temperature decreases alternate with imperceptible increases to sustain a cold sensation while keeping skin temperature nearly unchanged.",
           "This domestic demonstration presents the approach later developed in the IEEE Transactions on Haptics study."
         ],
-        "image": "../assets/projects/low-residual-cold.jpg",
+        "image": "../assets/projects/low-residual-cold.jpg?v=20261126f",
         "alt": "Alternating cold airflow and light-based heating produces persistent cold while keeping skin temperature near its starting point",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s IEEE ToH paper · Fig. 1",
         "links": [
@@ -509,7 +509,7 @@ const PROJECTS = [
       "Cold airflow and optical heating create a non-contact thermal grill illusion; switching its location produces apparent movement synchronized with a virtual beetle.",
       "The demonstration explores moving heat and pain-like sensations as a dynamic medium for virtual interactions."
     ],
-    "image": "../assets/projects/dynapain.jpg",
+    "image": "../assets/projects/dynapain.jpg?v=20261126f",
     "alt": "VR demo: a burning flame beetle crawls along a virtual forearm in a forest",
     "source": "Cover and VR demo video from the AsiaHaptics 2024 demonstration (VR scene uses 3D data produced by ©JMC); figures from the AsiaHaptics 2024 paper (arXiv preprint) · Explainer animation based on the AsiaHaptics paper and the VRSJ 2023/2024 reports, with the original VR demo footage · Music: “Rhinoceros” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
@@ -544,7 +544,7 @@ const PROJECTS = [
           "Cold airflow and optical heating create spatial patterns of warm and cool stimulation without a contact pad.",
           "The prototype enables investigation of how stimulus intensity and distribution affect the thermal grill illusion, forming the foundation for the later moving-pain demonstration."
         ],
-        "image": "../assets/projects/dynapain.jpg",
+        "image": "../assets/projects/dynapain.jpg?v=20261126f",
         "alt": "DynaPain — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s AsiaHaptics 2024 paper · Fig. 2",
         "links": [
@@ -564,7 +564,7 @@ const PROJECTS = [
           "Apparent motion is applied to a non-contact thermal-grill interface to move the perceived location of a pain-like thermal illusion.",
           "The report investigates how the time interval between presentations affects the continuity of the moving sensation."
         ],
-        "image": "../assets/projects/dynapain.jpg",
+        "image": "../assets/projects/dynapain.jpg?v=20261126f",
         "alt": "DynaPain — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s AsiaHaptics 2024 paper · Fig. 2",
         "links": [
@@ -588,7 +588,7 @@ const PROJECTS = [
       "Compared with intensity-based feedback, spatial cues produced a more linear magnitude scale and reduced task completion time by 10.8–17.2% in a grip-force guidance task."
     ],
     "video": "../assets/projects/haptic-guidance.mp4",
-    "image": "../assets/projects/haptic-guidance.jpg",
+    "image": "../assets/projects/haptic-guidance.jpg?v=20261126f",
     "alt": "Spatial Haptic Guidance — original research illustration",
     "source": "Cover and figures from the paper (Augmented Humans 2026, CC BY 4.0) · Explainer animation based on the original publication · Music: “Rhinoceros” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
@@ -619,7 +619,7 @@ const PROJECTS = [
       "The framework offers an alternative to discrete portals and scene switches for designing layered, subjective virtual spaces."
     ],
     "video": "../assets/projects/spectral-space.mp4",
-    "image": "../assets/projects/spectral-space.jpg?v=20261126c",
+    "image": "../assets/projects/spectral-space.jpg?v=20261126f",
     "alt": "Spectral Space — original research illustration",
     "source": "Cover and figure from the paper (Augmented Humans 2026, CC BY 4.0) · Explainer animation based on the original publication · Music: “Wholesome” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
@@ -648,7 +648,7 @@ const PROJECTS = [
       "It investigates how airflow geometry can reduce the hardware needed for broad-area thermal sensations."
     ],
     "video": "../assets/projects/coanda-cold.mp4",
-    "image": "../assets/projects/coanda-cold.jpg",
+    "image": "../assets/projects/coanda-cold.jpg?v=20261126f",
     "alt": "360° Cold with Encircling Airflow — original research illustration",
     "source": "Cover and figures from the paper (IEEE World Haptics Conference 2025, © IEEE) · Explainer animation based on the original publication · Music: “Digital Lemonade” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
@@ -679,7 +679,7 @@ const PROJECTS = [
           "An airflow-array display is designed to produce a unified cold sensation around the neck.",
           "The Japanese presentation reports the design of an accessible neck-focused device for thermal environmental feedback in VR."
         ],
-        "image": "../assets/projects/coanda-cold.jpg",
+        "image": "../assets/projects/coanda-cold.jpg?v=20261126f",
         "alt": "360° Cold with Encircling Airflow — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s Original paper · Fig. 1",
         "links": [
@@ -700,7 +700,7 @@ const PROJECTS = [
           "Jets that follow a curved surface are used to investigate how local cooling can be perceived as a unified stimulus.",
           "Temperature measurements and simulations examine the contributions of temperature-change rate and pressure to this perceptual continuity."
         ],
-        "image": "../assets/projects/coanda-cold.jpg",
+        "image": "../assets/projects/coanda-cold.jpg?v=20261126f",
         "alt": "360° Cold with Encircling Airflow — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s Original paper · Fig. 1",
         "links": [
@@ -756,7 +756,7 @@ const PROJECTS = [
       "User studies found stronger humid sensations with heating and suggested that time-divided stimulation reduced variability."
     ],
     "video": "../assets/projects/humidity.mp4",
-    "image": "../assets/projects/humidity.jpg",
+    "image": "../assets/projects/humidity.jpg?v=20261126f",
     "alt": "Localized Humidity Feedback — original research illustration",
     "source": "Cover and figures from the paper (ICAT-EGVE 2024, CC BY 4.0) · Explainer animation based on the original publication · Music: “Pixelland” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
@@ -787,7 +787,7 @@ const PROJECTS = [
       "Experiments reported onset timing accuracy ranging from 0.59 to 1.54 seconds, addressing synchronization between thermal feedback and virtual events."
     ],
     "video": "../assets/projects/thermal-control.mp4",
-    "image": "../assets/projects/thermal-control.jpg",
+    "image": "../assets/projects/thermal-control.jpg?v=20261126f",
     "alt": "Timing Thermal Perception — original research illustration",
     "source": "Cover and figures from the paper (Human Interface Society Transactions 2025, © Human Interface Society) · Explainer animation based on the original publication · Music: “Inspired” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
@@ -813,7 +813,7 @@ const PROJECTS = [
           "A small non-contact temperature sensor measures skin temperature in real time, allowing feedback control of LED heating toward a target temperature profile.",
           "The study examines how skin-temperature change rate affects sensation onset and how the time integral of temperature relates to warmth intensity."
         ],
-        "image": "../assets/projects/thermal-control.jpg",
+        "image": "../assets/projects/thermal-control.jpg?v=20261126f",
         "alt": "Timing Thermal Perception — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s Original paper · Fig. 1",
         "links": [],
@@ -838,7 +838,7 @@ const PROJECTS = [
       {"src": "../assets/projects/spatial-cold.mp4", "label": "Explainer"},
       {"src": "../assets/projects/spatial-cold-demo.mp4", "poster": "../assets/projects/spatial-cold-demo.jpg", "label": "VR demo"}
     ],
-    "image": "../assets/projects/spatial-cold.jpg",
+    "image": "../assets/projects/spatial-cold.jpg?v=20261126f",
     "alt": "Spatially Continuous Cold — original research illustration",
     "source": "Cover and figures from the paper (IEEE World Haptics Conference 2023, © IEEE) · Explainer animation based on the original publication · Music: “Blue Sizzle” by Kevin MacLeod (incompetech.com), CC BY 4.0 · VR demo video: the VR view (left) and the cold-air nozzle rail in use (right)",
     "paperFigures": [
@@ -864,7 +864,7 @@ const PROJECTS = [
           "An array of cold-air outlets recreates the feeling of placing an arm into a cold region such as a virtual waterfall.",
           "The prototype uses measured cold two-point discrimination thresholds to choose nozzle spacing so separate air jets can be perceived as one continuous cold region."
         ],
-        "image": "../assets/projects/spatial-cold.jpg",
+        "image": "../assets/projects/spatial-cold.jpg?v=20261126f",
         "alt": "Spatially Continuous Cold — original research illustration",
         "source": "English description translated from the original Japanese paper; illustration from the same project’s Original paper · Fig. 1",
         "links": [],
@@ -886,7 +886,7 @@ const PROJECTS = [
       "The Japanese report presents the prototype and stimulus design for studying impressions such as warmth, flavor and relaxation; evaluation of perceptual effects is ongoing."
     ],
     "video": "../assets/projects/drinking-thermal.mp4",
-    "image": "../assets/projects/drinking-thermal.jpg?v=20261126c",
+    "image": "../assets/projects/drinking-thermal.jpg?v=20261126f",
     "detailImage": "../assets/projects/drinking-thermal-detail.jpg",
     "alt": "Original system diagram showing drinking-triggered thermal feedback",
     "source": "Cover and figures from the original Japanese paper (VRSJ Annual Conference 2025) · Explainer animation based on the original Japanese publication; English description translated from the Japanese source · Music: “Life of Riley” by Kevin MacLeod (incompetech.com), CC BY 4.0",
