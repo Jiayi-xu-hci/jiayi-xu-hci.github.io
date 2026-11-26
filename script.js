@@ -32,8 +32,14 @@ const show = (tab) => {
     const n = minor.reduce((sum, sec) => sum + sec.querySelectorAll('.pub').length, 0);
     const more = document.createElement('button');
     more.className = 'show-more';
-    more.textContent = `Show ${n} more: ${minor.map((sec) => MINOR_LABELS[sec.dataset.k]).join(', ')}`;
-    more.addEventListener('click', () => { minor.forEach((sec) => { sec.hidden = false; }); more.remove(); });
+    const moreLabel = `Show ${n} more: ${minor.map((sec) => MINOR_LABELS[sec.dataset.k]).join(', ')}`;
+    more.textContent = moreLabel;
+    more.addEventListener('click', () => {
+      const open = minor[0].hidden;
+      minor.forEach((sec) => { sec.hidden = !open; });
+      more.textContent = open ? 'Show less' : moreLabel;
+      if (!open) list.scrollIntoView({block: 'nearest'});
+    });
     minor.forEach((sec) => { sec.hidden = true; });
     list.append(more);
   }
