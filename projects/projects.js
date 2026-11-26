@@ -454,9 +454,9 @@ const PROJECTS = [
       }
     ],
     "video": "../assets/projects/phasemix.mp4",
-    "image": "../assets/projects/phasemix.jpg",
-    "alt": "Video-based gait analysis pipeline from person detection and segmentation to movement classification",
-    "source": "Cover and figures: whole original figures from the paper, unmodified (IEEE Access 2024, CC BY-NC-ND 4.0) · Explainer animation based on the original publication · Music: “EDM Detection Mode” by Kevin MacLeod (incompetech.com), CC BY 4.0",
+    "image": "../assets/projects/phasemix.jpg?v=20261126e",
+    "alt": "Concept illustration (AI-generated): a person walking down a hospital corridor with a pose skeleton overlaid and fading copies showing the gait cycle",
+    "source": "Cover: an AI-generated concept illustration · Figures: whole original figures from the paper, unmodified (IEEE Access 2024, CC BY-NC-ND 4.0) · Explainer animation based on the original publication · Music: “EDM Detection Mode” by Kevin MacLeod (incompetech.com), CC BY 4.0",
     "paperFigures": [
       {"src": "../assets/projects/phasemix-paper-1.jpg", "w": 1400, "h": 762, "alt": "Fig. 1 of the paper: flowchart from person detection and segmentation to gait-cycle extraction and disease prediction"},
       {"src": "../assets/projects/phasemix-paper-2.jpg", "w": 1400, "h": 790, "alt": "Fig. 3 of the paper: the PhaseMix idea, fusing the two halves of a gait cycle into one frame"}
