@@ -4,13 +4,17 @@ const PROJECTS = [
   {
     "links": [
       {
+        "label": "Paper",
+        "href": "https://doi.org/10.1145/3829251.3839405"
+      },
+      {
         "label": "Project page",
         "href": "https://moheat-evo.github.io/"
       }
     ],
     "video": "../assets/projects/moheat-evo.mp4",
     "image": "../assets/projects/moheat-evo.jpg",
-    "venue": "SIGGRAPH Asia 2026 E-Tech (accepted) · CES 2026",
+    "venue": "SIGGRAPH Asia 2026 E-Tech · CES 2026",
     "title": "MoHeat Evo",
     "summary": "Thermal headphones let you feel the direction and texture of spatial audio.",
     "detail": [
@@ -22,7 +26,6 @@ const PROJECTS = [
     "year": 2026,
     "selected": true,
     "shortVenue": "SIGGRAPH Asia · CES",
-    "status": "Accepted",
     "source": "Original project video",
     "alt": "MoHeat Evo research demonstration",
     "rank": 0
@@ -76,10 +79,15 @@ const PROJECTS = [
     "rank": 5
   },
   {
-    "links": [],
+    "links": [
+      {
+        "label": "Paper",
+        "href": "https://doi.org/10.1145/3829251.3839412"
+      }
+    ],
     "video": "../assets/projects/armonii-sway.mp4",
     "image": "../assets/projects/armonii-sway.jpg",
-    "venue": "SIGGRAPH Asia 2026 Emerging Technologies · Accepted",
+    "venue": "SIGGRAPH Asia 2026 Emerging Technologies",
     "title": "Armonii / Armonii Sway",
     "summary": "Coordinated wearable robotic arms move with the body while reducing the wearer’s burden.",
     "detail": [
@@ -90,7 +98,6 @@ const PROJECTS = [
     "year": 2026,
     "selected": true,
     "shortVenue": "ACM UIST · SIGGRAPH Asia",
-    "status": "Accepted",
     "source": "Original project video",
     "alt": "Armonii Sway research demonstration",
     "rank": 1,
@@ -105,7 +112,7 @@ const PROJECTS = [
         "id": "armonii",
         "title": "Armonii",
         "year": 2026,
-        "venue": "ACM UIST 2026 · Accepted",
+        "venue": "ACM UIST 2026",
         "shortVenue": "ACM UIST",
         "summary": "Coordinated robotic-arm motion reduces the burden of wearing extra limbs.",
         "detail": [
@@ -122,7 +129,6 @@ const PROJECTS = [
             "href": "https://doi.org/10.1145/3830398.3830501"
           }
         ],
-        "status": "Accepted",
         "rank": 100,
         "detailImage": "../assets/projects/armonii-detail.jpg"
       }
@@ -131,13 +137,17 @@ const PROJECTS = [
   {
     "links": [
       {
-        "label": "Paper",
+        "label": "Paper (AHs)",
         "href": "https://doi.org/10.1145/3795011.3795050"
+      },
+      {
+        "label": "Paper (SIGGRAPH Asia)",
+        "href": "https://doi.org/10.1145/3829251.3839420"
       }
     ],
     "video": "../assets/projects/adaptivefly.mp4",
     "image": "../assets/projects/adaptivefly.jpg",
-    "venue": "Augmented Humans 2026 · SIGGRAPH Asia 2026 E-Tech (accepted)",
+    "venue": "Augmented Humans 2026 · SIGGRAPH Asia 2026 E-Tech",
     "title": "AdaptiveFly",
     "summary": "Adaptive body-based controls make 3D flight and drone navigation feel more natural.",
     "detail": [
@@ -216,7 +226,7 @@ const PROJECTS = [
     "links": [],
     "video": "../assets/projects/thermotune.mp4",
     "image": "../assets/projects/thermotune.jpg",
-    "venue": "AsiaHaptics 2026 (accepted)",
+    "venue": "AsiaHaptics 2026",
     "title": "ThermoTune",
     "summary": "Thermal headphones translate musical emotion and your physiological responses into warmth and coolness.",
     "detail": [
@@ -227,7 +237,6 @@ const PROJECTS = [
     "year": 2026,
     "selected": true,
     "shortVenue": "AsiaHaptics",
-    "status": "Accepted",
     "source": "Original project video",
     "alt": "ThermoTune research demonstration",
     "rank": 3,
@@ -481,7 +490,7 @@ const PROJECTS = [
     "awards": [{"short": "Outstanding Demo Award", "full": "Outstanding Demo in Technology & Application, AsiaHaptics 2026"}],
     "title": "NailShear",
     "year": 2026,
-    "venue": "AsiaHaptics 2026 · Accepted",
+    "venue": "AsiaHaptics 2026",
     "shortVenue": "AsiaHaptics",
     "summary": "A nail-mounted wearable provides directional touch cues while leaving the fingerpad free.",
     "detail": [
@@ -494,7 +503,6 @@ const PROJECTS = [
     "source": "Original project video",
     "selected": false,
     "links": [],
-    "status": "Accepted",
     "rank": 100,
     "detailImage": "../assets/projects/nailshear-detail.jpg"
   },
